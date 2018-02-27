@@ -1,0 +1,12 @@
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\TipTapApi.deps.json
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\TipTapApi.runtimeconfig.json
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\TipTapApi.runtimeconfig.dev.json
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\TipTapApi.dll
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\TipTapApi.pdb
+C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.csprojResolveAssemblyReference.cache
+C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.csproj.CoreCompileInputs.cache
+C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.AssemblyInfoInputs.cache
+C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.AssemblyInfo.cs
+C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.dll
+C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.pdb
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\nlog.config

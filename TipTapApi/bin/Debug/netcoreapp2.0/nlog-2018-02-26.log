@@ -1,0 +1,20 @@
+2018-02-26 15:40:09.1440|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-02-26 15:40:10.5496|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1514.0306ms 404 text/plain
+2018-02-26 15:40:10.7690|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-02-26 15:40:10.8079|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 38.8427ms 404 text/plain
+2018-02-26 15:40:14.6401|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-02-26 15:40:15.9341|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.0.1-rtm-125 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-02-26 15:40:24.5151|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-02-26 15:40:24.5739|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-02-26 15:40:24.6491|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-02-26 15:40:24.6839|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-02-26 15:40:25.0141|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-02-26 15:40:25.4224|ERROR|TipTapApi.Controllers.StaffController|Error while loading the staff Members
+2018-02-26 15:40:25.5849|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-02-26 15:40:25.8479|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 10844.8157ms
+2018-02-26 15:40:25.9160|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11257.2169ms 500 text/plain; charset=utf-8

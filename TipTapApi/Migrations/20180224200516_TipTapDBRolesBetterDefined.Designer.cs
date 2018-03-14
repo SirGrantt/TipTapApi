@@ -10,7 +10,7 @@ using TipTapApi.Entities;
 
 namespace TipTapApi.Migrations
 {
-    [DbContext(typeof(StaffMemberContext))]
+    [DbContext(typeof(StaffMemberContextBAD))]
     [Migration("20180224200516_TipTapDBRolesBetterDefined")]
     partial class TipTapDBRolesBetterDefined
     {

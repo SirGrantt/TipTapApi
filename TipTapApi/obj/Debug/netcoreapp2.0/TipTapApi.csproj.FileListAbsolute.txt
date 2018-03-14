@@ -10,3 +10,11 @@ C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.AssemblyInfo.cs
 C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.dll
 C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.pdb
 C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\nlog.config
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Application.dll
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Domain.dll
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Persistence.dll
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Application.pdb
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Domain.pdb
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Persistence.pdb
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Common.dll
+C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Common.pdb

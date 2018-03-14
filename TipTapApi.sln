@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TipTapApi", "TipTapApi\TipTapApi.csproj", "{83CFD2DE-3D08-4375-8252-A9D2880DCAF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TipTapApi", "TipTapApi\TipTapApi.csproj", "{83CFD2DE-3D08-4375-8252-A9D2880DCAF9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{74765994-1E86-4964-99AB-52E69BA9D0A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{584A68ED-B018-461D-959C-DAE71FEF678D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{1675BE26-912B-49E2-8159-46A36360F9DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{4218313B-9A83-48E6-855F-35D3DF69DCB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainTestingConsoleApp", "DomainTestingConsoleApp\DomainTestingConsoleApp.csproj", "{E924AD7B-791F-4DA1-BE08-E553BD428907}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{83CFD2DE-3D08-4375-8252-A9D2880DCAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83CFD2DE-3D08-4375-8252-A9D2880DCAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83CFD2DE-3D08-4375-8252-A9D2880DCAF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74765994-1E86-4964-99AB-52E69BA9D0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74765994-1E86-4964-99AB-52E69BA9D0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74765994-1E86-4964-99AB-52E69BA9D0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74765994-1E86-4964-99AB-52E69BA9D0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{584A68ED-B018-461D-959C-DAE71FEF678D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584A68ED-B018-461D-959C-DAE71FEF678D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584A68ED-B018-461D-959C-DAE71FEF678D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584A68ED-B018-461D-959C-DAE71FEF678D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1675BE26-912B-49E2-8159-46A36360F9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1675BE26-912B-49E2-8159-46A36360F9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1675BE26-912B-49E2-8159-46A36360F9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1675BE26-912B-49E2-8159-46A36360F9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4218313B-9A83-48E6-855F-35D3DF69DCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4218313B-9A83-48E6-855F-35D3DF69DCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4218313B-9A83-48E6-855F-35D3DF69DCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4218313B-9A83-48E6-855F-35D3DF69DCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E924AD7B-791F-4DA1-BE08-E553BD428907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E924AD7B-791F-4DA1-BE08-E553BD428907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E924AD7B-791F-4DA1-BE08-E553BD428907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E924AD7B-791F-4DA1-BE08-E553BD428907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,9 +15,16 @@ using TipTapApi.Services;
 using TipTapApi.Services.RoleServices;
 using FluentValidation.AspNetCore;
 using FluentValidation;
-using TipTapApi.Validators;
+using Application.Validators;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
+using Persistence.Contexts;
+using Persistence.Entities;
+using Domain.StaffMembers;
+using Common;
+using Persistence.Repositories;
+using Application.DTOs.StaffMemberDtos;
+using Common.Entities;
 
 namespace TipTapApi
 {
@@ -35,16 +42,20 @@ namespace TipTapApi
             services.AddMvc().AddFluentValidation();
             var connectionString = Startup.Configuration["connectionStrings:staffMemberDBConnectionString"];
             services.AddDbContext<StaffMemberContext>(o => o.UseSqlServer(connectionString));
-            services.AddDbContext<RoleContext>(o => o.UseSqlServer(connectionString));
+            //services.AddDbContext<JobContext>(o => o.UseSqlServer(connectionString));
             services.AddScoped<IStaffMemberRepository, StaffMemberRepository>();
-            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IJobRepository, RoleRepository>();
             services.AddTransient<IValidator<StaffMemberDto>, StaffMemberValidator>();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddNLog();
+
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:3000").AllowAnyMethod());
 
             if (env.IsDevelopment())
             {
@@ -54,12 +65,15 @@ namespace TipTapApi
             app.UseStatusCodePages();
             AutoMapper.Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<StaffMemberDto, StaffMember>();
-                cfg.CreateMap<StaffMember, StaffMemberDto>();
-                cfg.CreateMap<Role, RoleDto>();
-                cfg.CreateMap<StaffMemberForCreation, StaffMember>();
-                cfg.CreateMap<StaffMemberForUpdate, StaffMember>();
-                cfg.CreateMap<StaffMemberForUpdate, StaffMemberDto>();
+                cfg.CreateMap<StaffMemberDtoOLD, StaffMemberOLD>();
+                cfg.CreateMap<StaffMemberOLD, StaffMemberDtoOLD>();
+                cfg.CreateMap<Job, JobDto>();
+                cfg.CreateMap<StaffMemberForCreation, StaffMemberOLD>();
+                cfg.CreateMap<StaffMemberForUpdateOLD, StaffMemberOLD>();
+                cfg.CreateMap<StaffMemberForUpdateOLD, StaffMemberDtoOLD>();
+                cfg.CreateMap<StaffMemberEntity, StaffMemberDto>();
+                cfg.CreateMap<StaffMemberDto, StaffMemberForUpdateDto>();
+                cfg.CreateMap<StaffMemberForUpdateDto, StaffMemberEntity>();
             });
             app.UseMvc();
 

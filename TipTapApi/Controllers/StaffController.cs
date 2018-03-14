@@ -1,31 +1,32 @@
-﻿using AutoMapper;
+﻿using Application;
+using Application.DTOs.StaffMemberDtos;
+using AutoMapper;
+using Common;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TipTapApi.Entities;
-using TipTapApi.Models;
-using TipTapApi.Models.StaffMemberDtos;
 using TipTapApi.Services;
-using TipTapApi.Validators;
 
 namespace TipTapApi.Controllers
 {
     [Route("staff")]
     public class StaffController : Controller
     {
-        private IStaffMemberRepository _staffMemberRepository;
+        IStaffMemberRepository _repo;
         private ILogger<StaffController> _logger;
-        StaffMemberValidator Validator = new StaffMemberValidator();
+        private StaffMembersCore _staffCore;
         private string errorMsg = "An error occured while processing your request";
-        public StaffController(IStaffMemberRepository staffMemberRepository, ILogger<StaffController> logger)
+        public StaffController(IStaffMemberRepository repo, ILogger<StaffController> logger)
         {
-            _staffMemberRepository = staffMemberRepository;
+            _repo = repo;
             _logger = logger;
+            _staffCore = new StaffMembersCore(_repo);
         }
 
         [HttpGet()]
@@ -33,14 +34,13 @@ namespace TipTapApi.Controllers
         {
             try
             {
-                var staffEntity = _staffMemberRepository.GetStaffMembers();
+                var staff = _staffCore.GetStaffMembers();
 
-                if (staffEntity.Count() == 0)
+                if (staff.Count() == 0)
                 {
                     return NotFound();
                 }
 
-                var staff = Mapper.Map<IEnumerable<StaffMemberDto>>(staffEntity);
                 return Ok(staff);
             }
             catch (Exception e)
@@ -49,19 +49,17 @@ namespace TipTapApi.Controllers
                 return StatusCode(500, errorMsg);
             }
         }
-
+        
         [HttpGet("{staffId}")]
         public IActionResult GetStaffMember(int staffId)
         {
             try
             {
-                if (!_staffMemberRepository.StaffMemberExists(staffId))
+                if (!_staffCore.StaffMemberExists(staffId))
                 {
                     return NotFound();
                 }
-                var staffMemberEntity = _staffMemberRepository.GetStaffMember(staffId);
-                var staffMember = Mapper.Map<StaffMemberDto>(staffMemberEntity);
-                return Ok(staffMember);
+                return Ok(_staffCore.GetStaffMember(staffId));
             }
             catch(Exception e)
             {
@@ -69,34 +67,19 @@ namespace TipTapApi.Controllers
                 return StatusCode(500, errorMsg);
             }
         }
-
+        
         [HttpPost("staff-editor", Name = "StaffEditor")]
         public IActionResult AddStaffMember([FromBody] StaffMemberDto sm)
         {
-            ValidationResult results = Validator.Validate(sm);
-            bool validationSucceded = results.IsValid;
-
-            if (!validationSucceded)
-            {
-                ModelState.AddModelError("Provided Parameters", "Please provide a valid Staff Member");
-                return BadRequest(ModelState);
-            }
-
             try
             {
-                //Strip away the properties that StaffMemberDto shouldn't have by mapping it to 
-                //StaffMemberForCreation
-                StaffMemberForCreation smForCreation = Mapper.Map<StaffMemberForCreation>(sm);
-                var staffMemberEntity = Mapper.Map<StaffMember>(smForCreation);
-                _staffMemberRepository.CreateStaffMember(staffMemberEntity);
+                StaffMemberDto savedStaffMember = _staffCore.AddStaffMember(sm);
 
-                if (!_staffMemberRepository.Save())
+                if(savedStaffMember == null)
                 {
-                    return StatusCode(500, "An error occured while handling your request.");
+                    return BadRequest(ModelState);
                 }
-
-                var staffMember = Mapper.Map<StaffMemberDto>(staffMemberEntity);
-                return CreatedAtRoute("StaffEditor", new { staffId = staffMember.Id }, staffMember);
+                return CreatedAtRoute("StaffEditor", new { staffId = savedStaffMember.Id }, savedStaffMember);
             }
             catch(Exception e)
             {
@@ -104,34 +87,16 @@ namespace TipTapApi.Controllers
                 return StatusCode(500, errorMsg);
             }
         }
-
+        
         [HttpPut("staff-editor/{staffId}")]
         public IActionResult UpdateStaffMember(int staffId, 
             [FromBody] StaffMemberDto sm)
         {
-            ValidationResult results = Validator.Validate(sm);
-            bool validationSucceded = results.IsValid;
-
-
-            if (!_staffMemberRepository.StaffMemberExists(staffId))
-            {
-                return NotFound();
-            }
-
-            if (!validationSucceded)
-            {
-                ModelState.AddModelError("Provided Parameters", "Please provide a valid Staff Member");
-                return BadRequest(ModelState);
-            }
             try
             {
-                //Strip incoming data properties from StaffMemberDto that shouldn't be there
-                var smForUpdate = Mapper.Map<StaffMemberForUpdate>(sm);
+                bool updateSucceded = _staffCore.UpdateStaffMember(sm, staffId);
 
-                var staffToUpdate = _staffMemberRepository.GetStaffMember(staffId);
-                Mapper.Map(smForUpdate, staffToUpdate);
-                var updatedStaffMember = Mapper.Map<StaffMemberDto>(staffToUpdate);
-                if (!_staffMemberRepository.Save())
+                if (!updateSucceded)
                 {
                     return StatusCode(500, errorMsg);
                 }
@@ -143,9 +108,9 @@ namespace TipTapApi.Controllers
                 return StatusCode(500, errorMsg);
             }
         }
-
+        /*
         [HttpPatch("staff-editor/{staffId}")]
-        public IActionResult PartiallyUpdateStaffMember(int staffId, 
+        public IActionResult ChangeStaffMemberNameCommand(int staffId, 
             [FromBody] JsonPatchDocument<StaffMemberForUpdate> s)
         {
             if (s == null)
@@ -171,7 +136,7 @@ namespace TipTapApi.Controllers
 
                 //Validate that the items being patched are given valid parameters
                 StaffMemberForUpdate patchedStaffMember = staffMemberToPatch;
-                StaffMemberDto smForValidation = Mapper.Map<StaffMemberDto>(patchedStaffMember);
+                StaffMemberDtoOLD smForValidation = Mapper.Map<StaffMemberDtoOLD>(patchedStaffMember);
                 ValidationResult result = Validator.Validate(smForValidation);
                 bool resultIsValid = result.IsValid;
                 if (!resultIsValid)
@@ -195,26 +160,18 @@ namespace TipTapApi.Controllers
                 return StatusCode(500, errorMsg);
             }
         }
-
+        */
         [HttpDelete("staff-editor/{staffId}")]
         public IActionResult DeleteStaffMember(int staffId)
         {
-            if (!_staffMemberRepository.StaffMemberExists(staffId))
-            {
-                return NotFound();
-            }
-
             try
             {
-
-                var staffMemberToDelete = _staffMemberRepository.GetStaffMember(staffId);
-                _staffMemberRepository.DeleteStaffMember(staffMemberToDelete);
-
-                if (!_staffMemberRepository.Save())
+                bool deleteSuccess = _staffCore.DeleteStaffMember(staffId);
+               
+                if (!deleteSuccess)
                 {
                     return StatusCode(500, errorMsg);
                 }
-
                 return NoContent();
             }
             catch(Exception e)
@@ -222,6 +179,6 @@ namespace TipTapApi.Controllers
                 _logger.LogError(e, $"An error occured while trying to delete a staff member with the id: {staffId}");
                 return StatusCode(500, errorMsg);
             }
-        }
+        } 
     }
 }

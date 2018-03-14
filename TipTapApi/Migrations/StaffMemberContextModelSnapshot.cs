@@ -10,7 +10,7 @@ using TipTapApi.Entities;
 
 namespace TipTapApi.Migrations
 {
-    [DbContext(typeof(StaffMemberContext))]
+    [DbContext(typeof(StaffMemberContextBAD))]
     partial class StaffMemberContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -20,7 +20,7 @@ namespace TipTapApi.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TipTapApi.Entities.ApprovedRole", b =>
+            modelBuilder.Entity("TipTapApi.Entities.JobCode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -36,22 +36,7 @@ namespace TipTapApi.Migrations
 
                     b.HasIndex("StaffMemberId");
 
-                    b.ToTable("ApprovedRoles");
-                });
-
-            modelBuilder.Entity("TipTapApi.Entities.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<decimal>("TipOutPercent");
-
-                    b.Property<string>("Title")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Roles");
+                    b.ToTable("JobCodes");
                 });
 
             modelBuilder.Entity("TipTapApi.Entities.StaffMember", b =>
@@ -72,10 +57,10 @@ namespace TipTapApi.Migrations
                     b.ToTable("StaffMembers");
                 });
 
-            modelBuilder.Entity("TipTapApi.Entities.ApprovedRole", b =>
+            modelBuilder.Entity("TipTapApi.Entities.JobCode", b =>
                 {
                     b.HasOne("TipTapApi.Entities.StaffMember", "StaffMember")
-                        .WithMany("ApprovedRoles")
+                        .WithMany("JobCodes")
                         .HasForeignKey("StaffMemberId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

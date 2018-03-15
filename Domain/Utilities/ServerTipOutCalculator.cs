@@ -19,7 +19,7 @@ namespace Domain.Utilities
             }
 
             decimal tipout = target * tipOutPercent;
-            return (decimal)tipout;
+            return tipout;
         }
     }
 }

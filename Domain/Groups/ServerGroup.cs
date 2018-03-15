@@ -41,7 +41,7 @@ namespace Domain.Groups
             if (teamToCheckOut.CheckoutHasBeenRun == true)
             {
                 ServersTipOutToBar = ServersTipOutToBar - teamToCheckOut.BarTipOut;
-                ServersTipOutToSAs = ServersTipOutToSAs = teamToCheckOut.SATipOut;
+                ServersTipOutToSAs = ServersTipOutToSAs - teamToCheckOut.SATipOut;
             }
 
             teamToCheckOut.RunCheckout();

@@ -57,11 +57,25 @@ namespace DomainTestingConsoleApp
                 CashTips = 0
             };
 
-            ServerTeam ourTeam = new ServerTeam() { Id = 1};
+            ServerTeam ourTeam = new ServerTeam() { Id = 1, NumberOfBottlesSold = 1};
             ourTeam.AddServer(serverAlyson);
             ourTeam.AddServer(serverGrant);
             shift.ServerGroup.AddServerTeam(ourTeam);
             shift.ServerGroup.RunServerCheckOut(1);
+
+            Console.WriteLine("BarTenders TipOut: " + shift.ServerGroup.ServersTipOutToBar.ToString());
+            Console.WriteLine("SA TipOut: " + shift.ServerGroup.ServersTipOutToSAs.ToString());
+            Console.WriteLine("Individual CC tip final: " + ourTeam.IndividualFinalCcTips.ToString());
+
+            Console.WriteLine("Servers CC tips:");
+            foreach (Server server in ourTeam.Servers)
+            {
+                Console.WriteLine("{0}: {1}", server.Employee.FirstName, server.CcTipTakehome);
+            }
+
+            shift.ServerGroup.RunServerCheckOut(1);
+
+            Console.WriteLine(" ");
 
             Console.WriteLine("BarTenders TipOut: " + shift.ServerGroup.ServersTipOutToBar.ToString());
             Console.WriteLine("SA TipOut: " + shift.ServerGroup.ServersTipOutToSAs.ToString());

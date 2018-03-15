@@ -20,6 +20,7 @@ namespace Domain.Teams
         public decimal IndividualFinalCashTakeHome { get; set; }
         public decimal BarTipOut { get; set; }
         public decimal SATipOut { get; set; }
+        public int NumberOfBottlesSold { get; set; }
 
         public ServerTeam()
         {
@@ -61,7 +62,8 @@ namespace Domain.Teams
                 totalTipOut += TipOutCalculator.CalculateTipOut(barSalesToTipOutOn, .05m);
             }
 
-            return totalTipOut;
+            totalTipOut += NumberOfBottlesSold;
+            return Math.Round(totalTipOut, 2);
         }
 
         public decimal CalculateSATipOut()
@@ -76,7 +78,7 @@ namespace Domain.Teams
             {
                 totalTipOut += TipOutCalculator.CalculateTipOut(server.GrossSales, .015m);
             }
-            return totalTipOut;
+            return Math.Round(totalTipOut, 2);
         }
 
         public void RunCheckout()
@@ -115,9 +117,9 @@ namespace Domain.Teams
 
             foreach (Server server in Servers)
             {
-                server.CcTipTakehome = IndividualFinalCcTips;
-                server.CashTipTakeHome = IndividualFinalCashTakeHome;
-                server.AutoGratTakeHome = IndividualFinalAutoGratTakeHome;
+                server.CcTipTakehome = Math.Round(IndividualFinalCcTips, 2);
+                server.CashTipTakeHome = Math.Round(IndividualFinalCashTakeHome, 2);
+                server.AutoGratTakeHome = Math.Round(IndividualFinalAutoGratTakeHome, 2);
                 server.TotalTipTakehome = IndividualFinalAutoGratTakeHome + IndividualFinalCcTips;
             }
 

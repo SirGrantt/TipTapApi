@@ -9,6 +9,7 @@ namespace Domain.Teams
 {
     public class ServerTeamEditor : ITeamEditor<ServerGroup, ServerTeam, Server>
     {
+
         public void AddTeamMember(ServerTeam serverTeam, Server server)
         {
             if (serverTeam.Servers.Any(s => s.Employee.Id == server.Employee.Id))
@@ -19,29 +20,49 @@ namespace Domain.Teams
             serverTeam.Servers.Add(server);
         }
 
-        public void RemoveTeamMember(ServerGroup serverGroup, int serverTeamId, int serverId)
+        public void RemoveTeamMember(ServerGroup group, int teamId, int serverId)
         {
-            if (!serverGroup.ServerTeams.Any(t => t.Id == serverTeamId))
+            ServerTeam team = GetTeam(group, teamId);
+            Server serverToRemove = GetTeamMember(team, serverId);
+
+            if (team.CheckoutHasBeenRun == true)
+            {
+                group.ServersTipOutToBar = group.ServersTipOutToBar - team.BarTipOut;
+                group.ServersTipOutToSAs = group.ServersTipOutToSAs - team.SATipOut;
+                team.CheckoutHasBeenRun = false; 
+            }
+
+            team.Servers.Remove(serverToRemove);
+        }
+
+        public void UpdateTeamMember(ServerGroup group, int teamId, Server teamMember)
+        {
+            ServerTeam team = GetTeam(group, teamId);
+            Server server = GetTeamMember(team, teamMember.Id);
+
+            server = teamMember;
+        }
+
+        public ServerTeam GetTeam(ServerGroup group, int teamId)
+        {
+            if (!group.ServerTeams.Any(t => t.Id == teamId))
             {
                 throw new KeyNotFoundException("No server team with the provided ID exists.");
             }
 
-            ServerTeam team = serverGroup.ServerTeams.First(t => t.Id == serverTeamId);
+            ServerTeam team = group.ServerTeams.First(t => t.Id == teamId);
+            return team;
+        }
 
-            if (!team.Servers.Any(s => s.Id == serverId))
+        public Server GetTeamMember(ServerTeam team, int teamMemberId)
+        {
+            if (!team.Servers.Any(s => s.Id == teamMemberId))
             {
                 throw new KeyNotFoundException("No server with the provided ID exists in the team with the provided team ID.");
             }
 
-            if (team.CheckoutHasBeenRun == true)
-            {
-                serverGroup.ServersTipOutToBar = serverGroup.ServersTipOutToBar - team.BarTipOut;
-                serverGroup.ServersTipOutToSAs = serverGroup.ServersTipOutToSAs - team.SATipOut;
-                team.ResetTipOuts();
-            }
-
-            Server serverToRemove = team.Servers.First(s => s.Id == serverId);
-            team.Servers.Remove(serverToRemove);
+            Server server = team.Servers.First(s => s.Id == teamMemberId);
+            return server;
         }
     }
 }

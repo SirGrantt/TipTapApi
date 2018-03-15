@@ -23,12 +23,25 @@ namespace Domain.Groups
         {
             if (ServerTeams.Any(st => st.Id == serverTeam.Id))
             {
-                return;
+                throw new KeyNotFoundException("No team exists with the provided team ID");
             }
 
             ServerTeams.Add(serverTeam);
         }
 
+        public void RemoveServerTeam(ServerTeam serverTeam)
+        {
+            if (!ServerTeams.Any(t => t.Id == serverTeam.Id))
+            {
+                throw new KeyNotFoundException("No team exists with the provided team ID");
+            }
+
+            ServerTeams.Remove(serverTeam);
+        }
+
+
+        //Calls the RunCheckout method on a team, makes sure the Checkout hasn't been run before to prevent
+        //Incorrect tipout balances
         public void RunServerCheckOut(int teamId)
         {
             ServerTeam teamToCheckOut = ServerTeams.FirstOrDefault(t => t.Id == teamId);

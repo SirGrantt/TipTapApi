@@ -96,8 +96,7 @@ namespace DomainTestingConsoleApp
             ServerTeam ourTeam = new ServerTeam() { Id = 1, NumberOfBottlesSold = 1};
             serverTeamEditor.AddTeamMember(ourTeam, serverAlyson);
             serverTeamEditor.AddTeamMember(ourTeam, serverGrant);
-            //ourTeam.AddServer(serverAlyson);
-            //ourTeam.AddServer(serverGrant);
+
             shift.ServerGroup.AddServerTeam(ourTeam);
             shift.ServerGroup.RunServerCheckOut(1);
 
@@ -119,6 +118,14 @@ namespace DomainTestingConsoleApp
             Console.WriteLine(" ");
 
             WriteTeamCalculations(shift, ourTeam);
+
+            Console.WriteLine("*AFTER TEAMMEMBER UPDATED*");
+            serverGrant.CcTips = 198.65m;
+            serverTeamEditor.UpdateTeamMember(shift.ServerGroup, ourTeam.Id, serverGrant);
+            shift.ServerGroup.RunServerCheckOut(ourTeam.Id);
+
+            WriteTeamCalculations(shift, ourTeam);
+
 
             Console.ReadLine();
         }

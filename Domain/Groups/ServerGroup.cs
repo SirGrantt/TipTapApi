@@ -1,4 +1,5 @@
-﻿using Domain.Teams;
+﻿using Domain.Jobs;
+using Domain.Teams;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,6 @@ namespace Domain.Groups
 
         public void RunServerCheckOut(int teamId)
         {
-            //Figure out the best way to find the correct server team to call the checkoutmethod on
             ServerTeam teamToCheckOut = ServerTeams.FirstOrDefault(t => t.Id == teamId);
             
             if (teamToCheckOut == null)

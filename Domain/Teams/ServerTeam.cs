@@ -29,25 +29,6 @@ namespace Domain.Teams
             CheckoutHasBeenRun = false;
         }
 
-        public void AddServer(Server server)
-        {
-           if (Servers.Any(s => s.Employee.Id == server.Employee.Id))
-            {
-                throw new InvalidOperationException("Cannot add a server to a team that has the same employee assigned.");
-            }
-
-            Servers.Add(server);
-        }
-
-        public void RemoveServer(Server server)
-        {
-            if (!Servers.Any(s => s.Id == server.Id))
-            {
-                return;
-            }
-            Servers.Remove(server);
-        }
-
         public decimal CalculateBarTipOut()
         {
             decimal totalTipOut = 0;
@@ -81,13 +62,18 @@ namespace Domain.Teams
             return Math.Round(totalTipOut, 2);
         }
 
+        public void ResetTipOuts()
+        {
+            BarTipOut = 0;
+            SATipOut = 0;
+            CheckoutHasBeenRun = false;
+        }
+
         public void RunCheckout()
         {
             if (CheckoutHasBeenRun == true)
             {
-                BarTipOut = 0;
-                SATipOut = 0;
-                CheckoutHasBeenRun = false;
+                ResetTipOuts();
             }
 
             BarTipOut = CalculateBarTipOut();

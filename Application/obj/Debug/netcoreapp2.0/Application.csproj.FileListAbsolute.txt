@@ -1,0 +1,17 @@
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Domain.dll
+C:\Code\TipTapApi\Application\obj\Debug\netcoreapp2.0\Application.csprojResolveAssemblyReference.cache
+C:\Code\TipTapApi\Application\obj\Debug\netcoreapp2.0\Application.csproj.CoreCompileInputs.cache
+C:\Code\TipTapApi\Application\obj\Debug\netcoreapp2.0\Application.AssemblyInfoInputs.cache
+C:\Code\TipTapApi\Application\obj\Debug\netcoreapp2.0\Application.AssemblyInfo.cs
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Application.deps.json
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Application.runtimeconfig.json
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Application.runtimeconfig.dev.json
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Application.dll
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Application.pdb
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Domain.pdb
+C:\Code\TipTapApi\Application\obj\Debug\netcoreapp2.0\Application.dll
+C:\Code\TipTapApi\Application\obj\Debug\netcoreapp2.0\Application.pdb
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Common.dll
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Persistence.dll
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Persistence.pdb
+C:\Code\TipTapApi\Application\bin\Debug\netcoreapp2.0\Common.pdb

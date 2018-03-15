@@ -1,0 +1,11 @@
+C:\Code\TipTapApi\TipTapApi.CommandStack\bin\Debug\netcoreapp2.0\TipTapApi.CommandStack.deps.json
+C:\Code\TipTapApi\TipTapApi.CommandStack\bin\Debug\netcoreapp2.0\TipTapApi.CommandStack.dll
+C:\Code\TipTapApi\TipTapApi.CommandStack\obj\Debug\netcoreapp2.0\TipTapApi.CommandStack.csprojResolveAssemblyReference.cache
+C:\Code\TipTapApi\TipTapApi.CommandStack\obj\Debug\netcoreapp2.0\TipTapApi.CommandStack.csproj.CoreCompileInputs.cache
+C:\Code\TipTapApi\TipTapApi.CommandStack\obj\Debug\netcoreapp2.0\TipTapApi.CommandStack.AssemblyInfoInputs.cache
+C:\Code\TipTapApi\TipTapApi.CommandStack\obj\Debug\netcoreapp2.0\TipTapApi.CommandStack.AssemblyInfo.cs
+C:\Code\TipTapApi\TipTapApi.CommandStack\bin\Debug\netcoreapp2.0\TipTapApi.CommandStack.runtimeconfig.json
+C:\Code\TipTapApi\TipTapApi.CommandStack\bin\Debug\netcoreapp2.0\TipTapApi.CommandStack.runtimeconfig.dev.json
+C:\Code\TipTapApi\TipTapApi.CommandStack\bin\Debug\netcoreapp2.0\TipTapApi.CommandStack.pdb
+C:\Code\TipTapApi\TipTapApi.CommandStack\obj\Debug\netcoreapp2.0\TipTapApi.CommandStack.dll
+C:\Code\TipTapApi\TipTapApi.CommandStack\obj\Debug\netcoreapp2.0\TipTapApi.CommandStack.pdb

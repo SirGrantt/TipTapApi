@@ -1,0 +1,15 @@
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Domain.dll
+C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.csprojResolveAssemblyReference.cache
+C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.AssemblyInfoInputs.cache
+C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.AssemblyInfo.cs
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Persistence.deps.json
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Persistence.runtimeconfig.json
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Persistence.runtimeconfig.dev.json
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Persistence.dll
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Persistence.pdb
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Domain.pdb
+C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.dll
+C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.pdb
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Common.dll
+C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Common.pdb

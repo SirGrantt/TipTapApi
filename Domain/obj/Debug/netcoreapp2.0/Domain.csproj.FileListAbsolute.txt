@@ -1,0 +1,11 @@
+C:\Code\TipTapApi\Domain\bin\Debug\netcoreapp2.0\Domain.deps.json
+C:\Code\TipTapApi\Domain\bin\Debug\netcoreapp2.0\Domain.dll
+C:\Code\TipTapApi\Domain\obj\Debug\netcoreapp2.0\Domain.csproj.CoreCompileInputs.cache
+C:\Code\TipTapApi\Domain\obj\Debug\netcoreapp2.0\Domain.AssemblyInfoInputs.cache
+C:\Code\TipTapApi\Domain\obj\Debug\netcoreapp2.0\Domain.AssemblyInfo.cs
+C:\Code\TipTapApi\Domain\bin\Debug\netcoreapp2.0\Domain.runtimeconfig.json
+C:\Code\TipTapApi\Domain\bin\Debug\netcoreapp2.0\Domain.runtimeconfig.dev.json
+C:\Code\TipTapApi\Domain\bin\Debug\netcoreapp2.0\Domain.pdb
+C:\Code\TipTapApi\Domain\obj\Debug\netcoreapp2.0\Domain.csprojResolveAssemblyReference.cache
+C:\Code\TipTapApi\Domain\obj\Debug\netcoreapp2.0\Domain.dll
+C:\Code\TipTapApi\Domain\obj\Debug\netcoreapp2.0\Domain.pdb

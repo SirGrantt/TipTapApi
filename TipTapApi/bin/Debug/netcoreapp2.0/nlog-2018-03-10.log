@@ -1,0 +1,40 @@
+2018-03-10 00:21:11.5371|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-10 00:21:13.5279|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (363ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-10 00:21:13.5279|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-10 00:21:13.6488|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-10 00:21:13.6933|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-10 00:23:37.4446|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-10 00:23:37.7659|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-10 00:23:37.7659|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-10 00:23:37.8060|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-10 00:23:37.8386|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-10 00:43:27.9784|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-10 00:43:29.1693|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (239ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-10 00:43:29.1693|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-10 00:43:29.2397|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-10 00:43:29.2703|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-10 00:49:56.8349|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-10 00:49:58.0279|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (223ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-10 00:49:58.0279|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-10 00:49:58.0989|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-10 00:49:58.1374|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.

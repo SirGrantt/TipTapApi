@@ -1,0 +1,881 @@
+2018-03-11 00:41:11.6065|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 00:41:13.2043|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1555.1162ms 404 text/plain
+2018-03-11 00:41:13.6534|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 00:41:13.7516|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 19.5264ms 404 text/plain
+2018-03-11 00:49:57.5614|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 00:49:58.7646|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1395.978ms 404 text/plain
+2018-03-11 00:49:58.9116|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 00:49:58.9424|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 32.6919ms 404 text/plain
+2018-03-11 00:50:18.7690|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 00:50:19.4210|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 74.6807ms
+2018-03-11 00:50:19.8037|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request
+2018-03-11 00:50:20.2934|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1301.7178ms 500 text/html; charset=utf-8
+2018-03-11 00:50:44.1405|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 00:50:44.5601|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 33.7211ms
+2018-03-11 00:50:44.9462|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request
+2018-03-11 00:50:45.3963|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1027.161ms 500 text/html; charset=utf-8
+2018-03-11 00:59:06.8389|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 00:59:07.5244|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 764.4953ms 404 text/plain
+2018-03-11 00:59:07.6028|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 00:59:07.6295|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 17.7213ms 404 text/plain
+2018-03-11 00:59:13.1397|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 00:59:13.4231|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 45.8672ms
+2018-03-11 00:59:13.5788|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request
+2018-03-11 00:59:13.8665|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 588.3082ms 500 text/html; charset=utf-8
+2018-03-11 00:59:39.8461|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 00:59:39.8733|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 2.1722ms
+2018-03-11 00:59:40.0556|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request
+2018-03-11 00:59:40.1521|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 321.6516ms 500 text/html; charset=utf-8
+2018-03-11 01:02:19.0268|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 01:02:20.2951|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1355.6035ms 404 text/plain
+2018-03-11 01:02:20.5090|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 01:02:20.5327|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 59.88ms 404 text/plain
+2018-03-11 01:02:24.4376|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 01:02:26.8569|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 01:02:32.2239|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 01:02:32.2489|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 01:02:32.3191|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 01:02:32.3765|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 01:02:32.6821|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 01:02:48.7553|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 01:02:49.0133|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 01:02:49.3545|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 24564.0772ms
+2018-03-11 01:02:49.6060|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 24944.9204ms 200 application/json; charset=utf-8
+2018-03-11 01:03:23.4185|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 01:03:23.5134|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 01:03:23.7379|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 01:03:23.7730|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 01:03:23.8400|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 01:03:23.8586|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 01:03:23.8786|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 01:04:09.1100|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 01:04:09.1864|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 01:04:18.6173|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 01:04:41.7482|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 01:04:41.7673|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 78315.2265ms
+2018-03-11 01:04:41.7915|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 78406.0101ms 200 application/json; charset=utf-8
+2018-03-11 01:22:44.6905|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 01:22:45.7188|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1055.4642ms 404 text/plain
+2018-03-11 01:22:45.7832|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 01:22:45.8392|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 14.8072ms 404 text/plain
+2018-03-11 01:22:51.0922|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 01:22:53.6597|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 01:22:54.1768|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 01:22:54.1943|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 01:22:54.2695|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 01:22:54.3194|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 01:22:54.5225|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 01:22:55.5486|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 01:22:55.7718|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 01:22:56.0319|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 4642.9628ms
+2018-03-11 01:22:56.0784|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 4961.1806ms 200 application/json; charset=utf-8
+2018-03-11 01:31:09.0526|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 01:31:09.6812|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 704.0121ms 404 text/plain
+2018-03-11 01:31:09.8107|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 01:31:09.8294|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 17.7787ms 404 text/plain
+2018-03-11 01:31:35.8164|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff/2002  
+2018-03-11 01:31:37.3798|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 01:31:37.6966|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 01:31:37.7129|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 01:31:37.7712|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 01:31:37.8201|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 01:31:38.0351|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) with arguments (2002) - ModelState is Valid
+2018-03-11 01:31:38.9818|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (49ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 01:31:39.1159|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 01:31:39.3034|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 01:31:39.4617|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) in 3395.7801ms
+2018-03-11 01:31:39.5211|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 3664.4386ms 200 application/json; charset=utf-8
+2018-03-11 13:45:19.3375|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 13:45:20.4951|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1223.6033ms 404 text/plain
+2018-03-11 13:45:20.6635|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 13:45:20.8238|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 122.5608ms 404 text/plain
+2018-03-11 13:45:52.4677|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:61319/staff/staff-editor application/json 24
+2018-03-11 13:45:55.0185|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:46:00.5905|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:46:00.6212|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:46:00.6944|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:46:00.7694|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:46:01.5005|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) with arguments (Application.DTOs.StaffMemberDto) - ModelState is Invalid
+2018-03-11 13:46:01.6057|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 13:46:01.7290|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) in 8860.9318ms
+2018-03-11 13:46:01.8490|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 9307.4002ms 400 application/json; charset=utf-8
+2018-03-11 13:46:37.9919|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:61319/staff/staff-editor application/json 48
+2018-03-11 13:46:38.0876|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:46:38.3818|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:46:38.4480|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:46:38.4713|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:46:38.5130|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:46:38.5752|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) with arguments (Application.DTOs.StaffMemberDto) - ModelState is Valid
+2018-03-11 13:46:38.9094|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 13:46:38.9554|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) in 942.3812ms
+2018-03-11 13:46:39.0668|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1000.4778ms 201 application/json; charset=utf-8
+2018-03-11 13:48:02.8150|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff/-2147482647  
+2018-03-11 13:48:02.8807|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:48:02.9081|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:48:02.9255|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:48:02.9467|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:48:02.9723|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:48:03.0091|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) with arguments (-2147482647) - ModelState is Valid
+2018-03-11 13:48:05.0519|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (185ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 13:48:05.1535|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2018-03-11 13:48:05.1707|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) in 2297.3845ms
+2018-03-11 13:48:05.2171|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2377.0168ms 404 text/plain
+2018-03-11 13:48:23.2131|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff/1  
+2018-03-11 13:48:23.2429|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:48:23.2677|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:48:23.2867|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:48:23.3069|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:48:23.3323|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:48:23.3482|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) with arguments (1) - ModelState is Valid
+2018-03-11 13:48:23.3966|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 13:48:23.7551|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (17ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 13:48:23.8208|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 13:48:23.8644|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) in 604.6661ms
+2018-03-11 13:48:23.9397|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 686.5782ms 200 application/json; charset=utf-8
+2018-03-11 13:48:43.2276|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff/-2147482647  
+2018-03-11 13:48:43.2678|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:48:43.3086|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:48:43.3367|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:48:43.3991|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:48:43.4195|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:48:43.4577|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) with arguments (-2147482647) - ModelState is Valid
+2018-03-11 13:48:58.3082|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+2018-03-11 13:48:58.4285|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+2018-03-11 13:53:32.5097|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 13:53:39.9175|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 9095.2118ms 404 text/plain
+2018-03-11 13:53:40.6386|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 13:53:40.7309|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 142.7943ms 404 text/plain
+2018-03-11 13:53:49.4015|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:61319/staff/staff-editor application/json 48
+2018-03-11 13:53:53.8679|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:53:54.5815|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:53:54.6070|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:53:54.7484|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:53:54.9013|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:53:56.1162|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) with arguments (Application.DTOs.StaffMemberDto) - ModelState is Valid
+2018-03-11 13:53:57.2599|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (196ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [StaffMembers] ([FirstName], [LastName])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [StaffMembers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2018-03-11 13:53:57.6134|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 13:53:57.8616|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) in 7750.893ms
+2018-03-11 13:53:57.9155|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 8507.3851ms 201 application/json; charset=utf-8
+2018-03-11 13:54:10.3497|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff/-2147482647  
+2018-03-11 13:54:10.4245|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:54:10.6723|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (53ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:54:10.7903|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:54:10.8642|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:54:10.9101|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:54:11.0010|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) with arguments (-2147482647) - ModelState is Valid
+2018-03-11 13:54:12.8719|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 13:54:12.9286|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2018-03-11 13:54:12.9458|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) in 2561.4325ms
+2018-03-11 13:54:12.9968|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2618.3915ms 404 text/plain
+2018-03-11 13:54:27.1886|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff/-2147482647  
+2018-03-11 13:54:27.2500|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:54:27.2802|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:54:27.3038|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:54:27.3993|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:54:27.4190|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:54:27.4457|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) with arguments (-2147482647) - ModelState is Valid
+2018-03-11 13:54:45.4566|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+2018-03-11 13:54:45.6041|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+2018-03-11 13:55:08.6853|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 13:55:08.7350|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2018-03-11 13:55:08.7724|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) in 41533.4516ms
+2018-03-11 13:55:08.8162|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 41680.6408ms 404 text/plain
+2018-03-11 13:56:51.3161|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:61319/staff/staff-editor application/json 49
+2018-03-11 13:56:51.3523|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 13:56:51.3910|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:56:51.4427|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 13:56:51.4711|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 13:56:51.4920|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 13:56:51.5225|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) with arguments (Application.DTOs.StaffMemberDto) - ModelState is Valid
+2018-03-11 13:58:14.4216|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+2018-03-11 13:58:14.4720|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+2018-03-11 13:58:57.3935|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+2018-03-11 13:58:57.4456|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+2018-03-11 13:59:04.0822|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [StaffMembers] ([FirstName], [LastName])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [StaffMembers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2018-03-11 13:59:12.2693|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 13:59:15.3418|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) in 143981.1899ms
+2018-03-11 13:59:15.3957|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 144051.4465ms 201 application/json; charset=utf-8
+2018-03-11 14:01:35.7516|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 14:01:36.4769|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 792.8149ms 404 text/plain
+2018-03-11 14:01:36.5969|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 14:01:36.6176|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 42.1493ms 404 text/plain
+2018-03-11 14:01:40.0828|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff/3002  
+2018-03-11 14:01:42.1052|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:01:42.3605|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:01:42.3731|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:01:42.4186|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:01:42.4664|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:01:42.7305|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) with arguments (3002) - ModelState is Valid
+2018-03-11 14:01:46.2503|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (38ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 14:01:46.5121|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 14:01:46.7729|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 14:01:47.0611|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetStaffMember (TipTapApi) in 6622.7803ms
+2018-03-11 14:01:47.0915|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 7032.0917ms 200 application/json; charset=utf-8
+2018-03-11 14:03:09.9530|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 14:03:10.6009|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 692.6818ms 404 text/plain
+2018-03-11 14:03:10.6700|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 14:03:10.6911|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 16.5196ms 404 text/plain
+2018-03-11 14:03:28.6002|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:61319/staff/staff-editor application/json 52
+2018-03-11 14:03:30.1577|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:03:30.4131|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:03:30.4294|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:03:30.4713|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:03:30.5045|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:03:30.9644|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) with arguments (Application.DTOs.StaffMemberDto) - ModelState is Valid
+2018-03-11 14:04:26.9223|WARN|Microsoft.AspNetCore.Server.Kestrel|Heartbeat took longer than "00:00:01" at "03/11/2018 19:04:26 +00:00".
+2018-03-11 14:04:30.8021|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (42ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [StaffMembers] ([FirstName], [LastName])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [StaffMembers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2018-03-11 14:06:51.0032|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 14:06:51.9755|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1021.3534ms 404 text/plain
+2018-03-11 14:06:52.1067|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 14:06:52.1446|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 38.3069ms 404 text/plain
+2018-03-11 14:06:53.9933|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:61319/staff/staff-editor application/json 52
+2018-03-11 14:06:56.0965|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:06:56.5859|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:06:56.6016|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:06:56.6616|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:06:56.7327|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:06:57.2910|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) with arguments (Application.DTOs.StaffMemberDto) - ModelState is Valid
+2018-03-11 14:07:02.4776|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (39ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [StaffMembers] ([FirstName], [LastName])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [StaffMembers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2018-03-11 14:07:02.6703|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 14:07:02.8540|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) in 8464.3482ms
+2018-03-11 14:07:02.8968|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 8897.9147ms 201 application/json; charset=utf-8
+2018-03-11 14:22:25.2453|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 14:22:26.0188|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 843.6033ms 404 text/plain
+2018-03-11 14:22:26.2322|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 14:22:26.2662|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 20.7696ms 404 text/plain
+2018-03-11 14:22:29.2111|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:61319/staff/staff-editor application/json 29
+2018-03-11 14:22:31.5955|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:22:37.0086|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:22:37.0266|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:22:37.1077|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:22:37.1636|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:22:37.8982|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) with arguments (Application.DTOs.StaffMemberDto) - ModelState is Invalid
+2018-03-11 14:22:37.9936|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 14:22:38.1183|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.AddStaffMember (TipTapApi) in 8410.1292ms
+2018-03-11 14:22:38.2142|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 8931.7283ms 400 application/json; charset=utf-8
+2018-03-11 14:52:30.9286|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 14:52:32.3941|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1552.8952ms 404 text/plain
+2018-03-11 14:52:32.5609|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 14:52:32.7012|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 52.532ms 404 text/plain
+2018-03-11 14:52:51.3126|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 14:52:53.7956|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:53:00.2431|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (113ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:53:00.2609|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:53:00.3569|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:53:00.4125|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:53:00.7491|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 14:53:02.0194|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (65ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 14:53:02.2798|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 14:53:02.5186|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 10899.1357ms
+2018-03-11 14:53:02.5499|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11223.9949ms 200 application/json; charset=utf-8
+2018-03-11 14:54:01.1598|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 PUT http://localhost:61319/staff/staff-editor/3005 application/json 55
+2018-03-11 14:54:01.2900|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:54:01.5381|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (54ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:54:01.5535|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:54:01.7681|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:54:01.7883|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:54:02.2526|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) with arguments (3005, Application.DTOs.StaffMemberDtos.StaffMemberDto) - ModelState is Valid
+2018-03-11 14:54:02.8346|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (201ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 14:54:02.8631|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 14:54:02.8892|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) in 1619.7336ms
+2018-03-11 14:54:02.9563|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1781.9978ms 500 text/plain; charset=utf-8
+2018-03-11 14:54:26.2710|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 PUT http://localhost:61319/staff/staff-editor/3005 application/json 55
+2018-03-11 14:54:26.2958|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:54:26.3369|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:54:26.3523|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:54:26.3737|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:54:26.4295|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:54:26.4640|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) with arguments (3005, Application.DTOs.StaffMemberDtos.StaffMemberDto) - ModelState is Valid
+2018-03-11 14:55:26.0959|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (14ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 14:56:24.6277|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 14:56:25.8268|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1312.2545ms 404 text/plain
+2018-03-11 14:56:25.9531|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 14:56:25.9842|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 32.7034ms 404 text/plain
+2018-03-11 14:56:34.5550|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 PUT http://localhost:61319/staff/staff-editor/3005 application/json 55
+2018-03-11 14:56:36.9747|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:56:42.2992|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (47ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:56:42.3230|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:56:42.4132|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:56:42.5120|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:56:43.8695|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) with arguments (3005, Application.DTOs.StaffMemberDtos.StaffMemberDto) - ModelState is Valid
+2018-03-11 14:56:46.0262|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (111ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 14:56:46.3104|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 14:56:46.9195|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[@p1='?', @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [StaffMembers] SET [LastName] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2018-03-11 14:56:47.0362|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2018-03-11 14:56:47.1133|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) in 12097.0851ms
+2018-03-11 14:56:47.1579|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12597.3148ms 204 
+2018-03-11 14:56:55.7756|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 14:56:55.8910|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:56:56.2669|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (47ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:56:56.3009|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:56:56.3269|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:56:56.3656|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:56:56.4764|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 14:56:56.6827|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (68ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 14:56:56.8032|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 14:56:56.9362|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 1126.9221ms
+2018-03-11 14:56:57.0180|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1189.6423ms 200 application/json; charset=utf-8
+2018-03-11 14:58:24.2309|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 PUT http://localhost:61319/staff/staff-editor/3005 application/json 55
+2018-03-11 14:58:24.2995|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:58:24.3376|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:58:24.3645|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:58:24.5439|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:58:24.6046|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:58:24.6432|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) with arguments (3005, Application.DTOs.StaffMemberDtos.StaffMemberDto) - ModelState is Valid
+2018-03-11 14:58:35.1741|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 14:58:40.8822|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 14:59:33.6381|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2018-03-11 14:59:33.7017|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) in 69396.6398ms
+2018-03-11 14:59:33.7465|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 69560.6139ms 204 
+2018-03-11 14:59:43.4392|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 PUT http://localhost:61319/staff/staff-editor/3005 application/json 54
+2018-03-11 14:59:43.4508|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 14:59:43.4677|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:59:43.4792|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 14:59:43.4792|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 14:59:43.5123|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 14:59:43.5258|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) with arguments (3005, Application.DTOs.StaffMemberDtos.StaffMemberDto) - ModelState is Valid
+2018-03-11 14:59:56.0504|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 15:00:01.9875|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 15:00:21.7198|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@p1='?', @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [StaffMembers] SET [LastName] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2018-03-11 15:00:26.9124|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2018-03-11 15:00:26.9264|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) in 43474.8098ms
+2018-03-11 15:00:26.9421|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 43499.0994ms 204 
+2018-03-11 15:00:33.3947|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 15:00:44.8791|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:00:44.8918|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:00:44.9070|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:00:44.9256|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:00:44.9362|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:00:44.9362|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 15:00:44.9570|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 15:00:44.9669|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 15:00:44.9669|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 11571.447ms
+2018-03-11 15:00:45.0026|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11594.2ms 200 application/json; charset=utf-8
+2018-03-11 15:01:25.0297|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 PUT http://localhost:61319/staff/staff-editor/3004 application/json 55
+2018-03-11 15:01:25.0420|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:01:25.0613|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:01:25.0741|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:01:25.1023|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:01:25.1269|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:01:25.1393|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) with arguments (3004, Application.DTOs.StaffMemberDtos.StaffMemberDto) - ModelState is Valid
+2018-03-11 15:01:28.3364|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 15:01:28.6819|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 15:01:34.2881|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@p1='?', @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [StaffMembers] SET [LastName] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2018-03-11 15:01:37.6103|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2018-03-11 15:01:37.6197|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) in 12580.1937ms
+2018-03-11 15:01:37.6554|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 12601.667ms 204 
+2018-03-11 15:01:42.5315|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 15:01:42.5554|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:01:42.5708|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:01:42.5845|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:01:42.6012|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:01:42.6197|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:01:42.6197|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 15:01:42.6450|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 15:01:42.6564|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 15:01:42.6714|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 122.5588ms
+2018-03-11 15:01:42.7109|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 171.6328ms 200 application/json; charset=utf-8
+2018-03-11 15:02:02.9481|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 PUT http://localhost:61319/staff/staff-editor/3007 application/json 55
+2018-03-11 15:02:02.9481|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:02:02.9887|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:02:03.0147|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:02:03.0271|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:02:03.0271|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:02:03.0471|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) with arguments (3007, Application.DTOs.StaffMemberDtos.StaffMemberDto) - ModelState is Valid
+2018-03-11 15:02:09.6911|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 15:02:22.6078|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 15:02:22.6262|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.UpdateStaffMember (TipTapApi) in 19666.8924ms
+2018-03-11 15:02:22.6635|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 19690.4969ms 500 text/plain; charset=utf-8
+2018-03-11 15:02:29.4511|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 15:02:36.1556|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:02:36.1688|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:02:36.1688|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:02:36.1965|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:02:36.2108|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:02:36.2241|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 15:02:36.2356|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 15:02:36.2456|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 15:02:36.2456|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 6794.3212ms
+2018-03-11 15:02:36.2782|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 6817.7819ms 200 application/json; charset=utf-8
+2018-03-11 15:10:33.7853|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 15:10:34.7267|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1026.1014ms 404 text/plain
+2018-03-11 15:10:34.8312|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 15:10:34.8548|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 22.3457ms 404 text/plain
+2018-03-11 15:10:47.0057|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:61319/staff/staff-editor/3005  0
+2018-03-11 15:10:48.6506|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:10:50.3676|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:10:50.3950|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:10:50.4633|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:10:50.5227|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:10:50.9469|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.DeleteStaffMember (TipTapApi) with arguments (3005) - ModelState is Valid
+2018-03-11 15:10:51.9674|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (68ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 15:10:52.1012|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 15:10:52.4807|ERROR|TipTapApi.Controllers.StaffController|An error occured while trying to delete a staff member with the id: 3005
+2018-03-11 15:10:52.5436|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 15:10:52.6069|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.DeleteStaffMember (TipTapApi) in 5277.243ms
+2018-03-11 15:10:52.6698|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 5619.7377ms 500 text/plain; charset=utf-8
+2018-03-11 15:11:30.8209|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:61319/staff/staff-editor/3005  0
+2018-03-11 15:11:30.8826|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:11:31.0842|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:11:31.1011|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:11:31.1341|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:11:31.1542|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:11:31.1742|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.DeleteStaffMember (TipTapApi) with arguments (3005) - ModelState is Valid
+2018-03-11 15:11:36.3287|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 15:11:39.5625|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 15:12:21.4696|ERROR|TipTapApi.Controllers.StaffController|An error occured while trying to delete a staff member with the id: 3005
+2018-03-11 15:12:24.2220|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 15:12:24.2399|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.DeleteStaffMember (TipTapApi) in 53399.7862ms
+2018-03-11 15:12:24.2609|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 53441.9565ms 500 text/plain; charset=utf-8
+2018-03-11 15:12:32.4751|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:61319/staff/staff-editor/3005  0
+2018-03-11 15:12:32.5352|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:12:32.6040|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:12:32.6362|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:12:32.6994|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:12:32.7885|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:12:32.8186|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.DeleteStaffMember (TipTapApi) with arguments (3005) - ModelState is Valid
+2018-03-11 15:12:35.6801|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 15:12:36.4195|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 15:13:59.9269|ERROR|TipTapApi.Controllers.StaffController|An error occured while trying to delete a staff member with the id: 3005
+2018-03-11 15:13:59.9433|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 15:13:59.9970|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.DeleteStaffMember (TipTapApi) in 87500.7412ms
+2018-03-11 15:14:00.1609|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 87550.8675ms 500 text/plain; charset=utf-8
+2018-03-11 15:18:54.9490|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/  
+2018-03-11 15:18:55.5887|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 720.5194ms 404 text/plain
+2018-03-11 15:18:55.6829|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/favicon.ico  
+2018-03-11 15:18:55.7007|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 20.5787ms 404 text/plain
+2018-03-11 15:19:00.9289|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:61319/staff/staff-editor/3005  0
+2018-03-11 15:19:02.7691|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:19:07.4058|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:19:07.4241|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:19:07.4886|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:19:07.5278|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:19:07.8239|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.DeleteStaffMember (TipTapApi) with arguments (3005) - ModelState is Valid
+2018-03-11 15:19:08.9675|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (80ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StaffMembers] AS [s]
+        WHERE [s].[Id] = @__staffId_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-03-11 15:19:09.1565|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__staffId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+WHERE [s].[Id] = @__staffId_0
+2018-03-11 15:19:09.4477|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[@p0='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [StaffMembers]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2018-03-11 15:19:09.5077|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2018-03-11 15:19:09.5471|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.DeleteStaffMember (TipTapApi) in 8272.6613ms
+2018-03-11 15:19:09.5960|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 8657.7397ms 204 
+2018-03-11 15:19:16.1007|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:61319/staff  
+2018-03-11 15:19:16.1614|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.0-preview1-28290 initialized 'StaffMemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2018-03-11 15:19:16.2666|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:19:16.3227|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-03-11 15:19:16.3602|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-03-11 15:19:16.3751|INFO|Microsoft.EntityFrameworkCore.Migrations|No migrations were applied. The database is already up to date.
+2018-03-11 15:19:16.3992|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) with arguments ((null)) - ModelState is Valid
+2018-03-11 15:19:16.5331|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[FirstName], [s].[LastName]
+FROM [StaffMembers] AS [s]
+ORDER BY [s].[FirstName]
+2018-03-11 15:19:16.6337|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-03-11 15:19:16.8493|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action TipTapApi.Controllers.StaffController.GetAllStaff (TipTapApi) in 726.662ms
+2018-03-11 15:19:16.8674|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 764.7473ms 200 application/json; charset=utf-8

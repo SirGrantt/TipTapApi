@@ -1,0 +1,11 @@
+C:\Code\TipTapApi\TipTapApi.ReadStack\bin\Debug\netcoreapp2.0\TipTapApi.ReadStack.deps.json
+C:\Code\TipTapApi\TipTapApi.ReadStack\bin\Debug\netcoreapp2.0\TipTapApi.ReadStack.dll
+C:\Code\TipTapApi\TipTapApi.ReadStack\obj\Debug\netcoreapp2.0\TipTapApi.ReadStack.csprojResolveAssemblyReference.cache
+C:\Code\TipTapApi\TipTapApi.ReadStack\obj\Debug\netcoreapp2.0\TipTapApi.ReadStack.csproj.CoreCompileInputs.cache
+C:\Code\TipTapApi\TipTapApi.ReadStack\obj\Debug\netcoreapp2.0\TipTapApi.ReadStack.AssemblyInfoInputs.cache
+C:\Code\TipTapApi\TipTapApi.ReadStack\obj\Debug\netcoreapp2.0\TipTapApi.ReadStack.AssemblyInfo.cs
+C:\Code\TipTapApi\TipTapApi.ReadStack\bin\Debug\netcoreapp2.0\TipTapApi.ReadStack.runtimeconfig.json
+C:\Code\TipTapApi\TipTapApi.ReadStack\bin\Debug\netcoreapp2.0\TipTapApi.ReadStack.runtimeconfig.dev.json
+C:\Code\TipTapApi\TipTapApi.ReadStack\bin\Debug\netcoreapp2.0\TipTapApi.ReadStack.pdb
+C:\Code\TipTapApi\TipTapApi.ReadStack\obj\Debug\netcoreapp2.0\TipTapApi.ReadStack.dll
+C:\Code\TipTapApi\TipTapApi.ReadStack\obj\Debug\netcoreapp2.0\TipTapApi.ReadStack.pdb

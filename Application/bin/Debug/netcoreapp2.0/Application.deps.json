@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "555c4a129bf758a3bf82ca9a80b9fbb7ad5cc660"
+    "signature": "c720a38f89bc26275b1e97cc861c04dae8f5f4f7"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,7 +11,7 @@
           "AutoMapper": "6.2.2",
           "Common": "1.0.0",
           "Domain": "1.0.0",
-          "FluentValidation.AspNetCore": "7.5.0",
+          "FluentValidation.AspNetCore": "7.5.2",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.0-preview1-final",
           "Persistence": "1.0.0"
         },
@@ -36,7 +36,7 @@
           "lib/netstandard1.3/AutoMapper.dll": {}
         }
       },
-      "FluentValidation/7.5.0": {
+      "FluentValidation/7.5.2": {
         "dependencies": {
           "System.Collections.Concurrent": "4.3.0",
           "System.ComponentModel.Annotations": "4.5.0-preview1-26216-02",
@@ -46,9 +46,9 @@
           "lib/netstandard2.0/FluentValidation.dll": {}
         }
       },
-      "FluentValidation.AspNetCore/7.5.0": {
+      "FluentValidation.AspNetCore/7.5.2": {
         "dependencies": {
-          "FluentValidation": "7.5.0",
+          "FluentValidation": "7.5.2",
           "Microsoft.AspNetCore.Mvc": "2.0.2"
         },
         "runtime": {
@@ -1785,6 +1785,7 @@
           "AutoMapper": "6.2.2",
           "Common": "1.0.0",
           "Domain": "1.0.0",
+          "FluentValidation.AspNetCore": "7.5.2",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.0-preview1-final"
         },
         "runtime": {
@@ -1806,19 +1807,19 @@
       "path": "automapper/6.2.2",
       "hashPath": "automapper.6.2.2.nupkg.sha512"
     },
-    "FluentValidation/7.5.0": {
+    "FluentValidation/7.5.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VXDrt5rUSuB4b1ltfw5pWNp/VR2p0VBNTbBxA5V4tKclad9aGQWtDOWOnmsaikxN2DW0WQEJcmkKcLcxKhxMuQ==",
-      "path": "fluentvalidation/7.5.0",
-      "hashPath": "fluentvalidation.7.5.0.nupkg.sha512"
+      "sha512": "sha512-AQMyeK9eP0+EKBsBuO6RhAiTmyTC32is6EX+cAMBOSCMvExeohtg3vNM1xUoenpb1mjwZfuoJXLz7QfiC7Bn2A==",
+      "path": "fluentvalidation/7.5.2",
+      "hashPath": "fluentvalidation.7.5.2.nupkg.sha512"
     },
-    "FluentValidation.AspNetCore/7.5.0": {
+    "FluentValidation.AspNetCore/7.5.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ipKwlKHq7Ki8f0gNC9qeInv/4rO/p3r3j/85MWc6RKpxwGHuDz3yqYWOjlmcSbE2+MoDwL4Y1QbjBZm42vM+2w==",
-      "path": "fluentvalidation.aspnetcore/7.5.0",
-      "hashPath": "fluentvalidation.aspnetcore.7.5.0.nupkg.sha512"
+      "sha512": "sha512-9fWwMKNIIDa4lgONXnVk3BRmizmS2C1bgNeaawavuci0Ob1kRlZwVaybh4pwUfaXXJjZfsl8tStgG2DySFumKw==",
+      "path": "fluentvalidation.aspnetcore/7.5.2",
+      "hashPath": "fluentvalidation.aspnetcore.7.5.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.0.1": {
       "type": "package",

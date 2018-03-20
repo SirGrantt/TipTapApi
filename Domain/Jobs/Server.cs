@@ -8,7 +8,7 @@ namespace Domain.Jobs
     public class Server
     {
         public int Id { get; set; }
-        public StaffMember Employee { get; set; }
+        public StaffMember StaffMember { get; set; }
         public decimal GrossSales { get; set; }
         public decimal Sales { get; set; }
         public decimal BarSales { get; set; }

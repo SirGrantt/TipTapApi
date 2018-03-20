@@ -13,8 +13,8 @@ namespace Persistence.Repositories
 {
     public class StaffMemberRepository : IStaffMemberRepository
     {
-        private StaffMemberContext _context;
-        public StaffMemberRepository(StaffMemberContext context)
+        private ShiftContext _context;
+        public StaffMemberRepository(ShiftContext context)
         {
             _context = context;
         }

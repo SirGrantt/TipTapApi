@@ -24,7 +24,7 @@
           "lib/netstandard1.3/AutoMapper.dll": {}
         }
       },
-      "FluentValidation/7.5.0": {
+      "FluentValidation/7.5.2": {
         "type": "package",
         "dependencies": {
           "System.Collections.Concurrent": "4.3.0",
@@ -38,10 +38,10 @@
           "lib/netstandard2.0/FluentValidation.dll": {}
         }
       },
-      "FluentValidation.AspNetCore/7.5.0": {
+      "FluentValidation.AspNetCore/7.5.2": {
         "type": "package",
         "dependencies": {
-          "FluentValidation": "7.5.0",
+          "FluentValidation": "7.5.2",
           "Microsoft.AspNetCore.Mvc": "2.0.2"
         },
         "compile": {
@@ -2814,6 +2814,7 @@
           "AutoMapper": "6.2.2",
           "Common": "1.0.0",
           "Domain": "1.0.0",
+          "FluentValidation.AspNetCore": "7.5.2",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.0-preview1-final"
         },
         "compile": {
@@ -2843,27 +2844,29 @@
         "lib/netstandard1.3/AutoMapper.xml"
       ]
     },
-    "FluentValidation/7.5.0": {
-      "sha512": "VXDrt5rUSuB4b1ltfw5pWNp/VR2p0VBNTbBxA5V4tKclad9aGQWtDOWOnmsaikxN2DW0WQEJcmkKcLcxKhxMuQ==",
+    "FluentValidation/7.5.2": {
+      "sha512": "AQMyeK9eP0+EKBsBuO6RhAiTmyTC32is6EX+cAMBOSCMvExeohtg3vNM1xUoenpb1mjwZfuoJXLz7QfiC7Bn2A==",
       "type": "package",
-      "path": "fluentvalidation/7.5.0",
+      "path": "fluentvalidation/7.5.2",
       "files": [
-        "fluentvalidation.7.5.0.nupkg.sha512",
+        "fluentvalidation.7.5.2.nupkg.sha512",
         "fluentvalidation.nuspec",
         "lib/net45/FluentValidation.dll",
         "lib/net45/FluentValidation.xml",
         "lib/netstandard1.1/FluentValidation.dll",
         "lib/netstandard1.1/FluentValidation.xml",
+        "lib/netstandard1.6/FluentValidation.dll",
+        "lib/netstandard1.6/FluentValidation.xml",
         "lib/netstandard2.0/FluentValidation.dll",
         "lib/netstandard2.0/FluentValidation.xml"
       ]
     },
-    "FluentValidation.AspNetCore/7.5.0": {
-      "sha512": "ipKwlKHq7Ki8f0gNC9qeInv/4rO/p3r3j/85MWc6RKpxwGHuDz3yqYWOjlmcSbE2+MoDwL4Y1QbjBZm42vM+2w==",
+    "FluentValidation.AspNetCore/7.5.2": {
+      "sha512": "9fWwMKNIIDa4lgONXnVk3BRmizmS2C1bgNeaawavuci0Ob1kRlZwVaybh4pwUfaXXJjZfsl8tStgG2DySFumKw==",
       "type": "package",
-      "path": "fluentvalidation.aspnetcore/7.5.0",
+      "path": "fluentvalidation.aspnetcore/7.5.2",
       "files": [
-        "fluentvalidation.aspnetcore.7.5.0.nupkg.sha512",
+        "fluentvalidation.aspnetcore.7.5.2.nupkg.sha512",
         "fluentvalidation.aspnetcore.nuspec",
         "lib/netstandard2.0/FluentValidation.AspNetCore.dll",
         "lib/netstandard2.0/FluentValidation.AspNetCore.xml"
@@ -8150,7 +8153,7 @@
       "AutoMapper >= 6.2.2",
       "Common >= 1.0.0",
       "Domain >= 1.0.0",
-      "FluentValidation.AspNetCore >= 7.5.0",
+      "FluentValidation.AspNetCore >= 7.5.2",
       "Microsoft.EntityFrameworkCore.Tools >= 2.1.0-preview1-final",
       "Microsoft.NETCore.App >= 2.0.0",
       "Persistence >= 1.0.0"
@@ -8219,7 +8222,7 @@
           },
           "FluentValidation.AspNetCore": {
             "target": "Package",
-            "version": "[7.5.0, )"
+            "version": "[7.5.2, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",

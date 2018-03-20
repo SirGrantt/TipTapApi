@@ -1,4 +1,4 @@
-﻿using Application.DTOs.StaffMemberDtos;
+﻿using Common.DTOs.StaffMemberDtos;
 using Application.Validators;
 using AutoMapper;
 using Common;

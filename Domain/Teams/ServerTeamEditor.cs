@@ -12,7 +12,7 @@ namespace Domain.Teams
 
         public void AddTeamMember(ServerTeam serverTeam, Server server)
         {
-            if (serverTeam.Servers.Any(s => s.Employee.Id == server.Employee.Id))
+            if (serverTeam.Servers.Any(s => s.StaffMember.Id == server.StaffMember.Id))
             {
                 throw new InvalidOperationException("Cannot add a server to a team that has the same employee assigned.");
             }

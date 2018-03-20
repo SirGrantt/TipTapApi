@@ -1,5 +1,5 @@
 ﻿using Application;
-using Application.DTOs.StaffMemberDtos;
+using Common.DTOs.StaffMemberDtos;
 using AutoMapper;
 using Common;
 using FluentValidation.Results;
@@ -11,8 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TipTapApi.Services;
-
 namespace TipTapApi.Controllers
 {
     [Route("staff")]

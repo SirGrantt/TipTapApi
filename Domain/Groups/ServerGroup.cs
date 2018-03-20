@@ -41,7 +41,7 @@ namespace Domain.Groups
 
 
         //Calls the RunCheckout method on a team, makes sure the Checkout hasn't been run before to prevent
-        //Incorrect tipout balances
+        //incorrect tipout balances
         public void RunServerCheckOut(int teamId)
         {
             ServerTeam teamToCheckOut = ServerTeams.FirstOrDefault(t => t.Id == teamId);

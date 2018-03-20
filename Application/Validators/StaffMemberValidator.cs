@@ -1,4 +1,4 @@
-﻿using Application.DTOs.StaffMemberDtos;
+﻿using Common.DTOs.StaffMemberDtos;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

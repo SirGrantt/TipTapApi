@@ -1,6 +1,6 @@
-﻿using Domain.ShiftManager;
-using Domain.Groups;
+﻿using Domain.CheckOuts;
 using Domain.Jobs;
+using Domain.StaffEarnings;
 using Domain.StaffMembers;
 using Domain.Teams;
 using Domain.Utilities;
@@ -11,150 +11,105 @@ namespace DomainTestingConsoleApp
 {
     class Program
     {
-        public static void WriteTeamCalculations(Shift shift, ServerTeam team)
-        {
-            Console.WriteLine("BarTenders TipOut: " + shift.ServerGroup.ServersTipOutToBar.ToString());
-            Console.WriteLine("SA TipOut: " + shift.ServerGroup.ServersTipOutToSAs.ToString());
-            Console.WriteLine("Individual CC tip final: " + team.IndividualFinalCcTips.ToString());
-
-            Console.WriteLine("Servers CC tips:");
-            foreach (Server server in team.Servers)
-            {
-                Console.WriteLine("{0}: {1}", server.StaffMember.FirstName, server.CcTipTakehome);
-            }
-
-        }
         static void Main(string[] args)
         {
-            ServerTeamEditor serverTeamEditor = new ServerTeamEditor();
-            Shift shift = new Shift(DateTime.Now.Date, "dinner");
+            //each server prints a their  indiv checkout
+            //once all servers that are on a team have printed  their checkouts they bring to manager
+            //mgr is going to create the server tip out for each server on the team 
+            //  a server tip out keeps track of date, server name, gross sales, etc
+
+            Job server = new Job() { Title = "Server" };
+
             StaffMember Grant = new StaffMember()
             {
                 FirstName = "Grant",
                 LastName = "Elmer",
-                Id = 1
+                Id = 1,
+                ApprovesJobs = { server }
             };
 
             StaffMember Alyson = new StaffMember()
             {
                 FirstName = "Alyson",
                 LastName = "Elmer",
-                Id = 2
-            };
-
-            StaffMember Corderito = new StaffMember()
-            {
-                FirstName = "Corderito",
-                LastName = "Elmer",
-                Id = 3
-            };
-
-            Server serverGrant = new Server()
-            {
-                StaffMember = Grant,
-                Sales = 839.86m,
-                GrossSales = 544.08m,
-                BarSales = 59,
-                NonTipoutBarSales = 0,
-                Hours = 6.5m,
-                Id = 1,
-                CcTips = 98,
-                CcAutoGratuity = 0,
-                CashAutoGratuity = 0,
-                CashTips = 15
-            };
-
-            Server serverAlyson = new Server()
-            {
-                StaffMember = Alyson,
-                Sales = 900,
-                GrossSales = 839.86m,
-                BarSales = 146,
-                NonTipoutBarSales = 0,
-                Hours = 6.5m,
                 Id = 2,
-                CcTips = 234,
-                CcAutoGratuity = 0,
-                CashAutoGratuity = 0,
-                CashTips = 0
+                ApprovesJobs = { server }
             };
 
-            Server serverNathan = new Server()
+            StaffMember Lauren = new StaffMember()
             {
-                StaffMember = Corderito,
-                Sales = 100,
-                GrossSales = 1202.56m,
-                BarSales = 153,
-                NonTipoutBarSales = 46,
-                Hours = 6.5m,
+                FirstName = "Lauren",
+                LastName = "Wine",
                 Id = 3,
-                CcTips = 175,
-                CcAutoGratuity = 40,
-                CashAutoGratuity = 15,
-                CashTips = 0
+                ApprovesJobs = { server }
             };
 
-            ServerTeam ourTeam = new ServerTeam() { Id = 1, NumberOfBottlesSold = 1};
-            serverTeamEditor.AddTeamMember(ourTeam, serverAlyson);
-            serverTeamEditor.AddTeamMember(ourTeam, serverGrant);
+            ServerTeam team = new ServerTeam(DateTime.Today);
 
-            shift.ServerGroup.AddServerTeam(ourTeam);
-            shift.ServerGroup.RunServerCheckOut(1);
+            CheckOut grantsCheckOut = new CheckOut(Grant, DateTime.Today, server.Title)
+            {
+                GrossSales = 962.92m,
+                Sales = 900,
+                BarSales = 181,
+                LunchOrDinner = "dinner",
+                CashAutoGrat = 10,
+                CcAutoGrat = 47.39m,
+                CcTips = 83.64m,
+                NonTipOutBarSales = 0,
+                Hours = 6, 
+                CashTips = 0,
+                NumberOfBottlesSold = 1
+            };
 
+            CheckOut alysonsCheckOut = new CheckOut(Alyson, DateTime.Today, server.Title)
+            {
+                GrossSales = 1680.78m,
+                Sales = 800,
+                BarSales = 308.50m,
+                LunchOrDinner = "dinner",
+                CashAutoGrat = 0,
+                CcAutoGrat = 0,
+                CcTips = 323,
+                NonTipOutBarSales = 0,
+                Hours = 6,
+                CashTips = 0,
+                NumberOfBottlesSold = 2 
+            };
 
-            WriteTeamCalculations(shift, ourTeam);
+            CheckOut laurensCheckOut = new CheckOut(Alyson, DateTime.Today, server.Title)
+            {
+                GrossSales = 2187.03m,
+                Sales = 800,
+                BarSales = 354,
+                LunchOrDinner = "dinner",
+                CashAutoGrat = 0,
+                CcAutoGrat = 354.88m,
+                CcTips = 1541,
+                NonTipOutBarSales = 0,
+                Hours = 6,
+                CashTips = 0,
+                NumberOfBottlesSold = 0
+            };
 
-            shift.ServerGroup.RunServerCheckOut(1);
+            team.CheckOuts.Add(grantsCheckOut);
+            team.CheckOuts.Add(alysonsCheckOut);
+            team.CheckOuts.Add(laurensCheckOut);
+            Earnings teamMemberEarnings;
+            decimal barSpecialLine = grantsCheckOut.NumberOfBottlesSold + alysonsCheckOut.NumberOfBottlesSold;
+            teamMemberEarnings = team.RunCheckout(barSpecialLine, 0);
 
-            WriteTeamCalculations(shift, ourTeam);
+            Console.WriteLine("CC Tips: " + teamMemberEarnings.CcTips.ToString());
+            Console.WriteLine("AutoGrat: " + teamMemberEarnings.AutoGratuity.ToString());
+            Console.WriteLine("Total Tips: " + teamMemberEarnings.TotalTipsForPayroll.ToString());
 
-            Console.WriteLine(" ");
+            Console.WriteLine("Teams TipOut Numbers: ");
+            Console.WriteLine("Team Gross Sales: " + team.TipOut.TeamGrossSales.ToString());
+            Console.WriteLine("Team Bottles Sold: " + barSpecialLine.ToString());
+            Console.WriteLine("Bar: " + team.TipOut.BarTipOut.ToString());
+            Console.WriteLine("SA: " + team.TipOut.SaTipOut.ToString());
 
-            serverTeamEditor.RemoveTeamMember(shift.ServerGroup, ourTeam.Id, Alyson.Id);
-
-            Console.WriteLine(" ");
-
-            WriteTeamCalculations(shift, ourTeam);
-
-            serverTeamEditor.AddTeamMember(ourTeam, serverNathan);
-            shift.ServerGroup.RunServerCheckOut(ourTeam.Id);
-
-            Console.WriteLine(" ");
-
-            WriteTeamCalculations(shift, ourTeam);
-
-            Console.WriteLine("*AFTER TEAMMEMBER UPDATED*");
-            serverGrant.CcTips = 198.65m;
-            serverTeamEditor.UpdateTeamMember(shift.ServerGroup, ourTeam.Id, serverGrant);
-            shift.ServerGroup.RunServerCheckOut(ourTeam.Id);
-
-            WriteTeamCalculations(shift, ourTeam);
-
-            var date = DateTime.Now.ToShortDateString();
-            var ddate = DateTime.Today;
-
-            Console.WriteLine(date);
-
-            var date2 = DateTime.Today.Month;
-            var date3 = DateTime.Today.Day;
-            var date4 = DateTime.Today.Year;
-
-            Console.WriteLine(date.ToString());
-            Console.WriteLine(date2.ToString());
-            Console.WriteLine(date3.ToString());
-            Console.WriteLine(date4.ToString());
-            string formattedDate = "0" + date2.ToString() + "-" + date3 + "-" + date4;
-            Console.WriteLine(DateTime.Today.ToString());
-
-            
-
-            Console.WriteLine("Shift Date is: " + shift.ShiftDateFormatted);
-            formattedDate = ddate.ToString("MM/dd/yyyy");
-            DateTime converted = Convert.ToDateTime(formattedDate);
-            shift.ShiftDate = converted;
-            Console.WriteLine("Converted DateTime Added: " + shift.ShiftDate.ToString());
-            Console.WriteLine(formattedDate);
             Console.ReadLine();
+
         }
     }
 }

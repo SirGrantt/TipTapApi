@@ -87,12 +87,12 @@ namespace TipTapApi.Controllers
         }
         
         [HttpPut("staff-editor/{staffId}")]
-        public IActionResult UpdateStaffMember(int staffId, 
-            [FromBody] StaffMemberDto sm)
+        public IActionResult UpdateStaffMemberName(int staffId, 
+            [FromBody] UpdateStaffMemberName sm)
         {
             try
             {
-                bool updateSucceded = _staffCore.UpdateStaffMember(sm, staffId);
+                bool updateSucceded = _staffCore.UpdateStaffMemberName(sm, staffId);
 
                 if (!updateSucceded)
                 {
@@ -102,8 +102,9 @@ namespace TipTapApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogError(e, $"An error occured while trying to perform a PUT update on a staff member with the id: {staffId}");
-                return StatusCode(500, errorMsg);
+                _logger.LogError(e, $"An error occured while trying to perform a name change on the Staff Member with the id: {staffId}");
+                ModelState.AddModelError("Update Name Failed: ", e.Message);
+                return StatusCode(500, ModelState);
             }
         }
         /*

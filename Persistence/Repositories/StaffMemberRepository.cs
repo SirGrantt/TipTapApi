@@ -3,7 +3,6 @@ using Common;
 using Common.Entities;
 using Domain.StaffMembers;
 using Persistence.Contexts;
-using Persistence.Entities;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -13,20 +12,20 @@ namespace Persistence.Repositories
 {
     public class StaffMemberRepository : IStaffMemberRepository
     {
-        private ShiftContext _context;
-        public StaffMemberRepository(ShiftContext context)
+        private CheckOutManagerContext _context;
+        public StaffMemberRepository(CheckOutManagerContext context)
         {
             _context = context;
         }
 
         public void AddStaffMember(StaffMemberEntity s)
         {
-            _context.Add(s);
+            _context.StaffMembers.Add(s);
         }
 
         public void DeleteStaffMember(StaffMemberEntity sm)
         {
-            _context.Remove(sm);
+            _context.StaffMembers.Remove(sm);
         }
 
         public StaffMemberEntity GetStaffMember(int staffId)

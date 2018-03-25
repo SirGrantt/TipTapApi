@@ -75,12 +75,8 @@ namespace Application
 
         }
 
-        public bool UpdateStaffMember(StaffMemberDto sm, int staffId)
+        public bool UpdateStaffMemberName(UpdateStaffMemberName sm, int staffId)
         {
-            if (!ValidateStaffMember(sm))
-            {
-                return false;
-            }
 
             if (!_repository.StaffMemberExists(staffId))
             {
@@ -88,8 +84,7 @@ namespace Application
             }
 
             var staffToUpdate = _repository.GetStaffMember(staffId);
-            StaffMemberForUpdateDto formattedUpdatedInformation = Mapper.Map<StaffMemberForUpdateDto>(sm);
-            var updatedStaffMember = Mapper.Map(formattedUpdatedInformation, staffToUpdate);
+            var updatedStaffMember = Mapper.Map(sm, staffToUpdate);
 
             if (!_repository.Save())
             {

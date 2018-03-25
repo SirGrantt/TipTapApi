@@ -11,7 +11,7 @@ using Persistence.Contexts;
 
 namespace TipTapApi.Migrations
 {
-    [DbContext(typeof(ShiftContext))]
+    [DbContext(typeof(CheckOutManagerContext))]
     [Migration("20180319044716_ChangesAfterInitialShiftActionsCreated")]
     partial class ChangesAfterInitialShiftActionsCreated
     {

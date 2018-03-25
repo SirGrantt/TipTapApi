@@ -6,14 +6,15 @@ using System.Text;
 
 namespace Common.Entities
 {
-    public class ServerTeamEntity
+    public class JobEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public DateTime ShiftDate { get; set; }
-        public TipOutEntity TipOut { get; set; }
-        public List<CheckOutEntity> CheckOuts { get; set; }
-        public bool CheckoutHasBeenRun { get; set; }
+        [Required]
+        public string Title { get; set; }
+        public int StaffMemberId { get; set; }
 
+        [ForeignKey("StaffMemberId")]
+        public StaffMemberEntity StaffMember { get; set; }
     }
 }

@@ -12,9 +12,10 @@ using Persistence.Contexts;
 namespace TipTapApi.Migrations
 {
     [DbContext(typeof(CheckOutManagerContext))]
-    partial class ShiftContextModelSnapshot : ModelSnapshot
+    [Migration("20180325044944_RedoingClassHeirarchy")]
+    partial class RedoingClassHeirarchy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

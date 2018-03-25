@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common.DTOs.TeamDtos
+namespace Domain.Jobs
 {
-    public class ServerTeamDto
+    public class Job
     {
+        public string Title { get; set; }
     }
 }

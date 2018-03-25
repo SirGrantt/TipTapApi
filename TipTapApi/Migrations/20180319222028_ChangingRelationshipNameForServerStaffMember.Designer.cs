@@ -11,7 +11,7 @@ using Persistence.Contexts;
 
 namespace TipTapApi.Migrations
 {
-    [DbContext(typeof(ShiftContext))]
+    [DbContext(typeof(CheckOutManagerContext))]
     [Migration("20180319222028_ChangingRelationshipNameForServerStaffMember")]
     partial class ChangingRelationshipNameForServerStaffMember
     {

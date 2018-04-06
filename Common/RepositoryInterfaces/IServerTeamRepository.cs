@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Common.RepositoryInterfaces
 {
-    public interface IServerTeamRepository
+    public interface IServerTeamRepository : IRepository
     {
         void AddServerTeam(ServerTeamEntity serverTeam);
         void AddCheckoutToServerTeam(ServerTeamCheckoutEntity teamCheckout);
@@ -17,6 +17,6 @@ namespace Common.RepositoryInterfaces
         void DeleteTipOut(int serverTeamId);
         TipOutEntity GetServerTeamTipOut(int serverTeamId);
         List<StaffMemberEntity> GetServerTeamMembers(int serverTeamId);
-        bool Save();
+        void DeleteServerTeamCheckout(ServerTeamEntity team);
     }
 }

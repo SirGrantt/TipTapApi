@@ -4,6 +4,7 @@ using Common.DTOs.JobDtos;
 using Common.DTOs.StaffMemberDtos;
 using Common.Entities;
 using Common.RepositoryInterfaces;
+using Common.Utilities;
 using Domain.Checkouts;
 using Domain.Jobs;
 using Domain.StaffMembers;
@@ -32,11 +33,7 @@ namespace Application
             CheckoutEntity checkOutEntity = Mapper.Map<CheckoutEntity>(checkout);
             _repository.AddCheckOut(checkOutEntity);
 
-            if (!_repository.Save())
-            {
-                throw new Exception("An unexpected error occured while trying to save the checkout");
-            }
-
+            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
             return Mapper.Map<CheckoutDto>(checkOutEntity);
         }
 
@@ -64,10 +61,7 @@ namespace Application
             CheckoutEntity checkout = _repository.GetCheckOutById(checkoutId);
             _repository.DeleteCheckOut(checkout);
 
-            if (!_repository.Save())
-            {
-                throw new Exception("An unexpected error occured while saving the removal of the checkout.");
-            }
+            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
         }
 
         public CheckoutDto GetCheckoutById(int checkoutId)

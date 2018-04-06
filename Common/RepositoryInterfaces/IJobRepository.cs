@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Common.RepositoryInterfaces
 {
-    public interface IJobRepository
+    public interface IJobRepository : IRepository
     {
         bool JobExists(int jobId);
         JobEntity GetJob(int jobId);

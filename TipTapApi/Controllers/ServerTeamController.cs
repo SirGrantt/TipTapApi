@@ -36,26 +36,25 @@ namespace TipTapApi.Controllers
         [HttpPost("create", Name = "CreateServerTeam")]
         public IActionResult AddServerTeam([FromBody] CreateServerTeamDto data)
         {
-            data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
-            if (UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner))
+            try
             {
-                try
-                {
-                    ServerTeamDto team = serverTeamsCore.AddServerTeam(data);
-                    return CreatedAtRoute("CreateServerTeam", team);
-                }
-                catch (Exception e)
-                {
-                    _logger.LogError(e.Message);
-                    ModelState.AddModelError("Create Server Team:", e.Message);
-                    return StatusCode(500, ModelState);
-                }
+                data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+                UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
+
+                ServerTeamDto team = serverTeamsCore.AddServerTeam(data);
+                return CreatedAtRoute("CreateServerTeam", team);
             }
-            else
+            catch (Exception e)
             {
-                ModelState.AddModelError("Lunch or Dinner: ", "The paramater provided for lunch or dinner must be valid.");
-                return BadRequest(ModelState);
+                if (e.InnerException is InvalidOperationException)
+                {
+                    return BadRequest(e.Message);
+                }
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Create Server Team:", e.Message);
+                return StatusCode(500, ModelState);
             }
+
         }
 
         [HttpPost("add-checkout")]
@@ -119,6 +118,40 @@ namespace TipTapApi.Controllers
                     return BadRequest(ModelState);
                 }
                 ModelState.AddModelError("Run CheckoutError", e.Message);
+                return StatusCode(500, ModelState);
+            }
+        }
+
+        [HttpPost("reset-checkout")]
+        public IActionResult ResetCheckout([FromBody] Common.DTOs.CheckoutsRanDtos.DeleteCheckoutDto data)
+        {
+            try
+            {
+                if (!serverTeamsCore.ServerTeamExists(data.ServerTeamId))
+                {
+                    return BadRequest("No Server Team with that Id exists");
+                }
+
+                UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
+
+                ServerTeamDto team = serverTeamsCore.GetServerTeamById(data.ServerTeamId);
+                
+                if (team.CheckoutHasBeenRun == false)
+                {
+                    return BadRequest("This teams checkout has not been run yet");
+                }
+
+                data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+                List<StaffMemberDto> teammates = serverTeamsCore.GetStaffMembersOnServerTeam(data.ServerTeamId);
+
+                serverTeamsCore.DeleteServerTeamCheckout(data.ServerTeamId);
+                earningsCore.ResetEarningsForServerTeam(teammates, data.ShiftDate, data.LunchOrDinner);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Reset Checkout Error", e.Message);
                 return StatusCode(500, ModelState);
             }
         }

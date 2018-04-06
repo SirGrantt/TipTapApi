@@ -1,11 +1,18 @@
-﻿using Domain.Checkouts;
+﻿using Application;
+using Common.Entities;
+using Domain.Checkouts;
 using Domain.Jobs;
 using Domain.StaffEarnings;
 using Domain.StaffMembers;
 using Domain.Teams;
+using Microsoft.Extensions.DependencyInjection;
 using Domain.Utilities;
+using Persistence.Contexts;
+using Persistence.Repositories;
 using System;
 using System.Globalization;
+using Common.RepositoryInterfaces;
+using Common.DTOs.EarningsDtos;
 
 namespace DomainTestingConsoleApp
 {
@@ -17,6 +24,7 @@ namespace DomainTestingConsoleApp
             //once all servers that are on a team have printed  their checkouts they bring to manager
             //mgr is going to create the server tip out for each server on the team 
             //  a server tip out keeps track of date, server name, gross sales, etc
+
 
             Job server = new Job() { Title = "Server" };
 
@@ -104,6 +112,7 @@ namespace DomainTestingConsoleApp
             Console.WriteLine("Team Bottles Sold: " + barSpecialLine.ToString());
             Console.WriteLine("Bar: " + team.TipOut.BarTipOut.ToString());
             Console.WriteLine("SA: " + team.TipOut.SaTipOut.ToString());
+
 
             Console.ReadLine();
 

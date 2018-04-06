@@ -92,5 +92,11 @@ namespace Persistence.Repositories
 
             return staffMembers;
         }
+
+        public void DeleteServerTeamCheckout(ServerTeamEntity team)
+        {
+            TipOutEntity tipOutEntity = _context.TipOuts.Where(t => t.ServerTeamId == team.Id).FirstOrDefault();
+            _context.TipOuts.Remove(tipOutEntity);
+        }
     }
 }

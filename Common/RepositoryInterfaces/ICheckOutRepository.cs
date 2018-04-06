@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Common.RepositoryInterfaces
 {
-    public interface ICheckoutRepository
+    public interface ICheckoutRepository : IRepository
     {
         void AddCheckOut(CheckoutEntity c);
         void DeleteCheckOut(CheckoutEntity c);
@@ -17,6 +17,5 @@ namespace Common.RepositoryInterfaces
         IEnumerable<CheckoutEntity> GetCheckOutsForAStaffMember(StaffMemberEntity staffmember);
         IEnumerable<CheckoutEntity> GetCheckOutsForAStaffMemberForAJob(StaffMemberEntity staffMember, JobEntity j);
         IEnumerable<CheckoutEntity> GetCheckoutsForAServerTeam(int serverTeamId);
-        bool Save();
     }
 }

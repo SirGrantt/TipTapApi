@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Common
 {
-    public interface IStaffMemberRepository
+    public interface IStaffMemberRepository : IRepository
     {
         IEnumerable<StaffMemberEntity> GetStaffMembers();
         StaffMemberEntity GetStaffMember(int staffId);
@@ -14,7 +14,6 @@ namespace Common
         bool JobExists(int jobId);
         void AddStaffMember(StaffMemberEntity s);
         void DeleteStaffMember(StaffMemberEntity s);
-        bool Save();
         void SetStaffMemberMainJob(StaffMemberEntity s, JobEntity j);
     }
 }

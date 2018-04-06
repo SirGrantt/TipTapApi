@@ -6,6 +6,7 @@ using Common.DTOs.TeamDtos;
 using Common.DTOs.TipOutDtos;
 using Common.Entities;
 using Common.RepositoryInterfaces;
+using Common.Utilities;
 using Domain.Checkouts;
 using Domain.StaffEarnings;
 using Domain.Teams;
@@ -38,11 +39,7 @@ namespace Application
             };
 
             serverTeamRepository.AddServerTeam(team);
-
-            if (!serverTeamRepository.Save())
-            {
-                throw new Exception("An unexpected error occured while trying to save the new server team.");
-            }
+            UtilityMethods.VerifyDatabaseSaveSuccess(serverTeamRepository);
 
             ServerTeamDto teamDto = Mapper.Map<ServerTeamDto>(team);
             return teamDto;
@@ -141,5 +138,20 @@ namespace Application
             }
             return teamMembersDto;
         }
+
+        public void DeleteServerTeamCheckout(int serverTeamId)
+        {
+            ServerTeamEntity team = serverTeamRepository.GetServerTeamById(serverTeamId);
+            serverTeamRepository.DeleteServerTeamCheckout(team);
+
+            UtilityMethods.VerifyDatabaseSaveSuccess(serverTeamRepository);
+        }
+
+        public ServerTeamDto GetServerTeamById(int serverTeamId)
+        {
+            ServerTeamDto team = Mapper.Map<ServerTeamDto>(serverTeamRepository.GetServerTeamById(serverTeamId));
+            return team;
+        }
+
     }
 }

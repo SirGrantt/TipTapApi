@@ -5,15 +5,15 @@ using System.Text;
 
 namespace Common.RepositoryInterfaces
 {
-    public interface IEarningsRepository
+    public interface IEarningsRepository :IRepository
     {
         void AddEarning(EarningsEntity earning);
         void DeleteEarning(int earningsId);
-        EarningsEntity GetEarning(int staffMemberId, DateTime shiftDate);
+        EarningsEntity GetEarning(int staffMemberId, DateTime shiftDate, string lunchOrDinner);
         EarningsEntity GetEarningById(int earningId);
         IEnumerable<EarningsEntity> GetEarningsForAStaffMemberBetweenDates(int staffId, DateTime startDate, DateTime endDate);
         bool EarningExists(int staffMemberId, DateTime shiftDate, string lunchOrDinner);
         bool EarningExistsById(int earningId);
-        bool Save();
+        void ResetEarning(EarningsEntity earning);
     }
 }

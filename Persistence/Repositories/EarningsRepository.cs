@@ -38,9 +38,9 @@ namespace Persistence.Repositories
             return _context.Earnings.Any(e => e.Id == earningId);
         }
 
-        public EarningsEntity GetEarning(int staffMemberId, DateTime shiftDate)
+        public EarningsEntity GetEarning(int staffMemberId, DateTime shiftDate, string lunchOrDinner)
         {
-            return _context.Earnings.Where(e => e.StaffMemberId == staffMemberId && e.ShiftDate == shiftDate).FirstOrDefault();
+            return _context.Earnings.Where(e => e.StaffMemberId == staffMemberId && e.ShiftDate == shiftDate && e.LunchOrDinner == lunchOrDinner.ToLower().Trim()).FirstOrDefault();
         }
 
         public EarningsEntity GetEarningById(int earningId)
@@ -58,6 +58,11 @@ namespace Persistence.Repositories
             }
 
             return earnings;
+        }
+
+        public void ResetEarning(EarningsEntity earning)
+        {
+            _context.Earnings.Remove(earning);
         }
 
         public bool Save()

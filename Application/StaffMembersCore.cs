@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Domain.Jobs;
+using Common.Utilities;
 
 namespace Application
 {
@@ -70,11 +71,9 @@ namespace Application
 
             StaffMemberEntity staffEntity = Mapper.Map<StaffMemberEntity>(sm);
             _repository.AddStaffMember(staffEntity);
-            
-            if (!_repository.Save())
-            {
-                return null;
-            }
+
+            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
+
             StaffMemberDto savedStaffMember = Mapper.Map<StaffMemberDto>(staffEntity);
             return savedStaffMember;
 
@@ -91,10 +90,8 @@ namespace Application
             var staffToUpdate = _repository.GetStaffMember(staffId);
             var updatedStaffMember = Mapper.Map(sm, staffToUpdate);
 
-            if (!_repository.Save())
-            {
-                return false;
-            }
+            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
+
             return true;
         }
 
@@ -107,10 +104,7 @@ namespace Application
             StaffMemberEntity smToDelete = _repository.GetStaffMember(staffId);
             _repository.DeleteStaffMember(smToDelete);
 
-            if (!_repository.Save())
-            {
-                return false;
-            }
+            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
 
             return true;
         }
@@ -120,10 +114,7 @@ namespace Application
             StaffMemberEntity sm = _repository.GetStaffMember(staffId);
             sm.Status = "inactive";
 
-            if (!_repository.Save())
-            {
-                throw new Exception($"An error occured while calling save after setting the status of an employee with the Id {sm.Id.ToString()} to inactive");
-            }
+            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
         }
 
         public StaffMember SetMainJob(int staffId, Job job)
@@ -132,10 +123,7 @@ namespace Application
             JobEntity jobEntity = Mapper.Map<JobEntity>(job);
             _repository.SetStaffMemberMainJob(smEntity, jobEntity);
 
-            if (!_repository.Save())
-            {
-                throw new Exception("An unexpected error occured while saving changes");
-            }
+            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
 
             return Mapper.Map<StaffMember>(smEntity);
             

@@ -31,5 +31,10 @@ namespace Persistence.Repositories
         {
             return _context.Jobs.Any(j => j.Id == jobId);
         }
+
+        public bool Save()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
     }
 }

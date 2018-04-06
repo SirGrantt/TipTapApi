@@ -36,31 +36,25 @@ namespace TipTapApi.Controllers
             //convert the date sent from the client into a DateTime format
             data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
 
-            if (UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner))
+            try
             {
-                try
-                {
-                    StaffMemberDto staffMember = _staffCore.GetStaffMember(data.StaffMemberId);
-                    JobDto job = _jobCore.GetJobByTitle(data.JobWorkedTitle);
-                    CheckoutDto checkout = _checkoutsCore.CreateCheckout(data, staffMember, job);
-                    return CreatedAtRoute("CreateCheckout", checkout);
-                }
-                catch (Exception e)
-                {
-                    if (e.InnerException is InvalidOperationException)
-                    {
-                        return BadRequest(e.Message);
-                    }
-                    _logger.LogError(e.Message);
-                    ModelState.AddModelError("Create Checkout Failure", e.Message);
-                    return StatusCode(500, ModelState);
-                }
+                UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
+                StaffMemberDto staffMember = _staffCore.GetStaffMember(data.StaffMemberId);
+                JobDto job = _jobCore.GetJobByTitle(data.JobWorkedTitle);
+                CheckoutDto checkout = _checkoutsCore.CreateCheckout(data, staffMember, job);
+                return CreatedAtRoute("CreateCheckout", checkout);
             }
-            else
+            catch (Exception e)
             {
-                ModelState.AddModelError("Lunch or Dinner:", "The parameter provided for lunch or dinner must be valid.");
-                return BadRequest(ModelState);
+                if (e.InnerException is InvalidOperationException)
+                {
+                    return BadRequest(e.Message);
+                }
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Create Checkout Failure", e.Message);
+                return StatusCode(500, ModelState);
             }
+
         }
 
         [HttpPost("get-by-date")]

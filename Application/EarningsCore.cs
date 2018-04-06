@@ -3,6 +3,7 @@ using Common.DTOs.EarningsDtos;
 using Common.DTOs.StaffMemberDtos;
 using Common.Entities;
 using Common.RepositoryInterfaces;
+using Common.Utilities;
 using Domain.StaffEarnings;
 using System;
 using System.Collections.Generic;
@@ -34,16 +35,36 @@ namespace Application
                 earningsEntity.StaffMember = staffMemberEntity;
                 earningsRepository.AddEarning(earningsEntity);
 
-                if (!earningsRepository.Save())
-                {
-                    throw new Exception($"An unexpected error occured while trying to save the earnings for staff members for the date {earning.ShiftDate}");
-                }
+                UtilityMethods.VerifyDatabaseSaveSuccess(earningsRepository);
 
                 EarningDto earningToReturn = Mapper.Map<EarningDto>(earningsEntity);
                 earningDtos.Add(earningToReturn);
             }
             return earningDtos;
 
+        }
+
+        public EarningDto GetEarning(int staffMemberId, DateTime shiftDate, string lunchOrDinner)
+        {
+            EarningsEntity entity = earningsRepository.GetEarning(staffMemberId, shiftDate, lunchOrDinner);
+            EarningDto earning = Mapper.Map<EarningDto>(entity);
+            return earning;
+        }
+
+        public void ResetEarningsForServerTeam(List<StaffMemberDto> teammates, DateTime shiftDate, string lunchOrDinner)
+        {
+            foreach (StaffMemberDto t in teammates)
+            {
+                EarningsEntity e = earningsRepository.GetEarning(t.Id, shiftDate, lunchOrDinner);
+
+                if (e is null)
+                {
+                    return;
+                }
+
+                earningsRepository.ResetEarning(e);
+                UtilityMethods.VerifyDatabaseSaveSuccess(earningsRepository);
+            }
         }
     }
 }

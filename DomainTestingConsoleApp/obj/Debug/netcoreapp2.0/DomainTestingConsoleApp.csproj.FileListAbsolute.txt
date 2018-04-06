@@ -11,3 +11,9 @@ C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingC
 C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.AssemblyInfo.cs
 C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.dll
 C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.pdb
+C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Application.dll
+C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Common.dll
+C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Persistence.dll
+C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Application.pdb
+C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Common.pdb
+C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Persistence.pdb

@@ -11,8 +11,7 @@ namespace Common.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime ShiftDate { get; set; }
-        public TipOutEntity TipOut { get; set; }
-        public List<CheckOutEntity> CheckOuts { get; set; }
+        public string LunchOrDinner { get; set; }
         public bool CheckoutHasBeenRun { get; set; }
 
     }

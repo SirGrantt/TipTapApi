@@ -11,9 +11,9 @@ using Persistence.Contexts;
 
 namespace TipTapApi.Migrations
 {
-    [DbContext(typeof(CheckOutManagerContext))]
-    [Migration("20180325044944_RedoingClassHeirarchy")]
-    partial class RedoingClassHeirarchy
+    [DbContext(typeof(CheckoutManagerContext))]
+    [Migration("20180328203310_SwapToCrossReferenceForMainJob")]
+    partial class SwapToCrossReferenceForMainJob
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,6 +21,24 @@ namespace TipTapApi.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.0-preview1-28290")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Common.Entities.ApprovedJobEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("JobId");
+
+                    b.Property<int>("StaffMemberId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobId");
+
+                    b.HasIndex("StaffMemberId");
+
+                    b.ToTable("ApprovedRoles");
+                });
 
             modelBuilder.Entity("Common.Entities.CheckOutEntity", b =>
                 {
@@ -102,14 +120,10 @@ namespace TipTapApi.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("StaffMemberId");
-
                     b.Property<string>("Title")
                         .IsRequired();
 
                     b.HasKey("Id");
-
-                    b.HasIndex("StaffMemberId");
 
                     b.ToTable("Jobs");
                 });
@@ -138,6 +152,8 @@ namespace TipTapApi.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired();
+
+                    b.Property<string>("Status");
 
                     b.HasKey("Id");
 
@@ -169,6 +185,19 @@ namespace TipTapApi.Migrations
                     b.ToTable("TipOuts");
                 });
 
+            modelBuilder.Entity("Common.Entities.ApprovedJobEntity", b =>
+                {
+                    b.HasOne("Common.Entities.JobEntity", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Common.Entities.StaffMemberEntity", "StaffMember")
+                        .WithMany()
+                        .HasForeignKey("StaffMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Common.Entities.CheckOutEntity", b =>
                 {
                     b.HasOne("Common.Entities.ServerTeamEntity", "ServerTeam")
@@ -186,14 +215,6 @@ namespace TipTapApi.Migrations
                 {
                     b.HasOne("Common.Entities.StaffMemberEntity", "StaffMember")
                         .WithMany("Earnings")
-                        .HasForeignKey("StaffMemberId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Common.Entities.JobEntity", b =>
-                {
-                    b.HasOne("Common.Entities.StaffMemberEntity", "StaffMember")
-                        .WithMany("ApprovedJobs")
                         .HasForeignKey("StaffMemberId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Domain.Utilities;
-using Domain.CheckOuts;
+using Domain.Checkouts;
 using Domain.TipOuts;
 using Domain.StaffEarnings;
 using Domain.Utilities.TipOutCalculator;
@@ -16,15 +16,17 @@ namespace Domain.Teams
     {
         public int Id { get; set; }
         public DateTime ShiftDate { get; set; }
+        public string LunchOrDinner { get; set; }
         public bool CheckoutHasBeenRun { get; set; }
-        public List<CheckOut> CheckOuts { get; set; }
+        public List<Checkout> CheckOuts { get; set; }
         public TipOut TipOut { get; set; }
         public ITipOutCalculator TipOutCalculator { get; set; }
+        public int BottleCount { get; set; }
 
         public ServerTeam(DateTime shiftDate)
         {
             ShiftDate = shiftDate;
-            CheckOuts = new List<CheckOut>();
+            CheckOuts = new List<Checkout>();
             CheckoutHasBeenRun = false;
             TipOutCalculatorFactory factory = new TipOutCalculatorFactory();
             TipOutCalculator = factory.CreateCalculator(JobType.Server);
@@ -45,11 +47,15 @@ namespace Domain.Teams
                 ResetTipOuts();
             }
 
+            foreach (Checkout c in CheckOuts)
+            {
+                BottleCount += c.NumberOfBottlesSold;
+            }
             TipOut.FinalTeamBarSales = TipOutCalculator.CalculateTeamBarSales(CheckOuts);
             TipOut.TeamGrossSales = TipOutCalculator.CalculateTeamGrossSales(CheckOuts);
-            TipOut.BarTipOut = TipOutCalculator.CalculateTipOut(TipOut.FinalTeamBarSales, .05m, barSpecialLine);
+            TipOut.BarTipOut = TipOutCalculator.CalculateTipOut(TipOut.FinalTeamBarSales, .05m, barSpecialLine) + BottleCount;
             TipOut.SaTipOut = TipOutCalculator.CalculateTipOut(TipOut.TeamGrossSales, .015m, saSpecialLine);
-            Earnings earnings = TipOutCalculator.CalculateEarnings(CheckOuts, TipOut, ShiftDate);
+            Earnings earnings = TipOutCalculator.CalculateEarnings(CheckOuts, TipOut, ShiftDate, LunchOrDinner);
 
             CheckoutHasBeenRun = true;
             return earnings;

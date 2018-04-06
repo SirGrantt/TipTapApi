@@ -1,4 +1,4 @@
-﻿using Domain.CheckOuts;
+﻿using Domain.Checkouts;
 using Domain.StaffEarnings;
 using Domain.TipOuts;
 using System;
@@ -12,8 +12,8 @@ namespace Domain.Utilities.TipOutCalculator
     {
         JobType Job { get; }
         decimal CalculateTipOut(decimal target, decimal tipOutPercent, decimal specialLine);
-        decimal CalculateTeamGrossSales(List<CheckOut> checkouts);
-        decimal CalculateTeamBarSales(List<CheckOut> checkouts);
-        Earnings CalculateEarnings(List<CheckOut> checkouts, TipOut tipout, DateTime shiftDate);
+        decimal CalculateTeamGrossSales(List<Checkout> checkouts);
+        decimal CalculateTeamBarSales(List<Checkout> checkouts);
+        Earnings CalculateEarnings(List<Checkout> checkouts, TipOut tipout, DateTime shiftDate, string lunchOrDinner);
     }
 }

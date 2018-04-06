@@ -23,6 +23,13 @@ using Common.DTOs.TeamDtos;
 using Domain.Teams;
 using Common.DTOs.JobDtos;
 using Domain.Jobs;
+using Common.RepositoryInterfaces;
+using Common.DTOs.CheckOutDtos;
+using Domain.Checkouts;
+using Common.DTOs.TipOutDtos;
+using Domain.TipOuts;
+using Common.DTOs.EarningsDtos;
+using Domain.StaffEarnings;
 
 namespace TipTapApi
 {
@@ -39,8 +46,12 @@ namespace TipTapApi
         {
             services.AddMvc().AddFluentValidation();
             var connectionString = Startup.Configuration["connectionStrings:staffMemberDBConnectionString"];
-            services.AddDbContext<CheckOutManagerContext>(o => o.UseSqlServer(connectionString, b => b.MigrationsAssembly("TipTapApi")));
+            services.AddDbContext<CheckoutManagerContext>(o => o.UseSqlServer(connectionString, b => b.MigrationsAssembly("TipTapApi")).EnableSensitiveDataLogging());
             services.AddScoped<IStaffMemberRepository, StaffMemberRepository>();
+            services.AddScoped<IJobRepository, JobRepository>();
+            services.AddScoped<ICheckoutRepository, CheckoutRepository>();
+            services.AddScoped<IServerTeamRepository, ServerTeamRepository>();
+            services.AddScoped<IEarningsRepository, EarningsRepository>();
             services.AddTransient<IValidator<StaffMemberDto>, StaffMemberValidator>();
             services.AddCors();
         }
@@ -64,8 +75,12 @@ namespace TipTapApi
                 cfg.CreateMap<StaffMemberEntity, StaffMemberDto>();
                 cfg.CreateMap<StaffMemberDto, UpdateStaffMemberName>();
                 cfg.CreateMap<UpdateStaffMemberName, StaffMemberEntity>();
+                cfg.CreateMap<StaffMemberDto, StaffMemberEntity>();
                 cfg.CreateMap<StaffMemberDto, StaffMember>();
                 cfg.CreateMap<StaffMember, StaffMemberDto>();
+                cfg.CreateMap<AddStaffMemberDto, StaffMemberDto>();
+                cfg.CreateMap<StaffMemberDto, AddStaffMemberDto>();
+                cfg.CreateMap<StaffMember, StaffMemberEntity>();
 
                 cfg.CreateMap<ServerTeamDto, ServerTeam>();
                 cfg.CreateMap<ServerTeam, ServerTeamDto>();
@@ -73,6 +88,27 @@ namespace TipTapApi
                 cfg.CreateMap<ServerTeamDto, ServerTeamEntity>();
                 cfg.CreateMap<ServerTeamEntity, ServerTeam>();
                 cfg.CreateMap<ServerTeamEntity, ServerTeamDto>();
+
+                cfg.CreateMap<CreateCheckoutDto, Checkout>();
+                cfg.CreateMap<Checkout, CheckoutEntity>();
+                cfg.CreateMap<CheckoutEntity, Checkout>()
+                .ForCtorParam("job", opt => opt.MapFrom(src => src.Job));
+                cfg.CreateMap<Checkout, CheckoutDto>();
+
+                cfg.CreateMap<JobEntity, JobDto>();
+                cfg.CreateMap<JobDto, Job>();
+                cfg.CreateMap<Job, JobEntity>();
+                cfg.CreateMap<JobEntity, Job>();
+                cfg.CreateMap<Job, JobDto>();
+
+                cfg.CreateMap<TipOutEntity, TipOutDto>();
+                cfg.CreateMap<TipOutEntity, TipOut>();
+                cfg.CreateMap<TipOut, TipOutEntity>();
+
+                cfg.CreateMap<EarningDto, EarningsEntity>();
+                cfg.CreateMap<Earnings, EarningDto>();
+                cfg.CreateMap<Earnings, EarningsEntity>();
+                cfg.CreateMap<EarningsEntity, Earnings>();
             });
             app.UseMvc();
 

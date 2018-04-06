@@ -15,12 +15,14 @@ namespace Domain.StaffEarnings
         public decimal AutoGratuity { get; set; }
         public decimal TotalTipsForPayroll { get; set; }
         public decimal CashTips { get; set; }
+        public string LunchOrDinner { get; set; }
 
-        public Earnings(DateTime shiftDate, string jobWorked)
+        public Earnings(DateTime shiftDate, string jobWorked, string lunchOrDinner)
         {
             ShiftDate = shiftDate;
             OwedCashForTipOut = false;
             JobWorked = jobWorked;
+            LunchOrDinner = lunchOrDinner;
         }
     }
 }

@@ -16,6 +16,9 @@ namespace Common.Entities
         [Required]
         public string JobWorked { get; set; }
 
+        [Required]
+        public string LunchOrDinner { get; set; }
+
         public bool OwedCashForTipOut { get; set; }
         public decimal CashPayedForTipOut { get; set; }
         public decimal CcTips { get; set; }

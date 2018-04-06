@@ -11,8 +11,10 @@ namespace Common
         IEnumerable<StaffMemberEntity> GetStaffMembers();
         StaffMemberEntity GetStaffMember(int staffId);
         bool StaffMemberExists(int staffId);
+        bool JobExists(int jobId);
         void AddStaffMember(StaffMemberEntity s);
         void DeleteStaffMember(StaffMemberEntity s);
         bool Save();
+        void SetStaffMemberMainJob(StaffMemberEntity s, JobEntity j);
     }
 }

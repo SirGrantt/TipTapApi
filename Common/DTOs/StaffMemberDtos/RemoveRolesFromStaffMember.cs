@@ -7,6 +7,7 @@ namespace Common.DTOs.StaffMemberDtos
 {
     public class RemoveRolesFromStaffMember
     {
+        public int StaffMemberId { get; set; }
         public List<JobDto> JobsToRemove { get; set; }
     }
 }

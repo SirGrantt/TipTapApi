@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Persistence.Contexts
 {
-    public class CheckOutManagerContext : DbContext
+    public class CheckoutManagerContext : DbContext
     {
-        public CheckOutManagerContext(DbContextOptions<CheckOutManagerContext> options)
+        public CheckoutManagerContext(DbContextOptions<CheckoutManagerContext> options)
             : base(options)
         {
             Database.Migrate();
@@ -17,10 +17,14 @@ namespace Persistence.Contexts
 
         public DbSet<StaffMemberEntity> StaffMembers { get; set; }
         public DbSet<ServerTeamEntity> ServerTeams { get; set; }
-        public DbSet<CheckOutEntity> CheckOuts { get; set; }
+        public DbSet<CheckoutEntity> CheckOuts { get; set; }
         public DbSet<EarningsEntity> Earnings { get; set; }
         public DbSet<JobEntity> Jobs { get; set; }
         public DbSet<TipOutEntity> TipOuts { get; set; }
+        public DbSet<ApprovedJobEntity> ApprovedRoles { get; set; }
+        public DbSet<MainJobEntity> MainJobs { get; set; }
+        public DbSet<ServerTeamCheckoutEntity> ServerTeamCheckouts { get; set; }
+
 
     }
 }

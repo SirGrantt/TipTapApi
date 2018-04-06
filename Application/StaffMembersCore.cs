@@ -9,6 +9,7 @@ using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Domain.Jobs;
 
 namespace Application
 {
@@ -38,6 +39,10 @@ namespace Application
 
         public StaffMemberDto GetStaffMember(int staffId)
         {
+            if (!StaffMemberExists(staffId))
+            {
+                throw new KeyNotFoundException("no staff member with that ID was found.");
+            }
             var staffEntity = _repository.GetStaffMember(staffId);
             StaffMemberDto staffDto = Mapper.Map<StaffMemberDto>(staffEntity);
             return staffDto;
@@ -108,6 +113,32 @@ namespace Application
             }
 
             return true;
+        }
+
+        public void SetInactiveStatus(int staffId)
+        {
+            StaffMemberEntity sm = _repository.GetStaffMember(staffId);
+            sm.Status = "inactive";
+
+            if (!_repository.Save())
+            {
+                throw new Exception($"An error occured while calling save after setting the status of an employee with the Id {sm.Id.ToString()} to inactive");
+            }
+        }
+
+        public StaffMember SetMainJob(int staffId, Job job)
+        {
+            StaffMemberEntity smEntity = _repository.GetStaffMember(staffId);
+            JobEntity jobEntity = Mapper.Map<JobEntity>(job);
+            _repository.SetStaffMemberMainJob(smEntity, jobEntity);
+
+            if (!_repository.Save())
+            {
+                throw new Exception("An unexpected error occured while saving changes");
+            }
+
+            return Mapper.Map<StaffMember>(smEntity);
+            
         }
     }
 }

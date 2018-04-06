@@ -6,14 +6,13 @@ using System.Text;
 
 namespace Common.Entities
 {
-    public class CheckOutEntity
+    public class CheckoutEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime ShiftDate { get; set; }
         public decimal NonTipOutBarSales { get; set; }
         public int NumberOfBottlesSold { get; set; }
-        public string JobWorked { get; set; }
         public string LunchOrDinner { get; set; }
         public decimal Sales { get; set; }
         public decimal GrossSales { get; set; }
@@ -24,14 +23,15 @@ namespace Common.Entities
         public decimal CashAutoGrat { get; set; }
         public decimal Hours { get; set; }
         public int StaffMemberId { get; set; }
-        public int ServerTeamId { get; set; }
+        public int JobWorkedId { get; set; }
 
         [Required]
         [ForeignKey("StaffMemberId")]
         public StaffMemberEntity StaffMember { get; set; }
 
-        [ForeignKey("ServerTeamId")]
-        public ServerTeamEntity ServerTeam { get; set; }
+        [Required]
+        [ForeignKey("JobWorkedId")]
+        public JobEntity Job { get; set; }
 
     }
 }

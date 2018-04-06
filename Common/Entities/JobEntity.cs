@@ -12,9 +12,5 @@ namespace Common.Entities
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }
-        public int StaffMemberId { get; set; }
-
-        [ForeignKey("StaffMemberId")]
-        public StaffMemberEntity StaffMember { get; set; }
     }
 }

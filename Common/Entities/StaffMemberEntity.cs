@@ -16,8 +16,7 @@ namespace Common.Entities
         [Required]
         public string LastName { get; set; }
         public List<EarningsEntity> Earnings { get; set; }
-        public List<CheckOutEntity> CheckOuts { get; set; }
-        public List<JobEntity> ApprovedJobs { get; set; }
-
+        public List<CheckoutEntity> CheckOuts { get; set; }
+        public string Status { get; set; }
     }
 }

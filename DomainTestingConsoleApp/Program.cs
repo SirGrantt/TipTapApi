@@ -1,4 +1,4 @@
-﻿using Domain.CheckOuts;
+﻿using Domain.Checkouts;
 using Domain.Jobs;
 using Domain.StaffEarnings;
 using Domain.StaffMembers;
@@ -25,7 +25,6 @@ namespace DomainTestingConsoleApp
                 FirstName = "Grant",
                 LastName = "Elmer",
                 Id = 1,
-                ApprovesJobs = { server }
             };
 
             StaffMember Alyson = new StaffMember()
@@ -33,7 +32,6 @@ namespace DomainTestingConsoleApp
                 FirstName = "Alyson",
                 LastName = "Elmer",
                 Id = 2,
-                ApprovesJobs = { server }
             };
 
             StaffMember Lauren = new StaffMember()
@@ -41,12 +39,11 @@ namespace DomainTestingConsoleApp
                 FirstName = "Lauren",
                 LastName = "Wine",
                 Id = 3,
-                ApprovesJobs = { server }
             };
 
             ServerTeam team = new ServerTeam(DateTime.Today);
 
-            CheckOut grantsCheckOut = new CheckOut(Grant, DateTime.Today, server.Title)
+            Checkout grantsCheckOut = new Checkout(Grant, DateTime.Today, server)
             {
                 GrossSales = 962.92m,
                 Sales = 900,
@@ -61,7 +58,7 @@ namespace DomainTestingConsoleApp
                 NumberOfBottlesSold = 1
             };
 
-            CheckOut alysonsCheckOut = new CheckOut(Alyson, DateTime.Today, server.Title)
+            Checkout alysonsCheckOut = new Checkout(Alyson, DateTime.Today, server)
             {
                 GrossSales = 1680.78m,
                 Sales = 800,
@@ -76,7 +73,7 @@ namespace DomainTestingConsoleApp
                 NumberOfBottlesSold = 2 
             };
 
-            CheckOut laurensCheckOut = new CheckOut(Alyson, DateTime.Today, server.Title)
+            Checkout laurensCheckOut = new Checkout(Alyson, DateTime.Today, server)
             {
                 GrossSales = 2187.03m,
                 Sales = 800,

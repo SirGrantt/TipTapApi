@@ -4,15 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain.CheckOuts
+namespace Domain.Checkouts
 {
-    public class CheckOut
+    public class Checkout
     {
         public DateTime ShiftDate { get; set; }
         public StaffMember StaffMember { get; set; }
         public decimal NonTipOutBarSales { get; set; }
         public int NumberOfBottlesSold { get; set; }
-        public string JobWorked { get; set; }
         public string LunchOrDinner { get; set; }
         public decimal Sales { get; set; }
         public decimal GrossSales { get; set; }
@@ -22,12 +21,13 @@ namespace Domain.CheckOuts
         public decimal CcAutoGrat { get; set; }
         public decimal CashAutoGrat { get; set; }
         public decimal Hours { get; set; }
+        public Job JobWorked { get; set; }
 
-        public CheckOut(StaffMember staffMember, DateTime shiftDate, string jobWorked)
+        public Checkout(StaffMember staffMember, DateTime shiftDate, Job job)
         {
             ShiftDate = shiftDate;
             StaffMember = staffMember;
-            JobWorked = jobWorked;
+            JobWorked = job;
         }
     }
 }

@@ -1766,7 +1766,8 @@
       },
       "Common/1.0.0": {
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "FluentValidation.AspNetCore": "7.5.2"
         },
         "runtime": {
           "Common.dll": {}

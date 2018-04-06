@@ -11,17 +11,36 @@ using Persistence.Contexts;
 
 namespace TipTapApi.Migrations
 {
-    [DbContext(typeof(CheckOutManagerContext))]
-    partial class ShiftContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(CheckoutManagerContext))]
+    [Migration("20180331002019_AddingLunchOrDinnerPropertyToServerTeams")]
+    partial class AddingLunchOrDinnerPropertyToServerTeams
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.0-preview1-28290")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Common.Entities.CheckOutEntity", b =>
+            modelBuilder.Entity("Common.Entities.ApprovedJobEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("JobId");
+
+                    b.Property<int>("StaffMemberId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobId");
+
+                    b.HasIndex("StaffMemberId");
+
+                    b.ToTable("ApprovedRoles");
+                });
+
+            modelBuilder.Entity("Common.Entities.CheckoutEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -40,7 +59,7 @@ namespace TipTapApi.Migrations
 
                     b.Property<decimal>("Hours");
 
-                    b.Property<string>("JobWorked");
+                    b.Property<int>("JobWorkedId");
 
                     b.Property<string>("LunchOrDinner");
 
@@ -50,15 +69,13 @@ namespace TipTapApi.Migrations
 
                     b.Property<decimal>("Sales");
 
-                    b.Property<int>("ServerTeamId");
-
                     b.Property<DateTime>("ShiftDate");
 
                     b.Property<int>("StaffMemberId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ServerTeamId");
+                    b.HasIndex("JobWorkedId");
 
                     b.HasIndex("StaffMemberId");
 
@@ -101,16 +118,48 @@ namespace TipTapApi.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("StaffMemberId");
-
                     b.Property<string>("Title")
                         .IsRequired();
 
                     b.HasKey("Id");
 
+                    b.ToTable("Jobs");
+                });
+
+            modelBuilder.Entity("Common.Entities.MainJobEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("JobId");
+
+                    b.Property<int>("StaffMemberId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobId");
+
                     b.HasIndex("StaffMemberId");
 
-                    b.ToTable("Jobs");
+                    b.ToTable("MainJobs");
+                });
+
+            modelBuilder.Entity("Common.Entities.ServerTeamCheckoutEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CheckoutId");
+
+                    b.Property<int>("TeamId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CheckoutId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("ServerTeamCheckouts");
                 });
 
             modelBuilder.Entity("Common.Entities.ServerTeamEntity", b =>
@@ -120,9 +169,15 @@ namespace TipTapApi.Migrations
 
                     b.Property<bool>("CheckoutHasBeenRun");
 
+                    b.Property<string>("LunchOrDinner");
+
                     b.Property<DateTime>("ShiftDate");
 
+                    b.Property<int>("TipOutId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TipOutId");
 
                     b.ToTable("ServerTeams");
                 });
@@ -137,6 +192,8 @@ namespace TipTapApi.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired();
+
+                    b.Property<string>("Status");
 
                     b.HasKey("Id");
 
@@ -162,17 +219,29 @@ namespace TipTapApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ServerTeamId")
-                        .IsUnique();
+                    b.HasIndex("ServerTeamId");
 
                     b.ToTable("TipOuts");
                 });
 
-            modelBuilder.Entity("Common.Entities.CheckOutEntity", b =>
+            modelBuilder.Entity("Common.Entities.ApprovedJobEntity", b =>
                 {
-                    b.HasOne("Common.Entities.ServerTeamEntity", "ServerTeam")
-                        .WithMany("CheckOuts")
-                        .HasForeignKey("ServerTeamId")
+                    b.HasOne("Common.Entities.JobEntity", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Common.Entities.StaffMemberEntity", "StaffMember")
+                        .WithMany()
+                        .HasForeignKey("StaffMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Common.Entities.CheckoutEntity", b =>
+                {
+                    b.HasOne("Common.Entities.JobEntity", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobWorkedId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Common.Entities.StaffMemberEntity", "StaffMember")
@@ -189,19 +258,45 @@ namespace TipTapApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Common.Entities.JobEntity", b =>
+            modelBuilder.Entity("Common.Entities.MainJobEntity", b =>
                 {
+                    b.HasOne("Common.Entities.JobEntity", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Common.Entities.StaffMemberEntity", "StaffMember")
-                        .WithMany("ApprovedJobs")
+                        .WithMany()
                         .HasForeignKey("StaffMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Common.Entities.ServerTeamCheckoutEntity", b =>
+                {
+                    b.HasOne("Common.Entities.CheckoutEntity", "Checkout")
+                        .WithMany()
+                        .HasForeignKey("CheckoutId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Common.Entities.ServerTeamEntity", "ServerTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Common.Entities.ServerTeamEntity", b =>
+                {
+                    b.HasOne("Common.Entities.TipOutEntity", "TipOut")
+                        .WithMany()
+                        .HasForeignKey("TipOutId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Common.Entities.TipOutEntity", b =>
                 {
                     b.HasOne("Common.Entities.ServerTeamEntity", "ServerTeam")
-                        .WithOne("TipOut")
-                        .HasForeignKey("Common.Entities.TipOutEntity", "ServerTeamId")
+                        .WithMany()
+                        .HasForeignKey("ServerTeamId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

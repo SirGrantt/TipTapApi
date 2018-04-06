@@ -1,4 +1,4 @@
-﻿using Domain.CheckOuts;
+﻿using Domain.Checkouts;
 using Domain.TipOuts;
 using System;
 using System.Collections.Generic;

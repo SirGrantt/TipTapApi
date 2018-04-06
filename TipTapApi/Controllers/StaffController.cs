@@ -11,6 +11,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common.DTOs.JobDtos;
+using Domain.StaffMembers;
+using Common.RepositoryInterfaces;
+using Common.Entities;
+using Domain.Jobs;
+
 namespace TipTapApi.Controllers
 {
     [Route("staff")]
@@ -19,12 +25,14 @@ namespace TipTapApi.Controllers
         IStaffMemberRepository _repo;
         private ILogger<StaffController> _logger;
         private StaffMembersCore _staffCore;
+        private JobCore _jobCore;
         private string errorMsg = "An error occured while processing your request";
-        public StaffController(IStaffMemberRepository repo, ILogger<StaffController> logger)
+        public StaffController(IStaffMemberRepository repo, IJobRepository jobRepository, ILogger<StaffController> logger)
         {
             _repo = repo;
             _logger = logger;
             _staffCore = new StaffMembersCore(_repo);
+            _jobCore = new JobCore(jobRepository);
         }
 
         [HttpGet()]
@@ -46,8 +54,9 @@ namespace TipTapApi.Controllers
                 _logger.LogError(e, "Error while loading the staff Members");
                 return StatusCode(500, errorMsg);
             }
+
         }
-        
+
         [HttpGet("{staffId}")]
         public IActionResult GetStaffMember(int staffId)
         {
@@ -59,35 +68,36 @@ namespace TipTapApi.Controllers
                 }
                 return Ok(_staffCore.GetStaffMember(staffId));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _logger.LogError(e, "An error occured while retrieving a specific staff member");
                 return StatusCode(500, errorMsg);
             }
         }
-        
+
         [HttpPost("staff-editor", Name = "StaffEditor")]
-        public IActionResult AddStaffMember([FromBody] StaffMemberDto sm)
+        public IActionResult AddStaffMember([FromBody] AddStaffMemberDto sm)
         {
+            StaffMemberDto staffMemberDto = Mapper.Map<StaffMemberDto>(sm);
             try
             {
-                StaffMemberDto savedStaffMember = _staffCore.AddStaffMember(sm);
+                StaffMemberDto savedStaffMember = _staffCore.AddStaffMember(staffMemberDto);
 
-                if(savedStaffMember == null)
+                if (savedStaffMember == null)
                 {
                     return BadRequest(ModelState);
                 }
                 return CreatedAtRoute("StaffEditor", new { staffId = savedStaffMember.Id }, savedStaffMember);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _logger.LogError(e, "An error occured while trying to add a staff member");
                 return StatusCode(500, errorMsg);
             }
         }
-        
+
         [HttpPut("staff-editor/{staffId}")]
-        public IActionResult UpdateStaffMemberName(int staffId, 
+        public IActionResult UpdateStaffMemberName(int staffId,
             [FromBody] UpdateStaffMemberName sm)
         {
             try
@@ -107,59 +117,54 @@ namespace TipTapApi.Controllers
                 return StatusCode(500, ModelState);
             }
         }
-        /*
-        [HttpPatch("staff-editor/{staffId}")]
-        public IActionResult ChangeStaffMemberNameCommand(int staffId, 
-            [FromBody] JsonPatchDocument<StaffMemberForUpdate> s)
+
+        [HttpPost("status/inactive")]
+        public IActionResult SetEmployeeStatusToInactive([FromBody] SetEmployeeStatusToInactiveDto sm)
         {
-            if (s == null)
-            {
-                return BadRequest();
-            }
-
-            if (!_staffMemberRepository.StaffMemberExists(staffId))
-            {
-                return NotFound();
-            }
-
             try
             {
-                var staffMemberEntity = _staffMemberRepository.GetStaffMember(staffId);
-                var staffMemberToPatch = Mapper.Map<StaffMemberForUpdate>(staffMemberEntity);
-                s.ApplyTo(staffMemberToPatch, ModelState);
-
-                if (!ModelState.IsValid)
+                if (!_staffCore.StaffMemberExists(sm.staffMemberId))
                 {
+                    ModelState.AddModelError("Not Found", "No staff member with the provided ID was found");
                     return BadRequest(ModelState);
                 }
 
-                //Validate that the items being patched are given valid parameters
-                StaffMemberForUpdate patchedStaffMember = staffMemberToPatch;
-                StaffMemberDtoOLD smForValidation = Mapper.Map<StaffMemberDtoOLD>(patchedStaffMember);
-                ValidationResult result = Validator.Validate(smForValidation);
-                bool resultIsValid = result.IsValid;
-                if (!resultIsValid)
-                {
-                    ModelState.AddModelError("Provided Parameters", "Please provide valid Staff Member properites.");
-                    return BadRequest(ModelState);
-                }
+                _staffCore.SetInactiveStatus(sm.staffMemberId);
 
-                Mapper.Map(staffMemberToPatch, staffMemberEntity);
-
-                if (!_staffMemberRepository.Save())
-                {
-                    return StatusCode(500, "An error occured while processing your request.");
-                }
-
-                return NoContent();
+                return Ok();
             }
             catch(Exception e)
             {
-                _logger.LogError(e, $"An error occured while trying to perform a PATCH update on a staff member with the id: {staffId}");
-                return StatusCode(500, errorMsg);
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Setting inactive status", e.Message);
+                return StatusCode(500, ModelState);
             }
         }
-        */
+
+        [HttpPost("main-job")]
+        public IActionResult SetStaffMemberMainJob([FromBody] SetStaffMemberMainJobDto data)
+        {
+            try
+            {
+                if (!_staffCore.StaffMemberExists(data.StaffMemberId) && !_jobCore.JobExists(data.JobId))
+                {
+                    ModelState.AddModelError("Not Found", "One of the Ids provided was not found.");
+                    return BadRequest(ModelState);
+                }
+
+                Job job = _jobCore.GetJob(data.JobId); 
+                StaffMember staffMember = _staffCore.SetMainJob(data.StaffMemberId, job);
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Error while setting main job", e.Message);
+                return StatusCode(500, ModelState);
+            }
+        }
+
+
         [HttpDelete("staff-editor/{staffId}")]
         public IActionResult DeleteStaffMember(int staffId)
         {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Domain.CheckOuts;
+using Domain.Checkouts;
 using Domain.StaffEarnings;
 using Domain.TipOuts;
 using static Domain.Utilities.TipOutCalculator.JobTypeEnum;
@@ -12,20 +12,20 @@ namespace Domain.Utilities.TipOutCalculator
     {
         public JobType Job => JobType.Server;
 
-        public Earnings CalculateEarnings(List<CheckOut> checkouts, TipOut tipout, DateTime shiftDate)
+        public Earnings CalculateEarnings(List<Checkout> checkouts, TipOut tipout, DateTime shiftDate, string lunchOrDinner)
         {
             decimal teamTotalTipout = tipout.BarTipOut + tipout.SaTipOut;
             decimal teamTotalCcTips = 0;
             decimal teamTotalAutoGrat = 0;
             decimal teamTotalCashTips = 0;
-            foreach (CheckOut c in checkouts)
+            foreach (Checkout c in checkouts)
             {
                 teamTotalCcTips += c.CcTips + c.CashAutoGrat;
                 teamTotalAutoGrat += c.CcAutoGrat;
                 teamTotalCashTips += c.CashTips;
             }
 
-            Earnings individualEarnings = new Earnings(shiftDate, "server");
+            Earnings individualEarnings = new Earnings(shiftDate, "server", lunchOrDinner);
 
             if (teamTotalCcTips >= teamTotalTipout)
             {
@@ -59,11 +59,11 @@ namespace Domain.Utilities.TipOutCalculator
             return individualEarnings;
         }
 
-        public decimal CalculateTeamBarSales(List<CheckOut> checkouts)
+        public decimal CalculateTeamBarSales(List<Checkout> checkouts)
         {
             decimal teamBarSales = 0;
 
-            foreach(CheckOut c in checkouts)
+            foreach(Checkout c in checkouts)
             {
                 teamBarSales += c.BarSales - c.NonTipOutBarSales;
             }
@@ -71,11 +71,11 @@ namespace Domain.Utilities.TipOutCalculator
             return teamBarSales;
         }
 
-        public decimal CalculateTeamGrossSales(List<CheckOut> checkouts)
+        public decimal CalculateTeamGrossSales(List<Checkout> checkouts)
         {
             decimal teamGrossSales = 0;
 
-            foreach (CheckOut checkout in checkouts)
+            foreach (Checkout checkout in checkouts)
             {
                 teamGrossSales += checkout.GrossSales;
             }
@@ -101,7 +101,6 @@ namespace Domain.Utilities.TipOutCalculator
             {
                 tipout += specialLine;
             }
-
             return Math.Round(tipout, 2);
         }
     }

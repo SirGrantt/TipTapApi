@@ -52,9 +52,17 @@ namespace Persistence.Repositories
                 .FirstOrDefault();
         }
 
-        public IEnumerable<CheckoutEntity> GetCheckOutsForADate(DateTime date)
+        public IEnumerable<CheckoutEntity> GetCheckOutsForAShift(DateTime date, string lunchOrDinner)
         {
-            throw new NotImplementedException();
+            List<CheckoutEntity> checkouts = new List<CheckoutEntity>();
+
+            foreach (CheckoutEntity c in _context.CheckOuts.Where(c => c.ShiftDate == date
+            && c.LunchOrDinner == lunchOrDinner).Include(c => c.StaffMember).Include(c => c.Job))
+            {
+                checkouts.Add(c);
+            }
+
+            return checkouts;
         }
 
         public IEnumerable<CheckoutEntity> GetCheckoutsForAServerTeam(int serverTeamId)

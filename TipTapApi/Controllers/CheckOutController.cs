@@ -100,5 +100,28 @@ namespace TipTapApi.Controllers
                 return StatusCode(500, ModelState);
             }
         }
+
+        [HttpPost("get-all-for-shift")]
+        public IActionResult GetCheckoutsForShift([FromBody] GetCheckoutsForShiftDto data)
+        {
+            try
+            {
+                data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+                UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
+
+                List<CheckoutOverviewDto> checkouts = _checkoutsCore.GetCheckoutsForShift(data.ShiftDate, data.LunchOrDinner).ToList();
+                return Ok(checkouts);
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("Get Checkouts Error", e.Message);
+                if (e.InnerException is InvalidOperationException)
+                {
+                    return BadRequest(ModelState);
+                }
+                _logger.LogError(e.Message);
+                return StatusCode(500, ModelState);
+            }
+        }
     }
 }

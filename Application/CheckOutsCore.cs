@@ -78,5 +78,19 @@ namespace Application
         {
             return _repository.GetCheckoutsForAServerTeam(serverTeamId);
         }
+
+        public IEnumerable<CheckoutOverviewDto> GetCheckoutsForShift(DateTime shiftDate, string lunchOrDinner)
+        {
+            IEnumerable<CheckoutEntity> checkoutEntities = _repository.GetCheckOutsForAShift(shiftDate, lunchOrDinner);
+            List<CheckoutOverviewDto> checkouts = new List<CheckoutOverviewDto>();
+            
+            foreach (CheckoutEntity c in checkoutEntities)
+            {
+                var checkoutDto = Mapper.Map<CheckoutOverviewDto>(c);
+                checkouts.Add(checkoutDto);
+            }
+
+            return checkouts;
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Common.RepositoryInterfaces
         bool CheckoutExistsById(int checkoutId);
         CheckoutEntity GetCheckOutById(int checkOutId);
         CheckoutEntity GetCheckOutForStaffMemberForSpecificDate(DateTime date, int staffMemberId, string lunchOrDinner);
-        IEnumerable<CheckoutEntity> GetCheckOutsForADate(DateTime date);
+        IEnumerable<CheckoutEntity> GetCheckOutsForAShift(DateTime date, string lunchOrDinner);
         IEnumerable<CheckoutEntity> GetCheckOutsForAStaffMember(StaffMemberEntity staffmember);
         IEnumerable<CheckoutEntity> GetCheckOutsForAStaffMemberForAJob(StaffMemberEntity staffMember, JobEntity j);
         IEnumerable<CheckoutEntity> GetCheckoutsForAServerTeam(int serverTeamId);

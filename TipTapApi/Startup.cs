@@ -94,6 +94,10 @@ namespace TipTapApi
                 cfg.CreateMap<CheckoutEntity, Checkout>()
                 .ForCtorParam("job", opt => opt.MapFrom(src => src.Job));
                 cfg.CreateMap<Checkout, CheckoutDto>();
+                cfg.CreateMap<CheckoutEntity, CheckoutDto>();
+                cfg.CreateMap<CheckoutEntity, CheckoutOverviewDto>()
+                .ForCtorParam("fullName", opt => opt.MapFrom(src => src.StaffMember.FirstName + " " + src.StaffMember.LastName))
+                .ForCtorParam("jobTitle", opt => opt.MapFrom(src => src.Job.Title));
 
                 cfg.CreateMap<JobEntity, JobDto>();
                 cfg.CreateMap<JobDto, Job>();

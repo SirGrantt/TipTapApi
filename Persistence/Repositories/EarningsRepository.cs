@@ -60,6 +60,17 @@ namespace Persistence.Repositories
             return earnings;
         }
 
+        public IEnumerable<EarningsEntity> GetEarningsForShift(DateTime shiftDate, string lunchOrDinner)
+        {
+            List<EarningsEntity> earnings = new List<EarningsEntity>();
+            foreach (EarningsEntity e in _context.Earnings.Where(e => e.ShiftDate == shiftDate && e.LunchOrDinner == lunchOrDinner))
+            {
+                earnings.Add(e);
+            }
+
+            return earnings;
+        }
+
         public void ResetEarning(EarningsEntity earning)
         {
             _context.Earnings.Remove(earning);

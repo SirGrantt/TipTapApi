@@ -143,6 +143,9 @@ namespace Application
         {
             ServerTeamEntity team = serverTeamRepository.GetServerTeamById(serverTeamId);
             serverTeamRepository.DeleteServerTeamCheckout(team);
+            //Reset the checkouthasbeenrun property in order to prevent bugs when other things need to know if this checkout
+            //has been run in the past.
+            team.CheckoutHasBeenRun = false;
 
             UtilityMethods.VerifyDatabaseSaveSuccess(serverTeamRepository);
         }
@@ -151,6 +154,19 @@ namespace Application
         {
             ServerTeamDto team = Mapper.Map<ServerTeamDto>(serverTeamRepository.GetServerTeamById(serverTeamId));
             return team;
+        }
+
+        public List<ServerTeamDto> GetServerTeamsForShift(DateTime shiftDate, string lunchOrDinner)
+        {
+            IEnumerable<ServerTeamEntity> serverTeamEntities = serverTeamRepository.GetServerTeamsForShift(shiftDate, lunchOrDinner);
+            List<ServerTeamDto> serverTeams = new List<ServerTeamDto>();
+
+            foreach (ServerTeamEntity s in serverTeamEntities)
+            {
+                serverTeams.Add(Mapper.Map<ServerTeamDto>(s));
+            }
+
+            return serverTeams;
         }
 
     }

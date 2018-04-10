@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Application;
 using Common;
 using Common.DTOs.CheckOutDtos;
+using Common.DTOs.EarningsDtos;
 using Common.DTOs.JobDtos;
 using Common.DTOs.StaffMemberDtos;
+using Common.DTOs.TeamDtos;
 using Common.RepositoryInterfaces;
 using Common.Utilities;
 using Microsoft.AspNetCore.Http;
@@ -21,13 +23,17 @@ namespace TipTapApi.Controllers
         private CheckoutsCore _checkoutsCore;
         private StaffMembersCore _staffCore;
         private JobCore _jobCore;
+        private ServerTeamsCore _serverTeamCore;
+        private EarningsCore _earningsCore;
         private ILogger<CheckoutController> _logger;
-        public CheckoutController(ICheckoutRepository coRepository, ILogger<CheckoutController> logger, IStaffMemberRepository sRepo, IJobRepository jRepo)
+        public CheckoutController(ICheckoutRepository coRepository, ILogger<CheckoutController> logger, IStaffMemberRepository sRepo, IJobRepository jRepo, IServerTeamRepository teamRepo, IEarningsRepository earningsRepo)
         {
             _checkoutsCore = new CheckoutsCore(coRepository);
             _logger = logger;
             _staffCore = new StaffMembersCore(sRepo);
             _jobCore = new JobCore(jRepo);
+            _serverTeamCore = new ServerTeamsCore(teamRepo);
+            _earningsCore = new EarningsCore(earningsRepo);
         }
 
         [HttpPost("create", Name = "CreateCheckout")]
@@ -110,7 +116,10 @@ namespace TipTapApi.Controllers
                 UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
 
                 List<CheckoutOverviewDto> checkouts = _checkoutsCore.GetCheckoutsForShift(data.ShiftDate, data.LunchOrDinner).ToList();
-                return Ok(checkouts);
+                List<ServerTeamDto> serverTeams = _serverTeamCore.GetServerTeamsForShift(data.ShiftDate, data.LunchOrDinner);
+                List<EarningDto> shiftEarnings = _earningsCore.GetEarningsForShift(data.ShiftDate, data.LunchOrDinner);
+                ServerCheckoutPagePresentationDto pageData = _checkoutsCore.FormatPageData(checkouts, serverTeams, shiftEarnings);
+                return Ok(pageData);
             }
             catch (Exception e)
             {

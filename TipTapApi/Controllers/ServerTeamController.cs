@@ -123,7 +123,7 @@ namespace TipTapApi.Controllers
         }
 
         [HttpPost("reset-checkout")]
-        public IActionResult ResetCheckout([FromBody] Common.DTOs.CheckoutsRanDtos.DeleteCheckoutDto data)
+        public IActionResult ResetCheckout([FromBody] ResetTeamCheckoutDto data)
         {
             try
             {

@@ -12,7 +12,7 @@ using static Domain.Utilities.TipOutCalculator.JobTypeEnum;
 
 namespace Domain.Teams
 {
-    public class ServerTeam
+    public class ServerTeam 
     {
         public int Id { get; set; }
         public DateTime ShiftDate { get; set; }

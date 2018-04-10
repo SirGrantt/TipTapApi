@@ -66,5 +66,17 @@ namespace Application
                 UtilityMethods.VerifyDatabaseSaveSuccess(earningsRepository);
             }
         }
+
+        public List<EarningDto> GetEarningsForShift(DateTime shiftDate, string lunchOrDinner)
+        {
+            IEnumerable<EarningsEntity> earningsEntities = earningsRepository.GetEarningsForShift(shiftDate, lunchOrDinner);
+            List<EarningDto> earnings = new List<EarningDto>();
+            foreach (EarningsEntity e in earningsEntities)
+            {
+                earnings.Add(Mapper.Map<EarningDto>(e));
+            }
+
+            return earnings;
+        }
     }
 }

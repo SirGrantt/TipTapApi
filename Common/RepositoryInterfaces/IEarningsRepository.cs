@@ -15,5 +15,6 @@ namespace Common.RepositoryInterfaces
         bool EarningExists(int staffMemberId, DateTime shiftDate, string lunchOrDinner);
         bool EarningExistsById(int earningId);
         void ResetEarning(EarningsEntity earning);
+        IEnumerable<EarningsEntity> GetEarningsForShift(DateTime shiftDate, string lunchOrDinner);
     }
 }

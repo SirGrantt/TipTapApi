@@ -8,7 +8,7 @@ using static Domain.Utilities.TipOutCalculator.JobTypeEnum;
 
 namespace Domain.Utilities.TipOutCalculator
 {
-    public interface ITipOutCalculator
+    public interface ITipOutCalculator 
     {
         JobType Job { get; }
         decimal CalculateTipOut(decimal target, decimal tipOutPercent, decimal specialLine);

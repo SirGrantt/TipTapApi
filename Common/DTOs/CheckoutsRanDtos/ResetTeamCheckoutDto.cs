@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Common.DTOs.CheckoutsRanDtos
 {
-    public class DeleteCheckoutDto
+    public class ResetTeamCheckoutDto
     {
         public int ServerTeamId { get; set; }
         public string UnformattedDate { get; set; }

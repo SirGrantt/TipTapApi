@@ -1,7 +1,10 @@
-﻿using AutoMapper;
+﻿using Application.PageFormatting;
+using AutoMapper;
 using Common.DTOs.CheckOutDtos;
+using Common.DTOs.EarningsDtos;
 using Common.DTOs.JobDtos;
 using Common.DTOs.StaffMemberDtos;
+using Common.DTOs.TeamDtos;
 using Common.Entities;
 using Common.RepositoryInterfaces;
 using Common.Utilities;
@@ -10,6 +13,7 @@ using Domain.Jobs;
 using Domain.StaffMembers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Application
@@ -17,10 +21,12 @@ namespace Application
     public class CheckoutsCore
     {
         private ICheckoutRepository _repository;
+        private ServerTeamGroupedCheckoutsFormatter groupFormatter;
 
         public CheckoutsCore(ICheckoutRepository repository)
         {
             _repository = repository;
+            groupFormatter = new ServerTeamGroupedCheckoutsFormatter();
         }
         public CheckoutDto CreateCheckout(CreateCheckoutDto data, StaffMemberDto staffMemberDto, JobDto jobDto)
         {
@@ -91,6 +97,28 @@ namespace Application
             }
 
             return checkouts;
+        }
+
+        public ServerCheckoutPagePresentationDto FormatPageData(List<CheckoutOverviewDto> checkouts, List<ServerTeamDto> serverTeams, List<EarningDto> shiftEarnings)
+        {
+            ServerCheckoutPagePresentationDto pageData = new ServerCheckoutPagePresentationDto();
+
+            //Here the teams that have had their checkouts run are assembled into groups for presentation
+            foreach (ServerTeamDto s in serverTeams)
+            {
+                IEnumerable<CheckoutEntity> entities = _repository.GetCheckoutsForAServerTeam(s.Id);
+                List<TeamGroupedCheckoutsDto> groupedCheckouts = groupFormatter.FormatServerTeamGroupCheckouts(s, entities, checkouts, serverTeams, shiftEarnings);
+                foreach (TeamGroupedCheckoutsDto t in groupedCheckouts)
+                {
+                    pageData.TeamCheckouts.Add(t);
+                }
+            }
+
+            //Now to grab all the checkouts that havent been run and then return the whole dataset
+            pageData.NotRunCheckouts = groupFormatter.FormatUnrunServerCheckouts(checkouts, pageData.TeamCheckouts);
+
+            return pageData;
+
         }
     }
 }

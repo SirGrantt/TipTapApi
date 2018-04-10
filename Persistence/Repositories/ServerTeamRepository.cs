@@ -33,7 +33,7 @@ namespace Persistence.Repositories
             return _context.ServerTeams.FirstOrDefault(t => t.Id == serverTeamId);
         }
 
-        public IEnumerable<ServerTeamEntity> GetServerTeamsForADate(DateTime shiftDate, string lunchOrDinner)
+        public IEnumerable<ServerTeamEntity> GetServerTeamsForShift(DateTime shiftDate, string lunchOrDinner)
         {
             List<ServerTeamEntity> teams = new List<ServerTeamEntity>();
 

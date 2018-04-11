@@ -98,5 +98,11 @@ namespace Persistence.Repositories
             TipOutEntity tipOutEntity = _context.TipOuts.Where(t => t.ServerTeamId == team.Id).FirstOrDefault();
             _context.TipOuts.Remove(tipOutEntity);
         }
+
+        public void RemoveCheckoutFromServerTeam(int serverTeamId, int checkoutId)
+        {
+            ServerTeamCheckoutEntity teamCheckoutReference = _context.ServerTeamCheckouts.Where(t => t.CheckoutId == checkoutId && t.TeamId == serverTeamId).FirstOrDefault();
+            _context.ServerTeamCheckouts.Remove(teamCheckoutReference);
+        }
     }
 }

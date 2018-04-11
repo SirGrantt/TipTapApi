@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application;
+using AutoMapper;
 using Common.DTOs.CheckOutDtos;
 using Common.DTOs.CheckoutsRanDtos;
 using Common.DTOs.EarningsDtos;
@@ -152,6 +153,45 @@ namespace TipTapApi.Controllers
             {
                 _logger.LogError(e.Message);
                 ModelState.AddModelError("Reset Checkout Error", e.Message);
+                return StatusCode(500, ModelState);
+            }
+        }
+
+        [HttpPost("remove-checkout-from-server-team")]
+        public IActionResult RemoveCheckoutFromServerTeam([FromBody] RemoveCheckoutFromServerTeamDto data)
+        {
+            try
+            {
+                data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+                UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
+
+                if (!serverTeamsCore.ServerTeamExists(data.ServerTeamId))
+                {
+                    return BadRequest("No team with that ID was found");
+                }
+
+                if (!checkoutsCore.CheckoutExistsById(data.CheckoutId))
+                {
+                    return BadRequest("No team with that ID was found");
+                }
+
+                List<CheckoutDto> checkoutsForTeam = Mapper.Map<List<CheckoutDto>>(checkoutsCore.GetCheckoutEntitiesForAServerTeam(data.ServerTeamId));
+
+                if (!checkoutsForTeam.Any(c => c.Id == data.CheckoutId))
+                {
+                    return BadRequest("The provided checkout ID was not found on the provided server team");
+                }
+
+                List<StaffMemberDto> teammates = serverTeamsCore.GetStaffMembersOnServerTeam(data.ServerTeamId);
+                serverTeamsCore.DeleteServerTeamCheckout(data.ServerTeamId);
+                earningsCore.ResetEarningsForServerTeam(teammates, data.ShiftDate, data.LunchOrDinner);
+                serverTeamsCore.RemoveCheckoutFromServerTeam(data.ServerTeamId, data.CheckoutId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Remove Checkout from Server Team Error", e.Message);
                 return StatusCode(500, ModelState);
             }
         }

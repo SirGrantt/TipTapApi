@@ -18,5 +18,6 @@ namespace Common.RepositoryInterfaces
         List<StaffMemberEntity> GetServerTeamMembers(int serverTeamId);
         void DeleteServerTeamCheckout(ServerTeamEntity team);
         IEnumerable<ServerTeamEntity> GetServerTeamsForShift(DateTime shiftDate, string lunchOrDinner);
+        void RemoveCheckoutFromServerTeam(int serverTeamId, int checkoutId);
     }
 }

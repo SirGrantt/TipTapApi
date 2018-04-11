@@ -169,5 +169,13 @@ namespace Application
             return serverTeams;
         }
 
+
+        public void RemoveCheckoutFromServerTeam(int serverTeamId, int checkoutId)
+        {
+            serverTeamRepository.RemoveCheckoutFromServerTeam(serverTeamId, checkoutId);
+
+            UtilityMethods.VerifyDatabaseSaveSuccess(serverTeamRepository);
+        }
+
     }
 }

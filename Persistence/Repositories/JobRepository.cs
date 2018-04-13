@@ -17,6 +17,40 @@ namespace Persistence.Repositories
             _context = context;
         }
 
+        public void AddApprovedJobForStaffMember(JobEntity job, StaffMemberEntity staffMember)
+        {
+            ApprovedJobEntity approval = new ApprovedJobEntity
+            {
+                Job = job,
+                StaffMember = staffMember
+            };
+            _context.ApprovedRoles.Add(approval);
+        }
+
+        public List<JobEntity> GetAllJobs()
+        {
+            return _context.Jobs.ToList();
+        }
+
+        public List<JobEntity> GetApprovedJobsForStaffMember(int staffMemberId)
+        {
+            List<JobEntity> approvedJobs = new List<JobEntity>();
+            List<ApprovedJobEntity> reference = new List<ApprovedJobEntity>();
+
+            foreach (ApprovedJobEntity approvedJob in _context.ApprovedRoles.Where(a => a.StaffMemberId == staffMemberId))
+            {
+                reference.Add(approvedJob);
+            }
+
+            foreach (ApprovedJobEntity r in reference)
+            {
+                JobEntity job = _context.Jobs.Where(j => j.Id == r.JobId).FirstOrDefault();
+                approvedJobs.Add(job);
+            }
+
+            return approvedJobs;
+        }
+
         public JobEntity GetJob(int jobId)
         {
             return _context.Jobs.FirstOrDefault(j => j.Id == jobId);
@@ -30,6 +64,12 @@ namespace Persistence.Repositories
         public bool JobExists(int jobId)
         {
             return _context.Jobs.Any(j => j.Id == jobId);
+        }
+
+        public void RemoveApprovedJobFromStaffMember(int jobId, int staffMemberId)
+        {
+            ApprovedJobEntity approvedJob = _context.ApprovedRoles.Where(j => j.StaffMemberId == staffMemberId && j.JobId == jobId).FirstOrDefault();
+            _context.ApprovedRoles.Remove(approvedJob);
         }
 
         public bool Save()

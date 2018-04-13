@@ -10,5 +10,9 @@ namespace Common.RepositoryInterfaces
         bool JobExists(int jobId);
         JobEntity GetJob(int jobId);
         JobEntity GetJobByTitle(string title);
+        List<JobEntity> GetAllJobs();
+        List<JobEntity> GetApprovedJobsForStaffMember(int staffMemberId);
+        void AddApprovedJobForStaffMember(JobEntity job, StaffMemberEntity staffMember);
+        void RemoveApprovedJobFromStaffMember(int jobId, int staffMemberId);
     }
 }

@@ -41,5 +41,11 @@ namespace Application
             return Mapper.Map<JobDto>(job);
         }
 
+        public List<JobDto> GetAllJobs()
+        {
+            List<JobEntity> jobs = jobRepository.GetAllJobs();
+            return Mapper.Map<List<JobDto>>(jobs);
+        }
+
     }
 }

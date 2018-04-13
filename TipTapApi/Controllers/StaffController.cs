@@ -183,6 +183,28 @@ namespace TipTapApi.Controllers
                 _logger.LogError(e, $"An error occured while trying to delete a staff member with the id: {staffId}");
                 return StatusCode(500, errorMsg);
             }
-        } 
+        }
+        
+        [HttpGet("jobs")]
+        public IActionResult GetAllJobs()
+        {
+            try
+            {
+                List<JobDto> jobs = _jobCore.GetAllJobs();
+                return Ok(jobs);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Error Getting Jobs", e.Message);
+                return StatusCode(500, ModelState);
+            }
+        }
+
+        [HttpPost("staff-member-jobs")]
+        public IActionResult GetStaffMembersJobs(GetStaffMembersJobsDto data)
+        {
+
+        }
     }
 }

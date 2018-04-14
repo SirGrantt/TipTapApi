@@ -49,6 +49,12 @@ namespace Application
             return staffDto;
         }
 
+        public StaffMemberEntity GetStaffMemberEntity(int staffMemberId)
+        {
+            var staffEntity = _repository.GetStaffMember(staffMemberId);
+            return staffEntity;
+        }
+
         public bool ValidateStaffMember(StaffMemberDto sm)
         {
             ValidationResult results = Validator.Validate(sm);

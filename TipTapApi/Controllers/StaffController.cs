@@ -202,9 +202,85 @@ namespace TipTapApi.Controllers
         }
 
         [HttpPost("staff-member-jobs")]
-        public IActionResult GetStaffMembersJobs(GetStaffMembersJobsDto data)
+        public IActionResult GetStaffMemberJobs([FromBody] GetStaffMemberJobsDto data)
         {
+            try
+            {
+                if (!_staffCore.StaffMemberExists(data.StaffMemberId))
+                {
+                    return BadRequest("No staff member with the provided ID was found");
+                }
+                List<JobDto> jobs = _jobCore.GetStaffMemberJobs(data.StaffMemberId);
+                return Ok(jobs);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Error Retreiving Approved Jobs", e.Message);
+                return StatusCode(500, ModelState);
+            }
+        }
 
+        [HttpPost("add-approved-job")]
+        public IActionResult AddApprovedJobToStaffMember([FromBody] EditStaffMemberApprovedRolesDto data)
+        {
+            try
+            {
+                if (!_staffCore.StaffMemberExists(data.StaffMemberId))
+                {
+                    return BadRequest("No staff member with the provided ID was found");
+                }
+                _jobCore.AddApprovedJobsToStaffMember(_staffCore.GetStaffMemberEntity(data.StaffMemberId), data.JobIds);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                if (e.InnerException is InvalidOperationException)
+                {
+                    ModelState.AddModelError("Invalid Approved Job Operation", e.Message);
+                    return BadRequest(ModelState);
+                }
+
+                if (e.InnerException is KeyNotFoundException)
+                {
+                    ModelState.AddModelError("ID Not Found", e.Message);
+                    return BadRequest(ModelState);
+                }
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Error Adding Approved Jobs", e.Message);
+                return BadRequest(ModelState);
+            }
+        }
+
+        [HttpPost("remove-job-approval")]
+        public IActionResult RemoveJobApproval([FromBody] EditStaffMemberApprovedRolesDto data)
+        {
+            try
+            {
+                if (!_staffCore.StaffMemberExists(data.StaffMemberId))
+                {
+                    return BadRequest("No staff member with the provided ID was found");
+                }
+                _jobCore.RemoveJobApproval(data.StaffMemberId, data.JobIds);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                if (e.InnerException is InvalidOperationException)
+                {
+                    ModelState.AddModelError("Invalid Job Removal Operation", e.Message);
+                    return BadRequest(ModelState);
+                }
+
+                if (e.InnerException is KeyNotFoundException)
+                {
+                    ModelState.AddModelError("ID Not Found", e.Message);
+                    return BadRequest(ModelState);
+                }
+                _logger.LogError(e.Message);
+                ModelState.AddModelError("Error Removing Job Approval", e.Message);
+                return StatusCode(500, ModelState);
+            }
         }
     }
 }

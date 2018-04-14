@@ -66,6 +66,11 @@ namespace Persistence.Repositories
             return _context.Jobs.Any(j => j.Id == jobId);
         }
 
+        public bool JobIsAssigned(int jobId, int staffMemberId)
+        {
+            return _context.ApprovedRoles.Any(j => j.JobId == jobId && j.StaffMemberId == staffMemberId);
+        }
+
         public void RemoveApprovedJobFromStaffMember(int jobId, int staffMemberId)
         {
             ApprovedJobEntity approvedJob = _context.ApprovedRoles.Where(j => j.StaffMemberId == staffMemberId && j.JobId == jobId).FirstOrDefault();

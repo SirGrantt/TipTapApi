@@ -14,5 +14,6 @@ namespace Common.RepositoryInterfaces
         List<JobEntity> GetApprovedJobsForStaffMember(int staffMemberId);
         void AddApprovedJobForStaffMember(JobEntity job, StaffMemberEntity staffMember);
         void RemoveApprovedJobFromStaffMember(int jobId, int staffMemberId);
+        bool JobIsAssigned(int jobId, int staffMemberId);
     }
 }

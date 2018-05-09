@@ -9,3 +9,4 @@ C:\Code\TipTapApi\Common\obj\Debug\netcoreapp2.0\Common.AssemblyInfoInputs.cache
 C:\Code\TipTapApi\Common\obj\Debug\netcoreapp2.0\Common.AssemblyInfo.cs
 C:\Code\TipTapApi\Common\obj\Debug\netcoreapp2.0\Common.dll
 C:\Code\TipTapApi\Common\obj\Debug\netcoreapp2.0\Common.pdb
+C:\Code\TipTapApi\Common\obj\Debug\netcoreapp2.0\Common.csproj.CopyComplete

@@ -8077,20 +8077,17 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Surface\\.nuget\\packages\\": {},
+    "C:\\Users\\grant\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Code\\TipTapApi\\Common\\Common.csproj",
       "projectName": "Common",
       "projectPath": "C:\\Code\\TipTapApi\\Common\\Common.csproj",
-      "packagesPath": "C:\\Users\\Surface\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\grant\\.nuget\\packages\\",
       "outputPath": "C:\\Code\\TipTapApi\\Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -8098,7 +8095,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Surface\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\grant\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],

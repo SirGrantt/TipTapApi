@@ -62,11 +62,7 @@ namespace Application
                 {
                     throw new KeyNotFoundException($"No job with the ID of {id} was found");
                 }
-                else if (jobRepository.JobIsAssigned(id, staffMember.Id))
-                {
-                    throw new InvalidOperationException("You cannot add a job to a staff member who already has that approved job");
-                }
-                else
+                else if (!jobRepository.JobIsAssigned(id, staffMember.Id))
                 {
                     JobEntity job = jobRepository.GetJob(id);
                     jobRepository.AddApprovedJobForStaffMember(job, staffMember);
@@ -83,11 +79,7 @@ namespace Application
                 {
                     throw new KeyNotFoundException($"No job with the id of {id} was found");
                 }
-                else if (!jobRepository.JobIsAssigned(id, staffMemberId))
-                {
-                    throw new InvalidOperationException("You cannot remove a job approval for a job that was never assigned.");
-                }
-                else
+                else if (jobRepository.JobIsAssigned(id, staffMemberId))
                 {
                     jobRepository.RemoveApprovedJobFromStaffMember(id, staffMemberId);
                 }

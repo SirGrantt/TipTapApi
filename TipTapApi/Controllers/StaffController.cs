@@ -47,7 +47,9 @@ namespace TipTapApi.Controllers
                     return NotFound();
                 }
 
-                return Ok(staff);
+                List<StaffMemberDto> filteredOutInactive = staff.Where(s => s.Status != "inactive").ToList();
+
+                return Ok(filteredOutInactive);
             }
             catch (Exception e)
             {
@@ -87,7 +89,7 @@ namespace TipTapApi.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                return CreatedAtRoute("StaffEditor", new { staffId = savedStaffMember.Id }, savedStaffMember);
+                return Ok(savedStaffMember);
             }
             catch (Exception e)
             {

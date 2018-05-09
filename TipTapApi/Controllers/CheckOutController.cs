@@ -36,6 +36,45 @@ namespace TipTapApi.Controllers
             _earningsCore = new EarningsCore(earningsRepo);
         }
 
+
+
+
+        //public TResult ControllerMethodWithTry<TResult>(Func<TResult> method) where TResult:ObjectResult
+        //{
+        //    try
+        //    {
+        //        return method();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        if (e.InnerException is InvalidOperationException)
+        //        {
+        //            return BadRequest(e.Message);
+        //        }
+        //        _logger.LogError(e.Message);
+        //        ModelState.AddModelError("Create Checkout Failure", e.Message);
+        //        return StatusCode(500, ModelState);
+        //    }
+        //}
+
+        //[HttpPost("create", Name = "CreateCheckout")]
+        //public IActionResult CreateCheckOutTest([FromBody] CreateCheckoutDto data)
+        //{
+        //    //convert the date sent from the client into a DateTime format
+        //    data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+
+        //    ControllerMethodWithTry<IActionResult>(() =>
+        //    {
+        //        UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
+        //        StaffMemberDto staffMember = _staffCore.GetStaffMember(data.StaffMemberId);
+        //        JobDto job = _jobCore.GetJobByTitle(data.JobWorkedTitle);
+        //        CheckoutDto checkout = _checkoutsCore.CreateCheckout(data, staffMember, job);
+        //        return CreatedAtRoute("CreateCheckout", checkout);
+        //    });
+
+        //}
+
+
         [HttpPost("create", Name = "CreateCheckout")]
         public IActionResult CreateCheckOut([FromBody] CreateCheckoutDto data)
         {

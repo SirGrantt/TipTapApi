@@ -18,3 +18,4 @@ C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Domain.pdb
 C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Persistence.pdb
 C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Common.dll
 C:\Code\TipTapApi\TipTapApi\bin\Debug\netcoreapp2.0\Common.pdb
+C:\Code\TipTapApi\TipTapApi\obj\Debug\netcoreapp2.0\TipTapApi.csproj.CopyComplete

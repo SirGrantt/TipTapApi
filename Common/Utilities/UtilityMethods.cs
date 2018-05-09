@@ -19,7 +19,7 @@ namespace Common.Utilities
             }
         }
 
-        public static void VerifyDatabaseSaveSuccess(IRepository repository)
+        public static void VerifyDatabaseSaveSuccess(this IRepository repository)
         {
             if (!repository.Save())
             {

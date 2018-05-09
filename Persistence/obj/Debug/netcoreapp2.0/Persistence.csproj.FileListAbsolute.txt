@@ -13,3 +13,4 @@ C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.dll
 C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.pdb
 C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Common.dll
 C:\Code\TipTapApi\Persistence\bin\Debug\netcoreapp2.0\Common.pdb
+C:\Code\TipTapApi\Persistence\obj\Debug\netcoreapp2.0\Persistence.csproj.CopyComplete

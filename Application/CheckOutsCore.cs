@@ -39,7 +39,7 @@ namespace Application
             CheckoutEntity checkOutEntity = Mapper.Map<CheckoutEntity>(checkout);
             _repository.AddCheckOut(checkOutEntity);
 
-            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
+            _repository.VerifyDatabaseSaveSuccess();
             return Mapper.Map<CheckoutDto>(checkOutEntity);
         }
 

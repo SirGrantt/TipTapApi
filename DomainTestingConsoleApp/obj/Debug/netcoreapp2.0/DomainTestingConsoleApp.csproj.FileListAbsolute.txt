@@ -17,3 +17,4 @@ C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Persistence.dl
 C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Application.pdb
 C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Common.pdb
 C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Persistence.pdb
+C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.csproj.CopyComplete

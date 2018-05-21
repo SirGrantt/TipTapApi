@@ -34,7 +34,7 @@ namespace Application
         {
             ServerTeamEntity team = new ServerTeamEntity
             {
-                ShiftDate = Convert.ToDateTime(data.UnformattedDate),
+                ShiftDate = Convert.ToDateTime(data.StringDate),
                 LunchOrDinner = data.LunchOrDinner,
             };
 
@@ -95,8 +95,12 @@ namespace Application
                 team.CheckOuts.Add(x);
             }
 
+            //The earning is returned from the method called, and a tipout property is set on the team
             Earnings earning = team.RunCheckout(data.BarSpecialLine, data.SaSpecialLine);
 
+            //The teams tipout is accessed here and saved to the database
+            //The earning is tied to the server and not the checkout, so the earning
+            //gets added and saved once this method returns an earning DTO 
             TipOutEntity tipOutEntity = Mapper.Map<TipOutEntity>(team.TipOut);
             tipOutEntity.ServerTeam = teamEntity;
             serverTeamRepository.AddTipOut(tipOutEntity);

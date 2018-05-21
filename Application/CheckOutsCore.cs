@@ -45,7 +45,7 @@ namespace Application
 
         public CheckoutDto GetCheckoutByDate(GetCheckoutByDateDto data, StaffMemberDto staffMemberDto)
         {
-            DateTime shiftDate = Convert.ToDateTime(data.UnformattedDate);
+            DateTime shiftDate = Convert.ToDateTime(data.StringDate).Date;
             CheckoutEntity checkoutEntity = _repository.GetCheckOutForStaffMemberForSpecificDate(shiftDate, staffMemberDto.Id, data.LunchOrDinner);
 
             if (checkoutEntity == null)

@@ -79,7 +79,7 @@ namespace TipTapApi.Controllers
         public IActionResult CreateCheckOut([FromBody] CreateCheckoutDto data)
         {
             //convert the date sent from the client into a DateTime format
-            data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+            data.ShiftDate = Convert.ToDateTime(data.StringDate).Date;
 
             try
             {
@@ -151,7 +151,7 @@ namespace TipTapApi.Controllers
         {
             try
             {
-                data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+                data.ShiftDate = Convert.ToDateTime(data.StringDate).Date;
                 UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
 
                 List<CheckoutOverviewDto> checkouts = _checkoutsCore.GetCheckoutsForShift(data.ShiftDate, data.LunchOrDinner).ToList();

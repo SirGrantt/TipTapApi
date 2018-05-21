@@ -39,7 +39,7 @@ namespace TipTapApi.Controllers
         {
             try
             {
-                data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+                data.ShiftDate = Convert.ToDateTime(data.StringDate);
                 UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
 
                 ServerTeamDto team = serverTeamsCore.AddServerTeam(data);
@@ -92,10 +92,24 @@ namespace TipTapApi.Controllers
                     ModelState.AddModelError("Team ID Not Found", "No team with that ID was found");
                     return BadRequest(ModelState);
                 }
+
+                UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
+                data.FormattedDate = Convert.ToDateTime(data.StringDate);
+
+                ServerTeamDto team = serverTeamsCore.GetServerTeamById(data.ServerTeamId);
+                List<StaffMemberDto> teammates = serverTeamsCore.GetStaffMembersOnServerTeam(data.ServerTeamId);
+
+                //need to reset earnings for the staff memebers if the checkout is being updated
+                if (team.CheckoutHasBeenRun == true)
+                {
+                    earningsCore.ResetEarningsForServerTeam(teammates, data.FormattedDate, data.LunchOrDinner);
+                }
+
                 List<CheckoutEntity> checkouts = checkoutsCore.GetCheckoutEntitiesForAServerTeam(data.ServerTeamId).ToList();
                 EarningDto earningDto = serverTeamsCore.RunServerTeamCheckout(data, checkouts);
                 TipOutDto tipOutDto = serverTeamsCore.GetServerTeamTipOut(data.ServerTeamId);
-                List<StaffMemberDto> teammates = serverTeamsCore.GetStaffMembersOnServerTeam(data.ServerTeamId);
+
+                //The earnings get added to servers here to seperate earnings work into its own section
                 List<EarningDto> earnings = earningsCore.AddEarning(teammates, earningDto);
 
                 ServerTipOutEarningDto tipoutAndEarning = new ServerTipOutEarningDto
@@ -142,7 +156,7 @@ namespace TipTapApi.Controllers
                     return BadRequest("This teams checkout has not been run yet");
                 }
 
-                data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+                data.ShiftDate = Convert.ToDateTime(data.StringDate);
                 List<StaffMemberDto> teammates = serverTeamsCore.GetStaffMembersOnServerTeam(data.ServerTeamId);
 
                 serverTeamsCore.DeleteServerTeamCheckout(data.ServerTeamId);
@@ -162,7 +176,7 @@ namespace TipTapApi.Controllers
         {
             try
             {
-                data.ShiftDate = Convert.ToDateTime(data.UnformattedDate);
+                data.ShiftDate = Convert.ToDateTime(data.StringDate);
                 UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
 
                 if (!serverTeamsCore.ServerTeamExists(data.ServerTeamId))

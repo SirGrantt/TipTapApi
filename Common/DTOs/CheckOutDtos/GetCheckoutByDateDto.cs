@@ -8,6 +8,6 @@ namespace Common.DTOs.CheckOutDtos
     {
         public int StaffMemberId { get; set; }
         public string LunchOrDinner { get; set; }
-        public string UnformattedDate { get; set; }
+        public string StringDate { get; set; }
     }
 }

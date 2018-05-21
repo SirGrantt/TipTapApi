@@ -6,7 +6,7 @@ namespace Common.DTOs.CheckOutDtos
 {
     public class GetCheckoutsForShiftDto
     {
-        public string UnformattedDate { get; set; }
+        public string StringDate { get; set; }
         public DateTime ShiftDate { get; set; }
         public string LunchOrDinner { get; set; }
     }

@@ -6,7 +6,7 @@ namespace Common.DTOs.CheckOutDtos
 {
     public class CreateCheckoutDto
     {
-        public string UnformattedDate { get; set; }
+        public string StringDate { get; set; }
         public DateTime ShiftDate { get; set; }
         public decimal NonTipOutBarSales { get; set; }
         public int NumberOfBottlesSold { get; set; }

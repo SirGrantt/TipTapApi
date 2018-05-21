@@ -9,7 +9,11 @@ namespace Common.Utilities
     {
         public static void ValidateLunchOrDinnerSpecification(string data)
         {
-            if (data.ToLower().Trim() == "dinner" || data.ToLower().Trim() == "lunch")
+            if (data == null)
+            {
+                throw new InvalidOperationException("Lunch or Dinner needs to be specified");
+            }
+            else if (data.ToLower().Trim() == "dinner" || data.ToLower().Trim() == "lunch")
             {
                 return;
             }

@@ -8,7 +8,7 @@ namespace Common.DTOs.TeamDtos
     {
         public int CheckoutId { get; set; }
         public int ServerTeamId { get; set; }
-        public string UnformattedDate { get; set; }
+        public string StringDate { get; set; }
         public DateTime ShiftDate { get; set; }
         public string LunchOrDinner { get; set; }
     }

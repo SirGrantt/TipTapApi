@@ -134,5 +134,12 @@ namespace Application
             return Mapper.Map<StaffMember>(smEntity);
             
         }
+
+        public List<StaffMemberDto> GetApprovedStaffForJob(int jobId)
+        {
+            List<StaffMemberDto> approvedStaff = Mapper.Map<List<StaffMemberDto>>(_repository.GetApprovedStaffForJob(jobId));
+            return (approvedStaff);
+            
+        }
     }
 }

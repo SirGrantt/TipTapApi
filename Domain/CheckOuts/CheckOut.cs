@@ -22,6 +22,8 @@ namespace Domain.Checkouts
         public decimal CashAutoGrat { get; set; }
         public decimal Hours { get; set; }
         public Job JobWorked { get; set; }
+        public decimal BarSpecialLine { get; set; }
+        public decimal SaSpecialLine { get; set; }
 
         public Checkout(StaffMember staffMember, DateTime shiftDate, Job job)
         {

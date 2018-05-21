@@ -22,6 +22,8 @@ namespace Domain.Teams
         public TipOut TipOut { get; set; }
         public ITipOutCalculator TipOutCalculator { get; set; }
         public int BottleCount { get; set; }
+        public decimal TeamBarSpecialLine { get; set; }
+        public decimal TeamSaSpecialLine { get; set; }
 
         public ServerTeam(DateTime shiftDate)
         {
@@ -50,11 +52,13 @@ namespace Domain.Teams
             foreach (Checkout c in CheckOuts)
             {
                 BottleCount += c.NumberOfBottlesSold;
+                TeamBarSpecialLine += c.BarSpecialLine;
+                TeamSaSpecialLine += c.SaSpecialLine;
             }
             TipOut.FinalTeamBarSales = TipOutCalculator.CalculateTeamBarSales(CheckOuts);
             TipOut.TeamGrossSales = TipOutCalculator.CalculateTeamGrossSales(CheckOuts);
-            TipOut.BarTipOut = TipOutCalculator.CalculateTipOut(TipOut.FinalTeamBarSales, .05m, barSpecialLine) + BottleCount;
-            TipOut.SaTipOut = TipOutCalculator.CalculateTipOut(TipOut.TeamGrossSales, .015m, saSpecialLine);
+            TipOut.BarTipOut = TipOutCalculator.CalculateTipOut(TipOut.FinalTeamBarSales, .05m, TeamBarSpecialLine) + BottleCount;
+            TipOut.SaTipOut = TipOutCalculator.CalculateTipOut(TipOut.TeamGrossSales, .015m, TeamSaSpecialLine);
             Earnings earnings = TipOutCalculator.CalculateEarnings(CheckOuts, TipOut, ShiftDate, LunchOrDinner);
 
             CheckoutHasBeenRun = true;

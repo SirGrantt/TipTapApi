@@ -284,5 +284,34 @@ namespace TipTapApi.Controllers
                 return StatusCode(500, ModelState);
             }
         }
+
+        [HttpPost("get-approved-for-job")]
+        public IActionResult GetApprovedStaffForJob([FromBody] GetApprovedStaffForJob data)
+        {
+            try
+            {
+                if (!_jobCore.JobExists(data.JobId))
+                {
+                    throw new KeyNotFoundException("No Job with that ID was found");
+                }
+
+                List<StaffMemberDto> approvedStaff = _staffCore.GetApprovedStaffForJob(data.JobId);
+                return Ok(approvedStaff);
+            }
+            catch(Exception e)
+            {
+                if (e.InnerException is KeyNotFoundException)
+                {
+                    ModelState.AddModelError("Error Getting Staff Approved For Job", e.InnerException.Message);
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    _logger.LogError(e.InnerException.Message);
+                    ModelState.AddModelError("Error Getting Approved Staff for Job", e.InnerException.Message);
+                    return StatusCode(500, ModelState);
+                }
+            }
+        }
     }
 }

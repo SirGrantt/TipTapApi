@@ -72,5 +72,30 @@ namespace Persistence.Repositories
                 _context.MainJobs.Add(mainJob);
             }
         }
+
+        public List<StaffMemberEntity> GetApprovedStaffForJob(int jobId)
+        {
+            List<ApprovedJobEntity> allApprovedStaffIds = new List<ApprovedJobEntity>();
+
+            foreach (ApprovedJobEntity aje in _context.ApprovedRoles)
+            {
+                if (aje.JobId == jobId)
+                {
+                    allApprovedStaffIds.Add(aje);
+                }
+            }
+
+            List<StaffMemberEntity> approvedStaff = new List<StaffMemberEntity>();
+
+            foreach (StaffMemberEntity sm in _context.StaffMembers)
+            {
+                if (allApprovedStaffIds.Any(s => s.StaffMemberId == sm.Id && sm.Status == "active"))
+                {
+                    approvedStaff.Add(sm);
+                }
+            }
+
+            return (approvedStaff);
+        }
     }
 }

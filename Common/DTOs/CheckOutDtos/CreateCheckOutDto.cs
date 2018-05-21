@@ -21,5 +21,7 @@ namespace Common.DTOs.CheckOutDtos
         public decimal Hours { get; set; }
         public int StaffMemberId { get; set; }
         public string JobWorkedTitle { get; set; }
+        public decimal BarSpecialLine { get; set; }
+        public decimal SaSpecialLine { get; set; }
     }
 }

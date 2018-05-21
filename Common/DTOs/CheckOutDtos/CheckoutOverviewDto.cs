@@ -21,6 +21,8 @@ namespace Common.DTOs.CheckOutDtos
         public decimal CashAutoGrat { get; set; }
         public decimal Hours { get; set; }
         public string JobWorkedTitle { get; set; }
+        public decimal BarSpecialLine { get; set; }
+        public decimal SaSpecialLine { get; set; }
 
         public CheckoutOverviewDto(string fullName, string jobTitle)
         {

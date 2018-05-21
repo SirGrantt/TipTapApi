@@ -15,5 +15,6 @@ namespace Common
         void AddStaffMember(StaffMemberEntity s);
         void DeleteStaffMember(StaffMemberEntity s);
         void SetStaffMemberMainJob(StaffMemberEntity s, JobEntity j);
+        List<StaffMemberEntity> GetApprovedStaffForJob(int jobId);
     }
 }

@@ -24,6 +24,8 @@ namespace Common.Entities
         public decimal Hours { get; set; }
         public int StaffMemberId { get; set; }
         public int JobWorkedId { get; set; }
+        public decimal BarSpecialLine { get; set; }
+        public decimal SaSpecialLine { get; set; }
 
         [Required]
         [ForeignKey("StaffMemberId")]

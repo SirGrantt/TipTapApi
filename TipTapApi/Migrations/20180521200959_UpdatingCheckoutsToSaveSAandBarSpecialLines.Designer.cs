@@ -12,9 +12,10 @@ using Persistence.Contexts;
 namespace TipTapApi.Migrations
 {
     [DbContext(typeof(CheckoutManagerContext))]
-    partial class CheckOutManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20180521200959_UpdatingCheckoutsToSaveSAandBarSpecialLines")]
+    partial class UpdatingCheckoutsToSaveSAandBarSpecialLines
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

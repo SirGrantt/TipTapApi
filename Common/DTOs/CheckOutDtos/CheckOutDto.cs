@@ -23,5 +23,7 @@ namespace Common.DTOs.CheckOutDtos
         public decimal CashAutoGrat { get; set; }
         public decimal Hours { get; set; }
         public JobDto Job { get; set; }
+        public decimal BarSpecialLine { get; set; }
+        public decimal SaSpecialLine { get; set; }
     }
 }

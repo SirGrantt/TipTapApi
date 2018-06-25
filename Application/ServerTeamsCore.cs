@@ -49,7 +49,7 @@ namespace Application
         {
             ServerTeamEntity team = serverTeamRepository.GetServerTeamById(serverTeamId);
 
-            if (checkout.ShiftDate != team.ShiftDate)
+            if (checkout.ShiftDate.Date != team.ShiftDate.Date)
             {
                 throw new InvalidOperationException("You cannot add a checkout to a team with different shift dates.");
             }

@@ -107,11 +107,15 @@ namespace Application
             foreach (ServerTeamDto s in serverTeams)
             {
                 IEnumerable<CheckoutEntity> entities = _repository.GetCheckoutsForAServerTeam(s.Id);
-                List<TeamGroupedCheckoutsDto> groupedCheckouts = groupFormatter.FormatServerTeamGroupCheckouts(s, entities, checkouts, serverTeams, shiftEarnings);
-                foreach (TeamGroupedCheckoutsDto t in groupedCheckouts)
-                {
-                    pageData.TeamCheckouts.Add(t);
+                if (entities.Count() > 0) {
+                    List<TeamGroupedCheckoutsDto> groupedCheckouts = groupFormatter.FormatServerTeamGroupCheckouts(s, entities, checkouts, serverTeams, shiftEarnings);
+
+                    foreach (TeamGroupedCheckoutsDto t in groupedCheckouts)
+                    {
+                        pageData.TeamCheckouts.Add(t);
+                    }
                 }
+
             }
 
             //Now to grab all the checkouts that havent been run and then return the whole dataset

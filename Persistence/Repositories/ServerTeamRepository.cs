@@ -38,7 +38,7 @@ namespace Persistence.Repositories
             List<ServerTeamEntity> teams = new List<ServerTeamEntity>();
 
             foreach (ServerTeamEntity x in _context.ServerTeams
-                .Where(t => t.ShiftDate == shiftDate
+                .Where(t => t.ShiftDate.Date == shiftDate.Date
                 && t.LunchOrDinner == lunchOrDinner.ToLower()))
             {
                 teams.Add(x);

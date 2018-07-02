@@ -163,12 +163,46 @@ namespace TipTapApi.Controllers
             catch (Exception e)
             {
                 ModelState.AddModelError("Get Checkouts Error", e.Message);
-                if (e.InnerException is InvalidOperationException)
+                if (e is InvalidOperationException)
                 {
                     return BadRequest(ModelState);
                 }
                 _logger.LogError(e.Message);
                 return StatusCode(500, ModelState);
+            }
+        }
+
+        [HttpPost("update")]
+        public IActionResult UpdateCheckout([FromBody] UpdateCheckoutDto data)
+        {
+            try
+            {
+                if (!_checkoutsCore.CheckoutExistsById(data.Id))
+                {
+                    ModelState.AddModelError("Not Found", "No checkout with the provided ID was found.");
+                    return BadRequest(ModelState);
+                }
+
+                bool updateSucceeded = _checkoutsCore.UpdateCheckout(data);
+
+                if (updateSucceeded)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return StatusCode(500);
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("Error Updating Checkout", e.Message);
+                if (e is InvalidOperationException)
+                {
+                    return BadRequest(ModelState);
+                }
+                _logger.LogError(e.InnerException.Message);
+                return StatusCode(500);
             }
         }
     }

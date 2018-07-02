@@ -124,5 +124,22 @@ namespace Application
             return pageData;
 
         }
+
+        public bool UpdateCheckout(UpdateCheckoutDto data)
+        {
+            CheckoutEntity checkoutToUpdate = _repository.GetCheckOutById(data.Id);
+            List<CheckoutEntity> checkouts = _repository.GetCheckOutsForAShift(checkoutToUpdate.ShiftDate.Date, checkoutToUpdate.LunchOrDinner).ToList();
+            
+            if (checkouts.Any(c => c.StaffMemberId == data.StaffMemberId && c.Id != data.Id))
+            {
+                throw new InvalidOperationException("The staff member is already assigned to a checkout for that shift");
+            }
+
+            Mapper.Map(data, checkoutToUpdate);
+
+            UtilityMethods.VerifyDatabaseSaveSuccess(_repository);
+
+            return true;
+        }
     }
 }

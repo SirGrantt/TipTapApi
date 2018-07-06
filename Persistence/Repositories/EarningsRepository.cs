@@ -63,7 +63,7 @@ namespace Persistence.Repositories
         public IEnumerable<EarningsEntity> GetEarningsForShift(DateTime shiftDate, string lunchOrDinner)
         {
             List<EarningsEntity> earnings = new List<EarningsEntity>();
-            foreach (EarningsEntity e in _context.Earnings.Where(e => e.ShiftDate == shiftDate && e.LunchOrDinner == lunchOrDinner))
+            foreach (EarningsEntity e in _context.Earnings.Where(e => e.ShiftDate.Date == shiftDate.Date && e.LunchOrDinner == lunchOrDinner))
             {
                 earnings.Add(e);
             }

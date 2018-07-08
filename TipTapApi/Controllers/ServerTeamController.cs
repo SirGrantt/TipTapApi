@@ -100,10 +100,8 @@ namespace TipTapApi.Controllers
                 List<StaffMemberDto> teammates = serverTeamsCore.GetStaffMembersOnServerTeam(data.ServerTeamId);
 
                 //need to reset earnings for the staff memebers if the checkout is being updated
-                if (team.CheckoutHasBeenRun == true)
-                {
-                    earningsCore.ResetEarningsForServerTeam(teammates, data.FormattedDate, data.LunchOrDinner);
-                }
+                earningsCore.ResetEarningsForServerTeam(teammates, data.FormattedDate, data.LunchOrDinner);
+
 
                 List<CheckoutEntity> checkouts = checkoutsCore.GetCheckoutEntitiesForAServerTeam(data.ServerTeamId).ToList();
                 EarningDto earningDto = serverTeamsCore.RunServerTeamCheckout(data, checkouts);

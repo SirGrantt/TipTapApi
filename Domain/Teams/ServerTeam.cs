@@ -42,7 +42,7 @@ namespace Domain.Teams
             CheckoutHasBeenRun = false;
         }
 
-        public Earnings RunCheckout(decimal barSpecialLine, decimal saSpecialLine)
+        public Earnings RunCheckout()
         {
             if (CheckoutHasBeenRun == true)
             {
@@ -51,6 +51,10 @@ namespace Domain.Teams
 
             foreach (Checkout c in CheckOuts)
             {
+                // first reset these values to be sure no old data is being processed
+                TeamSaSpecialLine = 0;
+                TeamBarSpecialLine = 0;
+
                 BottleCount += c.NumberOfBottlesSold;
                 TeamBarSpecialLine += c.BarSpecialLine;
                 TeamSaSpecialLine += c.SaSpecialLine;

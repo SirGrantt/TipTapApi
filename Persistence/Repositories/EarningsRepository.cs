@@ -40,7 +40,7 @@ namespace Persistence.Repositories
 
         public EarningsEntity GetEarning(int staffMemberId, DateTime shiftDate, string lunchOrDinner)
         {
-            return _context.Earnings.Where(e => e.StaffMemberId == staffMemberId && e.ShiftDate == shiftDate && e.LunchOrDinner == lunchOrDinner.ToLower().Trim()).FirstOrDefault();
+            return _context.Earnings.Where(e => e.StaffMemberId == staffMemberId && e.ShiftDate.Date == shiftDate.Date && e.LunchOrDinner == lunchOrDinner.ToLower().Trim()).FirstOrDefault();
         }
 
         public EarningsEntity GetEarningById(int earningId)

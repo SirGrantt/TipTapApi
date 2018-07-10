@@ -27,7 +27,8 @@ namespace Application
             {
                 if (earningsRepository.EarningExists(staffMember.Id, earning.ShiftDate, earning.LunchOrDinner))
                 {
-                    throw new InvalidOperationException("A earning could not be created because one for that staff member already exists for that shift.");
+                    EarningsEntity earn = earningsRepository.GetEarning(staffMember.Id, earning.ShiftDate, earning.LunchOrDinner);
+                    earningsRepository.DeleteEarning(earn.Id);
                 }
 
                 EarningsEntity earningsEntity = Mapper.Map<EarningsEntity>(earning);

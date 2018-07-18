@@ -151,7 +151,7 @@ namespace TipTapApi.Controllers
                 
                 if (team.CheckoutHasBeenRun == false)
                 {
-                    return BadRequest("This teams checkout has not been run yet");
+                    return NoContent();
                 }
 
                 data.ShiftDate = Convert.ToDateTime(data.StringDate);

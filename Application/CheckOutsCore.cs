@@ -99,9 +99,9 @@ namespace Application
             return checkouts;
         }
 
-        public ServerCheckoutPagePresentationDto FormatPageData(List<CheckoutOverviewDto> checkouts, List<ServerTeamDto> serverTeams, List<EarningDto> shiftEarnings)
+        public CheckoutPagePresentationDto FormatPageData(List<CheckoutOverviewDto> checkouts, List<ServerTeamDto> serverTeams, List<EarningDto> shiftEarnings)
         {
-            ServerCheckoutPagePresentationDto pageData = new ServerCheckoutPagePresentationDto();
+            CheckoutPagePresentationDto pageData = new CheckoutPagePresentationDto();
 
             //Here the teams that have had their checkouts run are assembled into groups for presentation
             foreach (ServerTeamDto s in serverTeams)
@@ -117,6 +117,9 @@ namespace Application
                 }
 
             }
+
+            //Here is where the distinctions need to be made between bar checkouts, patio,
+            //and the server teamed/unrun checkouts
 
             //Now to grab all the checkouts that havent been run and then return the whole dataset
             pageData.NotRunCheckouts = groupFormatter.FormatUnrunServerCheckouts(checkouts, pageData.TeamCheckouts);

@@ -157,7 +157,7 @@ namespace TipTapApi.Controllers
                 List<CheckoutOverviewDto> checkouts = _checkoutsCore.GetCheckoutsForShift(data.ShiftDate, data.LunchOrDinner).ToList();
                 List<ServerTeamDto> serverTeams = _serverTeamCore.GetServerTeamsForShift(data.ShiftDate, data.LunchOrDinner);
                 List<EarningDto> shiftEarnings = _earningsCore.GetEarningsForShift(data.ShiftDate, data.LunchOrDinner);
-                ServerCheckoutPagePresentationDto pageData = _checkoutsCore.FormatPageData(checkouts, serverTeams, shiftEarnings);
+                CheckoutPagePresentationDto pageData = _checkoutsCore.FormatPageData(checkouts, serverTeams, shiftEarnings);
                 return Ok(pageData);
             }
             catch (Exception e)

@@ -69,7 +69,7 @@ namespace Application.PageFormatting
             //Determing if each checkout has been grouped and add the ungrouped together
             foreach (CheckoutOverviewDto c in checkouts)
             {                
-                if (!allGroupedCheckoutsListed.Any(x => x.Id == c.Id))
+                if (!allGroupedCheckoutsListed.Any(x => x.Id == c.Id) && c.JobWorkedTitle == "Server")
                 {
                     unrunCheckouts.Add(c);
                 }

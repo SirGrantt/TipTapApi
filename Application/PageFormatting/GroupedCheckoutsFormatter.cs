@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Application.PageFormatting
 {
-    public class ServerTeamGroupedCheckoutsFormatter
+    public class GroupedCheckoutsFormatter
     {
         public List<TeamGroupedCheckoutsDto> FormatServerTeamGroupCheckouts(ServerTeamDto s, IEnumerable<CheckoutEntity> entities, List<CheckoutOverviewDto> checkouts, List<ServerTeamDto> serverTeams, List<EarningDto> shiftEarnings)
         {
@@ -52,6 +52,23 @@ namespace Application.PageFormatting
             return pageData;
         }
 
+        public TeamGroupedCheckoutsDto FormatBarCheckouts(List<CheckoutOverviewDto> checkouts, List<EarningDto> earnings)
+        {
+            TeamGroupedCheckoutsDto barCheckouts = new TeamGroupedCheckoutsDto();
+
+            foreach (CheckoutOverviewDto c in checkouts)
+            {
+                if (c.JobWorkedTitle.ToUpper() == "BARTENDER")
+                {
+                    barCheckouts.TeamCheckouts.Add(c);
+                }
+            }
+
+            barCheckouts.TeamEarning = earnings.FirstOrDefault(e => e.JobWorked.ToUpper() == "BARTENDER");
+
+            return barCheckouts;
+        }
+
         public List<CheckoutOverviewDto> FormatUnrunServerCheckouts(List<CheckoutOverviewDto> checkouts, List<TeamGroupedCheckoutsDto> groupedCheckouts)
         {
             List<CheckoutOverviewDto> unrunCheckouts = new List<CheckoutOverviewDto>();
@@ -69,7 +86,7 @@ namespace Application.PageFormatting
             //Determing if each checkout has been grouped and add the ungrouped together
             foreach (CheckoutOverviewDto c in checkouts)
             {                
-                if (!allGroupedCheckoutsListed.Any(x => x.Id == c.Id) && c.JobWorkedTitle == "Server")
+                if (!allGroupedCheckoutsListed.Any(x => x.Id == c.Id) && c.JobWorkedTitle.ToUpper() == "SERVER")
                 {
                     unrunCheckouts.Add(c);
                 }

@@ -26,7 +26,7 @@ namespace TipTapApi.Controllers
         private ServerTeamsCore _serverTeamCore;
         private EarningsCore _earningsCore;
         private ILogger<CheckoutController> _logger;
-        public CheckoutController(ICheckoutRepository coRepository, ILogger<CheckoutController> logger, IStaffMemberRepository sRepo, IJobRepository jRepo, IServerTeamRepository teamRepo, IEarningsRepository earningsRepo)
+        public CheckoutController(ICheckoutRepository coRepository, ILogger<CheckoutController> logger, IStaffMemberRepository sRepo, IJobRepository jRepo, ITeamRepository teamRepo, IEarningsRepository earningsRepo)
         {
             _checkoutsCore = new CheckoutsCore(coRepository);
             _logger = logger;
@@ -155,7 +155,7 @@ namespace TipTapApi.Controllers
                 UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
 
                 List<CheckoutOverviewDto> checkouts = _checkoutsCore.GetCheckoutsForShift(data.ShiftDate, data.LunchOrDinner).ToList();
-                List<ServerTeamDto> serverTeams = _serverTeamCore.GetServerTeamsForShift(data.ShiftDate, data.LunchOrDinner);
+                List<ServerTeamDto> serverTeams = _serverTeamCore.GetServerTeamsForShift(data.ShiftDate, data.LunchOrDinner, "Server");
                 List<EarningDto> shiftEarnings = _earningsCore.GetEarningsForShift(data.ShiftDate, data.LunchOrDinner);
                 CheckoutPagePresentationDto pageData = _checkoutsCore.FormatPageData(checkouts, serverTeams, shiftEarnings);
                 return Ok(pageData);

@@ -16,14 +16,14 @@ namespace Persistence.Contexts
         }
 
         public DbSet<StaffMemberEntity> StaffMembers { get; set; }
-        public DbSet<ServerTeamEntity> ServerTeams { get; set; }
+        public DbSet<TeamEntity> Teams { get; set; }
         public DbSet<CheckoutEntity> CheckOuts { get; set; }
         public DbSet<EarningsEntity> Earnings { get; set; }
         public DbSet<JobEntity> Jobs { get; set; }
         public DbSet<TipOutEntity> TipOuts { get; set; }
         public DbSet<ApprovedJobEntity> ApprovedRoles { get; set; }
         public DbSet<MainJobEntity> MainJobs { get; set; }
-        public DbSet<ServerTeamCheckoutEntity> ServerTeamCheckouts { get; set; }
+        public DbSet<TeamCheckoutEntity> TeamCheckouts { get; set; }
 
 
     }

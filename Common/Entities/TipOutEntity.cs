@@ -17,6 +17,6 @@ namespace Common.Entities
         public int ServerTeamId { get; set; }
 
         [ForeignKey("ServerTeamId")]
-        public ServerTeamEntity ServerTeam { get; set; }
+        public TeamEntity ServerTeam { get; set; }
     }
 }

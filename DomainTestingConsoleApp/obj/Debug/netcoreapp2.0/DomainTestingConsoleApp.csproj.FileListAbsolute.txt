@@ -5,7 +5,6 @@ C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\DomainTestingC
 C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\DomainTestingConsoleApp.pdb
 C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Domain.dll
 C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Domain.pdb
-C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.csprojResolveAssemblyReference.cache
 C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.csproj.CoreCompileInputs.cache
 C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.AssemblyInfoInputs.cache
 C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.AssemblyInfo.cs
@@ -18,3 +17,4 @@ C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Application.pd
 C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Common.pdb
 C:\Code\TipTapApi\DomainTestingConsoleApp\bin\Debug\netcoreapp2.0\Persistence.pdb
 C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.csproj.CopyComplete
+C:\Code\TipTapApi\DomainTestingConsoleApp\obj\Debug\netcoreapp2.0\DomainTestingConsoleApp.csprojAssemblyReference.cache

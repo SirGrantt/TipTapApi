@@ -21,12 +21,12 @@ namespace Application
     public class CheckoutsCore
     {
         private ICheckoutRepository _repository;
-        private ServerTeamGroupedCheckoutsFormatter groupFormatter;
+        private GroupedCheckoutsFormatter groupFormatter;
 
         public CheckoutsCore(ICheckoutRepository repository)
         {
             _repository = repository;
-            groupFormatter = new ServerTeamGroupedCheckoutsFormatter();
+            groupFormatter = new GroupedCheckoutsFormatter();
         }
         public CheckoutDto CreateCheckout(CreateCheckoutDto data, StaffMemberDto staffMemberDto, JobDto jobDto)
         {
@@ -120,6 +120,7 @@ namespace Application
 
             //Here is where the distinctions need to be made between bar checkouts, patio,
             //and the server teamed/unrun checkouts
+            pageData.BarCheckouts = groupFormatter.FormatBarCheckouts(checkouts, shiftEarnings);
 
             //Now to grab all the checkouts that havent been run and then return the whole dataset
             pageData.NotRunCheckouts = groupFormatter.FormatUnrunServerCheckouts(checkouts, pageData.TeamCheckouts);

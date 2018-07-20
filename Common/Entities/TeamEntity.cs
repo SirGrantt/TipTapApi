@@ -6,13 +6,14 @@ using System.Text;
 
 namespace Common.Entities
 {
-    public class ServerTeamEntity
+    public class TeamEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime ShiftDate { get; set; }
         public string LunchOrDinner { get; set; }
         public bool CheckoutHasBeenRun { get; set; }
+        public string TeamType { get; set; }
 
     }
 }

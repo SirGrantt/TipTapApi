@@ -99,12 +99,12 @@ namespace DomainTestingConsoleApp
             team.CheckOuts.Add(grantsCheckOut);
             team.CheckOuts.Add(alysonsCheckOut);
             team.CheckOuts.Add(laurensCheckOut);
-            Earnings teamMemberEarnings;
+            //Earnings teamMemberEarnings;
             decimal barSpecialLine = grantsCheckOut.NumberOfBottlesSold + alysonsCheckOut.NumberOfBottlesSold;
-            teamMemberEarnings = team.RunCheckout(barSpecialLine, 0);
+            //teamMemberEarnings = team.RunCheckout(barSpecialLine, 0);
 
-            Console.WriteLine("CC Tips: " + teamMemberEarnings.CcTips.ToString());
-            Console.WriteLine("AutoGrat: " + teamMemberEarnings.AutoGratuity.ToString());
+            //Console.WriteLine("CC Tips: " + teamMemberEarnings.CcTips.ToString());
+            /* Console.WriteLine("AutoGrat: " + teamMemberEarnings.AutoGratuity.ToString());
             Console.WriteLine("Total Tips: " + teamMemberEarnings.TotalTipsForPayroll.ToString());
 
             Console.WriteLine("Teams TipOut Numbers: ");
@@ -114,7 +114,7 @@ namespace DomainTestingConsoleApp
             Console.WriteLine("SA: " + team.TipOut.SaTipOut.ToString());
 
 
-            Console.ReadLine();
+            Console.ReadLine();*/
 
         }
     }

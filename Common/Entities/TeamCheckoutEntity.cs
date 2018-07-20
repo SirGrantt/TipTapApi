@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Common.Entities
 {
-    public class ServerTeamCheckoutEntity
+    public class TeamCheckoutEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace Common.Entities
 
         [Required]
         [ForeignKey("TeamId")]
-        public ServerTeamEntity ServerTeam { get; set; }
+        public TeamEntity Team { get; set; }
 
         [Required]
         [ForeignKey("CheckoutId")]

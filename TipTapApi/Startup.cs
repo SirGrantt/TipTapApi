@@ -50,7 +50,7 @@ namespace TipTapApi
             services.AddScoped<IStaffMemberRepository, StaffMemberRepository>();
             services.AddScoped<IJobRepository, JobRepository>();
             services.AddScoped<ICheckoutRepository, CheckoutRepository>();
-            services.AddScoped<IServerTeamRepository, ServerTeamRepository>();
+            services.AddScoped<ITeamRepository, TeamRepository>();
             services.AddScoped<IEarningsRepository, EarningsRepository>();
             services.AddTransient<IValidator<StaffMemberDto>, StaffMemberValidator>();
             services.AddCors();
@@ -85,10 +85,10 @@ namespace TipTapApi
 
                 cfg.CreateMap<ServerTeamDto, ServerTeam>();
                 cfg.CreateMap<ServerTeam, ServerTeamDto>();
-                cfg.CreateMap<ServerTeam, ServerTeamEntity>();
-                cfg.CreateMap<ServerTeamDto, ServerTeamEntity>();
-                cfg.CreateMap<ServerTeamEntity, ServerTeam>();
-                cfg.CreateMap<ServerTeamEntity, ServerTeamDto>();
+                cfg.CreateMap<ServerTeam, TeamEntity>();
+                cfg.CreateMap<ServerTeamDto, TeamEntity>();
+                cfg.CreateMap<TeamEntity, ServerTeam>();
+                cfg.CreateMap<TeamEntity, ServerTeamDto>();
 
                 cfg.CreateMap<CreateCheckoutDto, Checkout>();
                 cfg.CreateMap<Checkout, CheckoutEntity>();

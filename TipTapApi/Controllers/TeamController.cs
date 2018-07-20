@@ -20,13 +20,13 @@ using Microsoft.Extensions.Logging;
 namespace TipTapApi.Controllers
 {
     [Route("server-teams")]
-    public class ServerTeamController : Controller
+    public class TeamController : Controller
     {
-        private ILogger<ServerTeamController> _logger;
+        private ILogger<TeamController> _logger;
         private CheckoutsCore checkoutsCore;
         private ServerTeamsCore serverTeamsCore;
         private EarningsCore earningsCore;
-        public ServerTeamController(IServerTeamRepository teamRepo, ICheckoutRepository checkoutRepo, IEarningsRepository eRepo, ILogger<ServerTeamController> logger)
+        public TeamController(ITeamRepository teamRepo, ICheckoutRepository checkoutRepo, IEarningsRepository eRepo, ILogger<TeamController> logger)
         {
             checkoutsCore = new CheckoutsCore(checkoutRepo);
             serverTeamsCore = new ServerTeamsCore(teamRepo);

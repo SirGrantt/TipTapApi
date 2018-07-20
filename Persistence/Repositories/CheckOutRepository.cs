@@ -68,10 +68,10 @@ namespace Persistence.Repositories
         public IEnumerable<CheckoutEntity> GetCheckoutsForAServerTeam(int serverTeamId)
         {
             List<CheckoutEntity> checkouts = new List<CheckoutEntity>();
-            IEnumerable<ServerTeamCheckoutEntity> reference = from r in _context.ServerTeamCheckouts
+            IEnumerable<TeamCheckoutEntity> reference = from r in _context.TeamCheckouts
                                                        where r.TeamId == serverTeamId
                                                        select r;
-            foreach (ServerTeamCheckoutEntity s in reference)
+            foreach (TeamCheckoutEntity s in reference)
             {
                 var checkout = _context.CheckOuts.Where(p => p.Id == s.CheckoutId)
                     .Include(p => p.Job).FirstOrDefault();

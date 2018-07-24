@@ -3,6 +3,7 @@ using Common.DTOs.CheckOutDtos;
 using Common.DTOs.EarningsDtos;
 using Common.DTOs.TeamDtos;
 using Common.Entities;
+using Domain.Teams;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace Application.PageFormatting
 {
     public class GroupedCheckoutsFormatter
     {
-        public List<TeamGroupedCheckoutsDto> FormatServerTeamGroupCheckouts(ServerTeamDto s, IEnumerable<CheckoutEntity> entities, List<CheckoutOverviewDto> checkouts, List<ServerTeamDto> serverTeams, List<EarningDto> shiftEarnings)
+        public List<ServerTeamGroupedCheckoutsDto> FormatServerTeamGroupCheckouts(ServerTeamDto s, IEnumerable<CheckoutEntity> entities, List<CheckoutOverviewDto> checkouts, List<ServerTeamDto> serverTeams, List<EarningDto> shiftEarnings)
         {
-            List<TeamGroupedCheckoutsDto> pageData = new List<TeamGroupedCheckoutsDto>();
+            List<ServerTeamGroupedCheckoutsDto> pageData = new List<ServerTeamGroupedCheckoutsDto>();
 
             //Grab the first entity to get a related earning for the team
             CheckoutEntity checkout = entities.ElementAt(0);
@@ -22,7 +23,7 @@ namespace Application.PageFormatting
             if (entities.Count() == 1)
             {
                 //Mark the teams that have only one server so they can be presented as a solo team
-                TeamGroupedCheckoutsDto soloTeam = new TeamGroupedCheckoutsDto
+                ServerTeamGroupedCheckoutsDto soloTeam = new ServerTeamGroupedCheckoutsDto
                 {
                     CheckoutHasBeenRun = s.CheckoutHasBeenRun,
                     IsSoloTeam = true,
@@ -34,7 +35,7 @@ namespace Application.PageFormatting
             }
             else
             {
-                TeamGroupedCheckoutsDto team = new TeamGroupedCheckoutsDto
+                ServerTeamGroupedCheckoutsDto team = new ServerTeamGroupedCheckoutsDto
                 {
                     CheckoutHasBeenRun = s.CheckoutHasBeenRun,
                     IsSoloTeam = false,
@@ -52,9 +53,13 @@ namespace Application.PageFormatting
             return pageData;
         }
 
-        public TeamGroupedCheckoutsDto FormatBarCheckouts(List<CheckoutOverviewDto> checkouts, List<EarningDto> earnings)
+        public TeamGroupedCheckoutsDto FormatBarCheckouts(BarTeam barTeam, List<CheckoutOverviewDto> checkouts, List<EarningDto> earnings)
         {
-            TeamGroupedCheckoutsDto barCheckouts = new TeamGroupedCheckoutsDto();
+            TeamGroupedCheckoutsDto barCheckouts = new TeamGroupedCheckoutsDto
+            {
+                TeamId = barTeam.Id,
+                CheckoutHasBeenRun = barTeam.CheckoutHasBeenRun,
+            };
 
             foreach (CheckoutOverviewDto c in checkouts)
             {
@@ -64,18 +69,27 @@ namespace Application.PageFormatting
                 }
             }
 
-            barCheckouts.TeamEarning = earnings.FirstOrDefault(e => e.JobWorked.ToUpper() == "BARTENDER");
+            if (barCheckouts.CheckoutHasBeenRun)
+            {
+                foreach (EarningDto e in earnings)
+                {
+                    if (e.JobWorked.ToUpper() == "BARTENDER")
+                    {
+                        barCheckouts.TeamEarnings.Add(e);
+                    }
+                }
+            }
 
             return barCheckouts;
         }
 
-        public List<CheckoutOverviewDto> FormatUnrunServerCheckouts(List<CheckoutOverviewDto> checkouts, List<TeamGroupedCheckoutsDto> groupedCheckouts)
+        public List<CheckoutOverviewDto> FormatUnrunServerCheckouts(List<CheckoutOverviewDto> checkouts, List<ServerTeamGroupedCheckoutsDto> groupedCheckouts)
         {
             List<CheckoutOverviewDto> unrunCheckouts = new List<CheckoutOverviewDto>();
 
             //Seperate the grouped checkouts to perform query against
             List<CheckoutOverviewDto> allGroupedCheckoutsListed = new List<CheckoutOverviewDto>();
-            foreach (TeamGroupedCheckoutsDto g in groupedCheckouts)
+            foreach (ServerTeamGroupedCheckoutsDto g in groupedCheckouts)
             {
                 foreach (CheckoutOverviewDto x in g.TeamCheckouts)
                 {

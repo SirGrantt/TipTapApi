@@ -8,14 +8,14 @@ namespace Common.DTOs.CheckOutDtos
     public class TeamGroupedCheckoutsDto
     {
         public int TeamId { get; set; }
-        public bool IsSoloTeam { get; set; }
         public List<CheckoutOverviewDto> TeamCheckouts { get; set; }
-        public EarningDto TeamEarning { get; set; }
         public bool CheckoutHasBeenRun { get; set; }
+        public List<EarningDto> TeamEarnings { get; set; }
 
         public TeamGroupedCheckoutsDto()
         {
             TeamCheckouts = new List<CheckoutOverviewDto>();
+            TeamEarnings = new List<EarningDto>();
         }
     }
 }

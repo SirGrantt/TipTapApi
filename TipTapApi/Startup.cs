@@ -90,6 +90,10 @@ namespace TipTapApi
                 cfg.CreateMap<TeamEntity, ServerTeam>();
                 cfg.CreateMap<TeamEntity, ServerTeamDto>();
 
+                cfg.CreateMap<TeamEntity, BarTeam>()
+                .ForCtorParam("shiftDate", opt => opt.MapFrom(src => src.ShiftDate));
+                cfg.CreateMap<BarTeam, TeamEntity>();
+
                 cfg.CreateMap<CreateCheckoutDto, Checkout>();
                 cfg.CreateMap<Checkout, CheckoutEntity>();
                 cfg.CreateMap<CheckoutEntity, Checkout>()

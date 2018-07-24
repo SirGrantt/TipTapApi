@@ -11,6 +11,7 @@ using Common.Utilities;
 using Domain.Checkouts;
 using Domain.Jobs;
 using Domain.StaffMembers;
+using Domain.Teams;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,13 +94,14 @@ namespace Application
             foreach (CheckoutEntity c in checkoutEntities)
             {
                 var checkoutDto = Mapper.Map<CheckoutOverviewDto>(c);
+                checkoutDto.StaffMemberId = c.StaffMember.Id;
                 checkouts.Add(checkoutDto);
             }
 
             return checkouts;
         }
 
-        public CheckoutPagePresentationDto FormatPageData(List<CheckoutOverviewDto> checkouts, List<ServerTeamDto> serverTeams, List<EarningDto> shiftEarnings)
+        public CheckoutPagePresentationDto FormatPageData(List<CheckoutOverviewDto> checkouts, List<ServerTeamDto> serverTeams, List<EarningDto> shiftEarnings, BarTeam barTeam)
         {
             CheckoutPagePresentationDto pageData = new CheckoutPagePresentationDto();
 
@@ -108,9 +110,9 @@ namespace Application
             {
                 IEnumerable<CheckoutEntity> entities = _repository.GetCheckoutsForAServerTeam(s.Id);
                 if (entities.Count() > 0) {
-                    List<TeamGroupedCheckoutsDto> groupedCheckouts = groupFormatter.FormatServerTeamGroupCheckouts(s, entities, checkouts, serverTeams, shiftEarnings);
+                    List<ServerTeamGroupedCheckoutsDto> groupedCheckouts = groupFormatter.FormatServerTeamGroupCheckouts(s, entities, checkouts, serverTeams, shiftEarnings);
 
-                    foreach (TeamGroupedCheckoutsDto t in groupedCheckouts)
+                    foreach (ServerTeamGroupedCheckoutsDto t in groupedCheckouts)
                     {
                         pageData.TeamCheckouts.Add(t);
                     }
@@ -120,7 +122,11 @@ namespace Application
 
             //Here is where the distinctions need to be made between bar checkouts, patio,
             //and the server teamed/unrun checkouts
-            pageData.BarCheckouts = groupFormatter.FormatBarCheckouts(checkouts, shiftEarnings);
+            // *IMPORTANT* - bar checkouts are not saved nor grouped by the teamcheckouts relationship. This is because
+            // even though server checkouts can't be grouped by job worked due to the splitting of tips between select people,
+            // Bartenders all split up the money based on hours on the same team. So pulling them based on date and job worked
+            // is possible because they all go together.
+            pageData.BarCheckouts = groupFormatter.FormatBarCheckouts(barTeam, checkouts, shiftEarnings);
 
             //Now to grab all the checkouts that havent been run and then return the whole dataset
             pageData.NotRunCheckouts = groupFormatter.FormatUnrunServerCheckouts(checkouts, pageData.TeamCheckouts);

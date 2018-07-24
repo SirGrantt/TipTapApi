@@ -9,6 +9,7 @@ namespace Common.DTOs.CheckOutDtos
         public int Id { get; set; }
         public DateTime ShiftDate { get; set; }
         public string StaffMemberName { get; set; }
+        public int StaffMemberId { get; set; }
         public decimal NonTipOutBarSales { get; set; }
         public int NumberOfBottlesSold { get; set; }
         public string LunchOrDinner { get; set; }

@@ -109,5 +109,35 @@ namespace Persistence.Repositories
             TeamCheckoutEntity teamCheckoutReference = _context.TeamCheckouts.Where(t => t.CheckoutId == checkoutId && t.TeamId == teamId).FirstOrDefault();
             _context.TeamCheckouts.Remove(teamCheckoutReference);
         }
+
+        public bool BarTeamExistsForShift(DateTime shiftDate, string lunchOrDinner)
+        {
+            return _context.Teams.Any(t => t.ShiftDate.Date == shiftDate.Date && t.LunchOrDinner == lunchOrDinner
+            && t.TeamType == "Bar");
+        }
+
+        public TeamEntity GetBarTeamForShift(DateTime shiftDate, string lunchOrDinner)
+        {
+            TeamEntity barTeam;
+            if (BarTeamExistsForShift(shiftDate, lunchOrDinner))
+            {
+                barTeam = _context.Teams.FirstOrDefault(t => t.ShiftDate.Date == shiftDate.Date &&
+                t.LunchOrDinner == lunchOrDinner && t.TeamType == "Bar");
+                return barTeam;
+            }
+            else
+            {
+                barTeam = new TeamEntity()
+                {
+                    ShiftDate = shiftDate,
+                    LunchOrDinner = lunchOrDinner,
+                    TeamType = "Bar",
+                    CheckoutHasBeenRun = false
+                };
+                AddTeam(barTeam);
+                _context.SaveChanges();
+                return barTeam;
+            }
+        }
     }
 }

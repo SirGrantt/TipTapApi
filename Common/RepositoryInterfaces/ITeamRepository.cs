@@ -19,5 +19,7 @@ namespace Common.RepositoryInterfaces
         void DeleteTeamCheckout(TeamEntity team);
         IEnumerable<TeamEntity> GetTeamsForShift(DateTime shiftDate, string lunchOrDinner, string teamType);
         void RemoveCheckoutFromTeam(int teamId, int checkoutId);
+        bool BarTeamExistsForShift(DateTime shiftDate, string lunchOrDinner);
+        TeamEntity GetBarTeamForShift(DateTime shiftDate, string lunchOrDinner);
     }
 }

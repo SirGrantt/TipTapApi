@@ -11,6 +11,7 @@ using Common.DTOs.StaffMemberDtos;
 using Common.DTOs.TeamDtos;
 using Common.RepositoryInterfaces;
 using Common.Utilities;
+using Domain.Teams;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -23,6 +24,7 @@ namespace TipTapApi.Controllers
         private CheckoutsCore _checkoutsCore;
         private StaffMembersCore _staffCore;
         private JobCore _jobCore;
+        private BarCore _barCore;
         private ServerTeamsCore _serverTeamCore;
         private EarningsCore _earningsCore;
         private ILogger<CheckoutController> _logger;
@@ -32,6 +34,7 @@ namespace TipTapApi.Controllers
             _logger = logger;
             _staffCore = new StaffMembersCore(sRepo);
             _jobCore = new JobCore(jRepo);
+            _barCore = new BarCore(teamRepo);
             _serverTeamCore = new ServerTeamsCore(teamRepo);
             _earningsCore = new EarningsCore(earningsRepo);
         }
@@ -156,8 +159,9 @@ namespace TipTapApi.Controllers
 
                 List<CheckoutOverviewDto> checkouts = _checkoutsCore.GetCheckoutsForShift(data.ShiftDate, data.LunchOrDinner).ToList();
                 List<ServerTeamDto> serverTeams = _serverTeamCore.GetServerTeamsForShift(data.ShiftDate, data.LunchOrDinner, "Server");
+                BarTeam barTeam = _barCore.GetBarTeamForShift(data.ShiftDate, data.LunchOrDinner);
                 List<EarningDto> shiftEarnings = _earningsCore.GetEarningsForShift(data.ShiftDate, data.LunchOrDinner);
-                CheckoutPagePresentationDto pageData = _checkoutsCore.FormatPageData(checkouts, serverTeams, shiftEarnings);
+                CheckoutPagePresentationDto pageData = _checkoutsCore.FormatPageData(checkouts, serverTeams, shiftEarnings, barTeam);
                 return Ok(pageData);
             }
             catch (Exception e)

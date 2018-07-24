@@ -114,6 +114,7 @@ namespace Tests
             TeamGroupedCheckoutsDto barData = groupFormatter.FormatBarCheckouts(barTeam, checkouts, earnings);
 
             Assert.Contains(earning1, barData.TeamEarnings);
+            Assert.Contains(checkout3, barData.TeamCheckouts);
         }
     }
 }

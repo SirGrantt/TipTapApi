@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.StaffMembers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace Domain.StaffEarnings
     public class Earnings
     {
         public DateTime ShiftDate { get; set; }
+        public StaffMember StaffMember { get; set; }
         public int Id { get; set; }
         public string JobWorked { get; set; }
         public bool OwedCashForTipOut { get; set; }

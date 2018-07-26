@@ -24,6 +24,7 @@ namespace Persistence.Contexts
         public DbSet<ApprovedJobEntity> ApprovedRoles { get; set; }
         public DbSet<MainJobEntity> MainJobs { get; set; }
         public DbSet<TeamCheckoutEntity> TeamCheckouts { get; set; }
+        public DbSet<SupportHoursEntity> SupportHours { get; set; }
 
 
     }

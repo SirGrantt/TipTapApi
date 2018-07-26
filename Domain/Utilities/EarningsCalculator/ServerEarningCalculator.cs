@@ -4,15 +4,12 @@ using System.Text;
 using Domain.Checkouts;
 using Domain.StaffEarnings;
 using Domain.TipOuts;
-using static Domain.Utilities.TipOutCalculator.JobTypeEnum;
 
-namespace Domain.Utilities.TipOutCalculator
+namespace Domain.Utilities.EarningsCalculator
 {
-    public class ServerTipOutCalculator : ITipOutCalculator
+    public class ServerEarningCalculator
     {
-        public JobType Job => JobType.Server;
-
-        public Earnings CalculateEarnings(List<Checkout> checkouts, TipOut tipout, DateTime shiftDate, string lunchOrDinner)
+        public List<Earnings> CalculateEarnings(List<Checkout> checkouts, TipOut tipout, DateTime shiftDate, string lunchOrDinner)
         {
             decimal teamTotalTipout = tipout.BarTipOut + tipout.SaTipOut;
             decimal teamTotalCcTips = 0;
@@ -56,52 +53,12 @@ namespace Domain.Utilities.TipOutCalculator
                 individualEarnings.TotalTipsForPayroll = (individualEarnings.CashTips);
             }
 
-            return individualEarnings;
-        }
-
-        public decimal CalculateTeamBarSales(List<Checkout> checkouts)
-        {
-            decimal teamBarSales = 0;
-
+            List<Earnings> teamEarnings = new List<Earnings>();
             foreach(Checkout c in checkouts)
             {
-                teamBarSales += c.BarSales - c.NonTipOutBarSales;
+                teamEarnings.Add(individualEarnings);
             }
-
-            return teamBarSales;
-        }
-
-        public decimal CalculateTeamGrossSales(List<Checkout> checkouts)
-        {
-            decimal teamGrossSales = 0;
-
-            foreach (Checkout checkout in checkouts)
-            {
-                teamGrossSales += checkout.GrossSales;
-            }
-
-            return teamGrossSales;
-        }
-
-        public decimal CalculateTipOut(decimal target, decimal tipOutPercent, decimal specialLine)
-        {
-             if (target == 0)
-            {
-                throw new ArgumentException("The value provided to caluclate a tipOut on cannot be 0");
-            }
-            
-             if (tipOutPercent == 0)
-            {
-                throw new ArgumentException("The value provided for the percent of a tip out cannot be 0");
-            }
-
-            decimal tipout = target * tipOutPercent;
-
-            if (specialLine > 0)
-            {
-                tipout += specialLine;
-            }
-            return Math.Round(tipout, 2);
+            return teamEarnings;
         }
     }
 }

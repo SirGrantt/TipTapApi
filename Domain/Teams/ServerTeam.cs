@@ -9,10 +9,11 @@ using Domain.TipOuts;
 using Domain.StaffEarnings;
 using Domain.Utilities.TipOutCalculator;
 using static Domain.Utilities.TipOutCalculator.JobTypeEnum;
+using Domain.Utilities.EarningsCalculator;
 
 namespace Domain.Teams
 {
-    public class ServerTeam 
+    public class ServerTeam
     {
         public int Id { get; set; }
         public DateTime ShiftDate { get; set; }
@@ -20,7 +21,8 @@ namespace Domain.Teams
         public bool CheckoutHasBeenRun { get; set; }
         public List<Checkout> CheckOuts { get; set; }
         public TipOut TipOut { get; set; }
-        public ITipOutCalculator TipOutCalculator { get; set; }
+        public TipOutCalculator TipOutCalculator { get; set; }
+        public ServerEarningCalculator EarningCalculator { get; set; }
         public int BottleCount { get; set; }
         public decimal TeamBarSpecialLine { get; set; }
         public decimal TeamSaSpecialLine { get; set; }
@@ -30,8 +32,8 @@ namespace Domain.Teams
             ShiftDate = shiftDate;
             CheckOuts = new List<Checkout>();
             CheckoutHasBeenRun = false;
-            TipOutCalculatorFactory factory = new TipOutCalculatorFactory();
-            TipOutCalculator = factory.CreateCalculator(JobType.Server);
+            TipOutCalculator = new TipOutCalculator();
+            EarningCalculator = new ServerEarningCalculator();
             TipOut = new TipOut(shiftDate);
         }
 
@@ -42,7 +44,7 @@ namespace Domain.Teams
             CheckoutHasBeenRun = false;
         }
 
-        public Earnings RunCheckout()
+        public List<Earnings> RunCheckout()
         {
             if (CheckoutHasBeenRun == true)
             {
@@ -63,7 +65,7 @@ namespace Domain.Teams
             TipOut.TeamGrossSales = TipOutCalculator.CalculateTeamGrossSales(CheckOuts);
             TipOut.BarTipOut = TipOutCalculator.CalculateTipOut(TipOut.FinalTeamBarSales, .05m, TeamBarSpecialLine) + BottleCount;
             TipOut.SaTipOut = TipOutCalculator.CalculateTipOut(TipOut.TeamGrossSales, .015m, TeamSaSpecialLine);
-            Earnings earnings = TipOutCalculator.CalculateEarnings(CheckOuts, TipOut, ShiftDate, LunchOrDinner);
+            List<Earnings> earnings = EarningCalculator.CalculateEarnings(CheckOuts, TipOut, ShiftDate, LunchOrDinner);
 
             CheckoutHasBeenRun = true;
             return earnings;

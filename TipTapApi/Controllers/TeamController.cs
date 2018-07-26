@@ -108,7 +108,7 @@ namespace TipTapApi.Controllers
                 TipOutDto tipOutDto = serverTeamsCore.GetServerTeamTipOut(data.ServerTeamId);
 
                 //The earnings get added to servers here to seperate earnings work into its own section
-                List<EarningDto> earnings = earningsCore.AddEarning(teammates, earningDto);
+                List<EarningDto> earnings = earningsCore.AddServerEarning(teammates, earningDto);
 
                 ServerTipOutEarningDto tipoutAndEarning = new ServerTipOutEarningDto
                 {

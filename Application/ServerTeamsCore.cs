@@ -97,7 +97,7 @@ namespace Application
             }
 
             //The earning is returned from the method called, and a tipout property is set on the team
-            Earnings earning = team.RunCheckout();
+            Earnings earning = team.RunCheckout()[0];
 
             //The teams tipout is accessed here and saved to the database
             //The earning is tied to the server and not the checkout, so the earning

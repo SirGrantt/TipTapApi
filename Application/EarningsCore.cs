@@ -20,7 +20,7 @@ namespace Application
             earningsRepository = repository;
         }
 
-        public List<EarningDto> AddEarning(List<StaffMemberDto> staffMembers, EarningDto earning)
+        public List<EarningDto> AddServerEarning(List<StaffMemberDto> staffMembers, EarningDto earning)
         {
             List<EarningDto> earningDtos = new List<EarningDto>();
             foreach (StaffMemberDto staffMember in staffMembers)

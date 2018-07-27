@@ -34,6 +34,24 @@ namespace TipTapApi.Controllers
             _logger = logger;
         }
 
+        //public TResult ControllerMethodWithTry<TResult>(Func<TResult> method) where TResult:ObjectResult
+        //{
+        //    try
+        //    {
+        //        return method();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        if (e.InnerException is InvalidOperationException)
+        //        {
+        //            return BadRequest(e.Message);
+        //        }
+        //        _logger.LogError(e.Message);
+        //        ModelState.AddModelError("Create Checkout Failure", e.Message);
+        //        return StatusCode(500, ModelState);
+        //    }
+        //}
+
         [HttpPost("create", Name = "CreateServerTeam")]
         public IActionResult AddServerTeam([FromBody] CreateServerTeamDto data)
         {
@@ -59,7 +77,7 @@ namespace TipTapApi.Controllers
         }
 
         [HttpPost("add-checkout")]
-        public IActionResult AddCheckoutToServerTeam([FromBody] AddCheckoutToServerTeamDto data)
+        public IActionResult AddCheckoutToTeam([FromBody] AddCheckoutToTeamDto data)
         {
             try
             {
@@ -68,7 +86,7 @@ namespace TipTapApi.Controllers
                     ModelState.AddModelError("Checkout Not Found", "The checkout ID provided does not match any existing checkouts.");
                     return BadRequest(ModelState);
                 }
-                serverTeamsCore.AddCheckoutToServerTeam(data.ServerTeamId, checkoutsCore.GetCheckoutEntityById(data.CheckoutId));
+                serverTeamsCore.AddCheckoutToTeam(data.ServerTeamId, checkoutsCore.GetCheckoutEntityById(data.CheckoutId));
                 return Ok();
             }
             catch(Exception e)
@@ -79,6 +97,19 @@ namespace TipTapApi.Controllers
                 }
                 ModelState.AddModelError("Add Checkout to Team Failure", e.Message);
                 return StatusCode(500, ModelState);
+            }
+        }
+
+        [HttpPost("run-barteam-checkout")]
+        public IActionResult RunBarTeamCheckout([FromBody] RunBarTeamCheckoutData data)
+        {
+            try
+            {
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
             }
         }
 

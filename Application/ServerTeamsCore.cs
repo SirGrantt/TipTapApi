@@ -18,16 +18,16 @@ namespace Application
 {
     public class ServerTeamsCore
     {
-        ITeamRepository serverTeamRepository;
+        ITeamRepository teamRepository;
 
         public ServerTeamsCore(ITeamRepository repository)
         {
-            serverTeamRepository = repository;
+            teamRepository = repository;
         }
 
         public bool ServerTeamExists(int serverTeamId)
         {
-            return serverTeamRepository.TeamExists(serverTeamId);
+            return teamRepository.TeamExists(serverTeamId);
         }
 
         public ServerTeamDto AddServerTeam(CreateServerTeamDto data)
@@ -39,16 +39,16 @@ namespace Application
                 TeamType = "Server"
             };
 
-            serverTeamRepository.AddTeam(team);
-            UtilityMethods.VerifyDatabaseSaveSuccess(serverTeamRepository);
+            teamRepository.AddTeam(team);
+            UtilityMethods.VerifyDatabaseSaveSuccess(teamRepository);
 
             ServerTeamDto teamDto = Mapper.Map<ServerTeamDto>(team);
             return teamDto;
         }
 
-        public void AddCheckoutToServerTeam(int serverTeamId, CheckoutEntity checkout)
+        public void AddCheckoutToTeam(int serverTeamId, CheckoutEntity checkout)
         {
-            TeamEntity team = serverTeamRepository.GetTeamById(serverTeamId);
+            TeamEntity team = teamRepository.GetTeamById(serverTeamId);
 
             if (checkout.ShiftDate.Date != team.ShiftDate.Date)
             {
@@ -62,14 +62,14 @@ namespace Application
                 ShiftDate = checkout.ShiftDate
             };
 
-            if (serverTeamRepository.CheckoutHasAlreadyBeenAdded(checkout.Id, checkout.ShiftDate))
+            if (teamRepository.CheckoutHasAlreadyBeenAdded(checkout.Id, checkout.ShiftDate))
             {
                 throw new InvalidOperationException("That checkout is currently on another team");
             }
 
-            serverTeamRepository.AddCheckoutToTeam(addedCheckout);
+            teamRepository.AddCheckoutToTeam(addedCheckout);
 
-            if (!serverTeamRepository.Save())
+            if (!teamRepository.Save())
             {
                 throw new Exception("An unexpected error occured while trying to add the checkout to the team.");
             }
@@ -78,12 +78,12 @@ namespace Application
 
         public EarningDto RunServerTeamCheckout(RunServerTeamCheckoutDto data, List<CheckoutEntity> checkouts)
         {
-            TeamEntity teamEntity = serverTeamRepository.GetTeamById(data.ServerTeamId);
+            TeamEntity teamEntity = teamRepository.GetTeamById(data.ServerTeamId);
 
             //Check for the team to have an existing tipout, if it does remove it to not have incorrect tipout data.
             if (teamEntity.CheckoutHasBeenRun == true)
             {
-                serverTeamRepository.DeleteTipOut(data.ServerTeamId);
+                teamRepository.DeleteTipOut(data.ServerTeamId);
                 teamEntity.CheckoutHasBeenRun = false;
             }
 
@@ -104,10 +104,10 @@ namespace Application
             //gets added and saved once this method returns an earning DTO 
             TipOutEntity tipOutEntity = Mapper.Map<TipOutEntity>(team.TipOut);
             tipOutEntity.ServerTeam = teamEntity;
-            serverTeamRepository.AddTipOut(tipOutEntity);
+            teamRepository.AddTipOut(tipOutEntity);
             teamEntity.CheckoutHasBeenRun = true;
 
-            if (!serverTeamRepository.Save())
+            if (!teamRepository.Save())
             {
                 throw new Exception("An unexpected error occured while saving the tipout for the team's checkout");
             }
@@ -117,24 +117,24 @@ namespace Application
 
         public TipOutDto GetServerTeamTipOut(int serverTeamId)
         {
-            if (!serverTeamRepository.TeamExists(serverTeamId))
+            if (!teamRepository.TeamExists(serverTeamId))
             {
                 throw new KeyNotFoundException("No team with the provided ID was found.");
             }
 
-            TeamEntity team = serverTeamRepository.GetTeamById(serverTeamId);
+            TeamEntity team = teamRepository.GetTeamById(serverTeamId);
             if (team.CheckoutHasBeenRun == false)
             {
                 throw new InvalidOperationException("No tipout exists for the team because their checkout has not be run");
             }
 
-            TipOutEntity tipOutEntity = serverTeamRepository.GetTeamTipOut(serverTeamId);
+            TipOutEntity tipOutEntity = teamRepository.GetTeamTipOut(serverTeamId);
             return Mapper.Map<TipOutDto>(tipOutEntity);
         }
 
         public List<StaffMemberDto> GetStaffMembersOnServerTeam(int serverTeamId)
         {
-            List<StaffMemberEntity> teamMembers = serverTeamRepository.GetTeamMembers(serverTeamId);
+            List<StaffMemberEntity> teamMembers = teamRepository.GetTeamMembers(serverTeamId);
             List<StaffMemberDto> teamMembersDto = new List<StaffMemberDto>();
 
             foreach (StaffMemberEntity x in teamMembers)
@@ -146,24 +146,24 @@ namespace Application
 
         public void DeleteServerTeamCheckout(int serverTeamId)
         {
-            TeamEntity team = serverTeamRepository.GetTeamById(serverTeamId);
-            serverTeamRepository.DeleteTeamCheckout(team);
+            TeamEntity team = teamRepository.GetTeamById(serverTeamId);
+            teamRepository.DeleteTeamCheckout(team);
             //Reset the checkouthasbeenrun property in order to prevent bugs when other things need to know if this checkout
             //has been run in the past.
             team.CheckoutHasBeenRun = false;
 
-            UtilityMethods.VerifyDatabaseSaveSuccess(serverTeamRepository);
+            UtilityMethods.VerifyDatabaseSaveSuccess(teamRepository);
         }
 
         public ServerTeamDto GetServerTeamById(int serverTeamId)
         {
-            ServerTeamDto team = Mapper.Map<ServerTeamDto>(serverTeamRepository.GetTeamById(serverTeamId));
+            ServerTeamDto team = Mapper.Map<ServerTeamDto>(teamRepository.GetTeamById(serverTeamId));
             return team;
         }
 
         public List<ServerTeamDto> GetServerTeamsForShift(DateTime shiftDate, string lunchOrDinner, string teamType)
         {
-            IEnumerable<TeamEntity> serverTeamEntities = serverTeamRepository.GetTeamsForShift(shiftDate, lunchOrDinner, teamType);
+            IEnumerable<TeamEntity> serverTeamEntities = teamRepository.GetTeamsForShift(shiftDate, lunchOrDinner, teamType);
             List<ServerTeamDto> serverTeams = new List<ServerTeamDto>();
 
             foreach (TeamEntity s in serverTeamEntities)
@@ -177,9 +177,9 @@ namespace Application
 
         public void RemoveCheckoutFromServerTeam(int serverTeamId, int checkoutId)
         {
-            serverTeamRepository.RemoveCheckoutFromTeam(serverTeamId, checkoutId);
+            teamRepository.RemoveCheckoutFromTeam(serverTeamId, checkoutId);
 
-            UtilityMethods.VerifyDatabaseSaveSuccess(serverTeamRepository);
+            UtilityMethods.VerifyDatabaseSaveSuccess(teamRepository);
         }
         
     }

@@ -26,6 +26,8 @@ namespace Tests
         [Test]
         public void Test1()
         {
+            // When given a list of checkouts and earnings, the group formatted should be able to return the 
+            // correct earnings for bartenders
             DateTime shiftDate = DateTime.Now;
             CheckoutOverviewDto checkout1 = new CheckoutOverviewDto("Grant Elmer", "Bartender")
             {
@@ -108,13 +110,16 @@ namespace Tests
                 earning2,
                 earning3
             };
-            BarTeam barTeam = new BarTeam(shiftDate);
-            barTeam.CheckoutHasBeenRun = true;
+            BarTeam barTeam = new BarTeam(shiftDate)
+            {
+                CheckoutHasBeenRun = true
+            };
 
             TeamGroupedCheckoutsDto barData = groupFormatter.FormatBarCheckouts(barTeam, checkouts, earnings);
 
             Assert.Contains(earning1, barData.TeamEarnings);
             Assert.Contains(checkout3, barData.TeamCheckouts);
         }
+
     }
 }

@@ -39,7 +39,7 @@ namespace Domain.Utilities.TipOutCalculator
         {
              if (target == 0)
             {
-                throw new ArgumentException("The value provided to caluclate a tipOut on cannot be 0");
+                return 0;
             }
             
              if (tipOutPercent == 0)

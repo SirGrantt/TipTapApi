@@ -21,7 +21,7 @@ using Microsoft.Extensions.Logging;
 
 namespace TipTapApi.Controllers
 {
-    [Route("server-teams")]
+    [Route("team")]
     public class TeamController : Controller
     {
         private ILogger<TeamController> _logger;

@@ -65,7 +65,7 @@ namespace Persistence.Repositories
             return checkouts;
         }
 
-        public IEnumerable<CheckoutEntity> GetCheckoutsForAServerTeam(int serverTeamId)
+        public IEnumerable<CheckoutEntity> GetCheckoutsForATeam(int serverTeamId)
         {
             List<CheckoutEntity> checkouts = new List<CheckoutEntity>();
             IEnumerable<TeamCheckoutEntity> reference = from r in _context.TeamCheckouts
@@ -74,7 +74,7 @@ namespace Persistence.Repositories
             foreach (TeamCheckoutEntity s in reference)
             {
                 var checkout = _context.CheckOuts.Where(p => p.Id == s.CheckoutId)
-                    .Include(p => p.Job).FirstOrDefault();
+                    .Include(p => p.Job).Include(p => p.StaffMember).FirstOrDefault();
                 checkouts.Add(checkout);
             }
 

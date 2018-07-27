@@ -103,7 +103,7 @@ namespace Application
             //The earning is tied to the server and not the checkout, so the earning
             //gets added and saved once this method returns an earning DTO 
             TipOutEntity tipOutEntity = Mapper.Map<TipOutEntity>(team.TipOut);
-            tipOutEntity.ServerTeam = teamEntity;
+            tipOutEntity.Team = teamEntity;
             teamRepository.AddTipOut(tipOutEntity);
             teamEntity.CheckoutHasBeenRun = true;
 

@@ -34,7 +34,7 @@ namespace Domain.Teams
             CheckoutHasBeenRun = false;
             TipOutCalculator = new TipOutCalculator();
             EarningCalculator = new ServerEarningCalculator();
-            TipOut = new TipOut(shiftDate);
+            TipOut = new TipOut(shiftDate, LunchOrDinner, "server");
         }
 
         public void ResetTipOuts()

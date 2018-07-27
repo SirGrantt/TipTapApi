@@ -29,7 +29,7 @@ namespace UnitTesting
                 Id = 2,
                 Title = "bartender"
             };
-            Team = new BarTeam(ShiftDate)
+            Team = new BarTeam(ShiftDate, "dinner")
             {
                 CheckoutHasBeenRun = false
             };

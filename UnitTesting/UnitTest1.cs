@@ -110,7 +110,7 @@ namespace Tests
                 earning2,
                 earning3
             };
-            BarTeam barTeam = new BarTeam(shiftDate)
+            BarTeam barTeam = new BarTeam(shiftDate, "dinner")
             {
                 CheckoutHasBeenRun = true
             };

@@ -44,6 +44,11 @@ namespace Application
             return earningDtos;
 
         }
+        /*
+        public List<Earnings> AddNonServerEarnings(List<Earnings> earnings)
+        {
+
+        } */
 
         public EarningDto GetEarning(int staffMemberId, DateTime shiftDate, string lunchOrDinner)
         {

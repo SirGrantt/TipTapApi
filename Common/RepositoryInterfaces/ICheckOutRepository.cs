@@ -16,6 +16,6 @@ namespace Common.RepositoryInterfaces
         IEnumerable<CheckoutEntity> GetCheckOutsForAShift(DateTime date, string lunchOrDinner);
         IEnumerable<CheckoutEntity> GetCheckOutsForAStaffMember(StaffMemberEntity staffmember);
         IEnumerable<CheckoutEntity> GetCheckOutsForAStaffMemberForAJob(StaffMemberEntity staffMember, JobEntity j);
-        IEnumerable<CheckoutEntity> GetCheckoutsForAServerTeam(int serverTeamId);
+        IEnumerable<CheckoutEntity> GetCheckoutsForATeam(int serverTeamId);
     }
 }

@@ -21,5 +21,6 @@ namespace Common.RepositoryInterfaces
         void RemoveCheckoutFromTeam(int teamId, int checkoutId);
         bool BarTeamExistsForShift(DateTime shiftDate, string lunchOrDinner);
         TeamEntity GetBarTeamForShift(DateTime shiftDate, string lunchOrDinner);
+        List<TipOutEntity> GetTipOuts(DateTime shiftDate, string lunchOrDinner, string teamType);
     }
 }

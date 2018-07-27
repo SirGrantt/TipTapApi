@@ -14,10 +14,14 @@ namespace Domain.TipOuts
         public decimal BarBackTipOut { get; set; }
         public decimal BarBackCashTipOut { get; set; }
         public DateTime ShiftDate { get; set; }
+        public string LunchOrDinner { get; set; }
+        public string JobType { get; set; }
 
-        public TipOut(DateTime shiftDate)
+        public TipOut(DateTime shiftDate, string lunchOrDinner, string jobType)
         {
             ShiftDate = shiftDate;
+            LunchOrDinner = lunchOrDinner;
+            JobType = jobType;
         }
 
     }

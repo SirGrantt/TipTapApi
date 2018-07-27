@@ -81,9 +81,9 @@ namespace Application
             return _repository.GetCheckOutById(checkoutId);
         }
 
-        public IEnumerable<CheckoutEntity> GetCheckoutEntitiesForAServerTeam(int serverTeamId)
+        public IEnumerable<CheckoutEntity> GetCheckoutEntitiesForATeam(int teamId)
         {
-            return _repository.GetCheckoutsForAServerTeam(serverTeamId);
+            return _repository.GetCheckoutsForATeam(teamId);
         }
 
         public IEnumerable<CheckoutOverviewDto> GetCheckoutsForShift(DateTime shiftDate, string lunchOrDinner)
@@ -108,7 +108,7 @@ namespace Application
             //Here the teams that have had their checkouts run are assembled into groups for presentation
             foreach (ServerTeamDto s in serverTeams)
             {
-                IEnumerable<CheckoutEntity> entities = _repository.GetCheckoutsForAServerTeam(s.Id);
+                IEnumerable<CheckoutEntity> entities = _repository.GetCheckoutsForATeam(s.Id);
                 if (entities.Count() > 0) {
                     List<ServerTeamGroupedCheckoutsDto> groupedCheckouts = groupFormatter.FormatServerTeamGroupCheckouts(s, entities, checkouts, serverTeams, shiftEarnings);
 

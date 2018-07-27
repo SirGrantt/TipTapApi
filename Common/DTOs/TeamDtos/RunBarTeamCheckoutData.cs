@@ -8,5 +8,6 @@ namespace Common.DTOs.TeamDtos
     {
         public string LunchOrDinner { get; set; }
         public DateTime ShiftDate { get; set; }
+        public int BarBackCount { get; set; }
     }
 }

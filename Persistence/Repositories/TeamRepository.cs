@@ -69,13 +69,13 @@ namespace Persistence.Repositories
 
         public void DeleteTipOut(int teamId)
         {
-            var tipOutToRemove = _context.TipOuts.Where(t => t.ServerTeamId == teamId).FirstOrDefault();
+            var tipOutToRemove = _context.TipOuts.Where(t => t.TeamId == teamId).FirstOrDefault();
             _context.Remove(tipOutToRemove);
         }
 
         public TipOutEntity GetTeamTipOut(int teamId)
         {
-            return _context.TipOuts.FirstOrDefault(t => t.ServerTeamId == teamId);
+            return _context.TipOuts.FirstOrDefault(t => t.TeamId == teamId);
         }
 
         public List<StaffMemberEntity> GetTeamMembers(int teamId)
@@ -95,7 +95,7 @@ namespace Persistence.Repositories
 
         public void DeleteTeamCheckout(TeamEntity team)
         {
-            TipOutEntity tipOutEntity = _context.TipOuts.Where(t => t.ServerTeamId == team.Id).FirstOrDefault();
+            TipOutEntity tipOutEntity = _context.TipOuts.Where(t => t.TeamId == team.Id).FirstOrDefault();
             if (tipOutEntity == null)
             {
                 return;
@@ -138,6 +138,18 @@ namespace Persistence.Repositories
                 _context.SaveChanges();
                 return barTeam;
             }
+        }
+
+        public List<TipOutEntity> GetTipOuts(DateTime shiftDate, string lunchOrDinner, string jobWorkedTitle)
+        {
+            List<TipOutEntity> tipouts = new List<TipOutEntity>();
+
+            foreach (TipOutEntity t in _context.TipOuts.Where(t =>
+            t.TeamType == jobWorkedTitle && t.ShiftDate == shiftDate && t.LunchOrDinner == lunchOrDinner))
+            {
+                tipouts.Add(t);
+            }
+            return tipouts;
         }
     }
 }

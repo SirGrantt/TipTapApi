@@ -13,6 +13,8 @@ using Common.DTOs.TipOutDtos;
 using Common.Entities;
 using Common.RepositoryInterfaces;
 using Common.Utilities;
+using Domain.StaffEarnings;
+using Domain.Teams;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -26,11 +28,13 @@ namespace TipTapApi.Controllers
         private CheckoutsCore checkoutsCore;
         private ServerTeamsCore serverTeamsCore;
         private EarningsCore earningsCore;
+        private BarCore _barCore;
         public TeamController(ITeamRepository teamRepo, ICheckoutRepository checkoutRepo, IEarningsRepository eRepo, ILogger<TeamController> logger)
         {
             checkoutsCore = new CheckoutsCore(checkoutRepo);
             serverTeamsCore = new ServerTeamsCore(teamRepo);
             earningsCore = new EarningsCore(eRepo);
+            _barCore = new BarCore(teamRepo, checkoutRepo);
             _logger = logger;
         }
 
@@ -105,6 +109,14 @@ namespace TipTapApi.Controllers
         {
             try
             {
+                data.ShiftDate = Convert.ToDateTime(data.ShiftDate);
+                UtilityMethods.ValidateLunchOrDinnerSpecification(data.LunchOrDinner);
+                if (data.BarBackCount < 1)
+                {
+                    ModelState.AddModelError("BarBack Count Error", "BarBack count cannot be 0");
+                    return BadRequest(ModelState);
+                }
+                List<Earnings> earnings = _barCore.RunBarTeamCheckout(data.ShiftDate, data.LunchOrDinner, data.BarBackCount);
                 return Ok();
             }
             catch (Exception e)
@@ -134,7 +146,7 @@ namespace TipTapApi.Controllers
                 earningsCore.ResetEarningsForServerTeam(teammates, data.FormattedDate, data.LunchOrDinner);
 
 
-                List<CheckoutEntity> checkouts = checkoutsCore.GetCheckoutEntitiesForAServerTeam(data.ServerTeamId).ToList();
+                List<CheckoutEntity> checkouts = checkoutsCore.GetCheckoutEntitiesForATeam(data.ServerTeamId).ToList();
                 EarningDto earningDto = serverTeamsCore.RunServerTeamCheckout(data, checkouts);
                 TipOutDto tipOutDto = serverTeamsCore.GetServerTeamTipOut(data.ServerTeamId);
 
@@ -218,7 +230,7 @@ namespace TipTapApi.Controllers
                     return BadRequest("No team with that ID was found");
                 }
 
-                List<CheckoutDto> checkoutsForTeam = Mapper.Map<List<CheckoutDto>>(checkoutsCore.GetCheckoutEntitiesForAServerTeam(data.ServerTeamId));
+                List<CheckoutDto> checkoutsForTeam = Mapper.Map<List<CheckoutDto>>(checkoutsCore.GetCheckoutEntitiesForATeam(data.ServerTeamId));
 
                 if (!checkoutsForTeam.Any(c => c.Id == data.CheckoutId))
                 {

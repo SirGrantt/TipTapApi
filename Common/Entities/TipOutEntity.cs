@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -16,9 +17,12 @@ namespace Common.Entities
         public decimal BarBackTipOut { get; set; }
         public decimal BarBackCashTipOut { get; set; }
         public DateTime ShiftDate { get; set; }
-        public int ServerTeamId { get; set; }
+        public int TeamId { get; set; }
+        public string LunchOrDinner { get; set; }
+        public string TeamType { get; set; }
 
-        [ForeignKey("ServerTeamId")]
-        public TeamEntity ServerTeam { get; set; }
+        [Required]
+        [ForeignKey("TeamId")]
+        public TeamEntity Team { get; set; }
     }
 }

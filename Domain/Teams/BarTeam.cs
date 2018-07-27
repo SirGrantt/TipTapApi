@@ -21,19 +21,35 @@ namespace Domain.Teams
         public TipOutCalculator TipOutCalculator { get; set; }
         public BarEarningsCalculator EarningsCalculator { get; set; }
 
-        public BarTeam(DateTime shiftDate)
+        public BarTeam(DateTime shiftDate, string lunchOrDinner)
         {
             ShiftDate = shiftDate;
+            LunchOrDinner = lunchOrDinner;
             Checkouts = new List<Checkout>();
             TipOutCalculatorFactory factory = new TipOutCalculatorFactory();
             TipOutCalculator = new TipOutCalculator();
-            TipOut = new TipOut(shiftDate);
+            TipOut = new TipOut(shiftDate, LunchOrDinner, "bartender");
             EarningsCalculator = new BarEarningsCalculator();
 
         }
 
+        public void ResetTipout()
+        {
+            TipOut.BarBackCashTipOut = 0;
+            TipOut.BarBackTipOut = 0;
+            TipOut.BarTipOut = 0;
+            TipOut.FinalTeamBarSales = 0;
+            TipOut.SaTipOut = 0;
+            TipOut.TeamGrossSales = 0;
+        }
+
         public List<Earnings> RunBarCheckout(decimal serverTips, int barbackCount)
         {
+            if (this.CheckoutHasBeenRun == true)
+            {
+                this.ResetTipout();
+            }
+
             decimal combinedBarAndServer = serverTips;
             decimal barCash = 0;
             foreach (Checkout c in Checkouts)

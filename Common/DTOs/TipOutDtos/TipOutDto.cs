@@ -14,5 +14,7 @@ namespace Common.DTOs.TipOutDtos
         public decimal BarBackTipOut { get; set; }
         public decimal BarBackCashTipOut { get; set; }
         public DateTime ShiftDate { get; set; }
+        public string LunchOrDinner { get; set; }
+        public string TeamType { get; set; }
     }
 }

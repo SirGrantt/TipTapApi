@@ -34,7 +34,7 @@ namespace TipTapApi.Controllers
             _logger = logger;
             _staffCore = new StaffMembersCore(sRepo);
             _jobCore = new JobCore(jRepo);
-            _barCore = new BarCore(teamRepo);
+            _barCore = new BarCore(teamRepo, coRepository);
             _serverTeamCore = new ServerTeamsCore(teamRepo);
             _earningsCore = new EarningsCore(earningsRepo);
         }

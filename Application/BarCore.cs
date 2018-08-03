@@ -55,10 +55,13 @@ namespace Application
 
             if (team.CheckoutHasBeenRun == true)
             {
-                //DELETE TIPOUT IN DATABASE
+                _teamRepository.DeleteTipOut(team.Id);
             }
 
             List<Earnings> teamEarnings = team.RunBarCheckout(serverTips, barBackCount);
+            TipOutEntity tipoutEntity = Mapper.Map<TipOutEntity>(team.TipOut);
+            tipoutEntity.Team = barTeam;
+            _teamRepository.AddTipOut(tipoutEntity);
             return teamEarnings;
         }
     }

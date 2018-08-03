@@ -44,11 +44,35 @@ namespace Application
             return earningDtos;
 
         }
-        /*
+        
         public List<Earnings> AddNonServerEarnings(List<Earnings> earnings)
         {
+            List<EarningsEntity> addedEarningsEntities = new List<EarningsEntity>();
+            List<Earnings> mappedEarnings = new List<Earnings>();
 
-        } */
+            foreach (Earnings e in earnings)
+            {
+                if (earningsRepository.EarningExists(e.StaffMember.Id, e.ShiftDate, e.LunchOrDinner))
+                {
+                    EarningsEntity earn = earningsRepository.GetEarning(e.StaffMember.Id, e.ShiftDate, e.LunchOrDinner);
+                    earningsRepository.DeleteEarning(earn.Id);
+                }
+
+                EarningsEntity earningToAdd = Mapper.Map<EarningsEntity>(e);
+                earningsRepository.AddEarning(earningToAdd);
+                addedEarningsEntities.Add(earningToAdd);
+            }
+
+            UtilityMethods.VerifyDatabaseSaveSuccess(earningsRepository);
+
+            foreach (EarningsEntity e in addedEarningsEntities)
+            {
+                Earnings finalEarning = Mapper.Map<Earnings>(e);
+                mappedEarnings.Add(finalEarning);
+            }
+
+            return mappedEarnings;
+        } 
 
         public EarningDto GetEarning(int staffMemberId, DateTime shiftDate, string lunchOrDinner)
         {

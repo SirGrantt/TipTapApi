@@ -32,17 +32,17 @@ namespace Domain.Utilities.EarningsCalculator
             totalNetTips = totalNetTips - totalAutoGratuity;
 
             //Determine team hourly pay
-            decimal teamCcHourly = totalNetTips / totalTeamHours;
-            decimal teamAutoGHourly = totalAutoGratuity / totalTeamHours;
-            decimal teamCashHourly = totalCashTips / totalTeamHours;
+            decimal teamCcHourly = Math.Round(totalNetTips / totalTeamHours, 2);
+            decimal teamAutoGHourly = Math.Round(totalAutoGratuity / totalTeamHours, 2);
+            decimal teamCashHourly = Math.Round(totalCashTips / totalTeamHours, 2);
 
             foreach (Checkout c in checkouts)
             {
                 var earning = new Earnings(shiftDate, "bartender", lunchOrDinner)
                 {
-                    CcTips = c.Hours * teamCcHourly,
-                    CashTips = c.Hours * teamCashHourly,
-                    AutoGratuity = c.Hours * teamAutoGHourly,
+                    CcTips = Math.Round(c.Hours * teamCcHourly, 2),
+                    CashTips = Math.Round(c.Hours * teamCashHourly, 2),
+                    AutoGratuity = Math.Round(c.Hours * teamAutoGHourly, 2),
                     StaffMember = c.StaffMember
                 };
                 earning.TotalTipsForPayroll = earning.CcTips + earning.AutoGratuity + earning.CashTips;

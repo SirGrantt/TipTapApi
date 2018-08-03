@@ -104,7 +104,7 @@ namespace TipTapApi.Controllers
             }
         }
 
-        [HttpPost("run-barteam-checkout")]
+        [HttpPost("run-barteam-checkout", Name = "RunBarCheckout")]
         public IActionResult RunBarTeamCheckout([FromBody] RunBarTeamCheckoutData data)
         {
             try
@@ -117,7 +117,15 @@ namespace TipTapApi.Controllers
                     return BadRequest(ModelState);
                 }
                 List<Earnings> earnings = _barCore.RunBarTeamCheckout(data.ShiftDate, data.LunchOrDinner, data.BarBackCount);
-                return Ok();
+                List<Earnings> addedEarnings = earningsCore.AddNonServerEarnings(earnings);
+                
+                // The staff member earnings have to be set to null to prevent circular data being passed down
+                foreach (Earnings e in addedEarnings)
+                {
+                    e.StaffMember.Earnings = null;
+                }
+                return Created("RunBarCheckout", addedEarnings);
+                //return CreatedAtRoute("RunBarCheckout", groupedEarnings);
             }
             catch (Exception e)
             {

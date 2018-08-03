@@ -6,6 +6,6 @@ namespace Domain.Utilities.TipOutCalculator
 {
     public class JobTypeEnum
     {
-        public enum JobType { Server, Bartender, Patio }
+        public enum JobType { Server, Bartender, Patio, Barback, SA }
     }
 }
